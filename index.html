@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IOL Vision Lab｜人工水晶體視覺模擬器</title>
+  <meta name="description" content="人工水晶體、白內障、IOL、EDOF、三焦點視覺模擬。比較不同人工水晶體類型在遠距離、中距離、近距離與夜間情境下的可能視覺差異。" />
+  <meta name="keywords" content="人工水晶體, 白內障, IOL, EDOF, 三焦點, 單焦點, 視覺模擬, 白內障手術" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="nav-shell">
+    <nav class="nav">
+      <a href="#top" class="brand">
+        <span class="brand-mark">◉</span>
+        <span><b>IOL Vision Lab</b><small>人工水晶體視覺模擬器</small></span>
+      </a>
+      <div class="nav-links">
+        <a href="#simulator">模擬器</a>
+        <a href="#types">鏡片類型</a>
+        <a href="#lifestyle">生活需求</a>
+        <a href="#about">關於</a>
+      </div>
+      <a class="nav-cta" href="#simulator">開始模擬</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero section">
+      <div class="hero-copy">
+        <div class="eyebrow"><span>教育模擬</span><span>非個人化醫療建議</span></div>
+        <h1>先看見，<br/>再理解人工水晶體的<span>視覺取捨</span></h1>
+        <p>
+          用日常場景比較 Monofocal、Enhanced Monofocal、EDOF 與 Trifocal
+          在遠距離、中距離、近距離與夜間視覺的可能差異。
+        </p>
+        <div class="hero-actions">
+          <a class="button primary" href="#simulator">開始視覺模擬</a>
+          <a class="button ghost" href="#types">先了解鏡片差異</a>
+        </div>
+        <div class="hero-meta">
+          <span>✓ 台灣繁體中文</span>
+          <span>✓ 不做品牌排名</span>
+          <span>✓ 可逐步擴充真實 IOL 資料</span>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="orbital-ring ring-1"></div>
+        <div class="orbital-ring ring-2"></div>
+        <div class="lens-demo">
+          <div class="lens-disc">
+            <div class="lens-core"></div>
+          </div>
+          <div class="focus-line"></div>
+          <div class="focus-point p1"></div>
+          <div class="focus-point p2"></div>
+          <div class="focus-point p3"></div>
+          <div class="hero-label l1">Distance</div>
+          <div class="hero-label l2">Intermediate</div>
+          <div class="hero-label l3">Near</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="simulator" class="section simulator-section">
+      <div class="section-head">
+        <div>
+          <span class="kicker">VISION SIMULATOR</span>
+          <h2>左右並排，比較可能的視覺差異</h2>
+        </div>
+        <p>模擬畫面用於理解「相對差異」，不代表任何個人的實際術後視覺。</p>
+      </div>
+
+      <div class="scene-tabs" id="sceneTabs"></div>
+
+      <div class="sim-toolbar">
+        <div class="preset-group">
+          <span class="toolbar-label">情境快速設定</span>
+          <button data-preset="night">夜間開車多</button>
+          <button data-preset="computer">電腦族</button>
+          <button data-preset="reading">手機閱讀多</button>
+        </div>
+        <label class="sync-toggle">
+          <input type="checkbox" id="syncToggle" checked />
+          <span class="toggle-ui"></span>
+          同步比較
+        </label>
+      </div>
+
+      <div class="comparison-grid">
+        <article class="vision-card" data-side="left">
+          <div class="vision-card-head">
+            <div>
+              <span class="comparison-label">比較 A</span>
+              <select id="lensLeft" aria-label="比較 A 人工水晶體類型"></select>
+            </div>
+            <span class="distance-badge" id="distanceLeft">5 m+</span>
+          </div>
+          <div class="scene-frame" id="sceneLeft">
+            <div class="scene-layer scene-art"></div>
+            <div class="halo-layer"></div>
+            <div class="glare-layer"></div>
+            <div class="astigmatism-layer"></div>
+            <div class="frame-vignette"></div>
+            <div class="scene-caption"><span id="sceneNameLeft"></span><small id="sceneHintLeft"></small></div>
+          </div>
+          <div class="vision-profile" id="profileLeft"></div>
+        </article>
+
+        <article class="vision-card" data-side="right">
+          <div class="vision-card-head">
+            <div>
+              <span class="comparison-label">比較 B</span>
+              <select id="lensRight" aria-label="比較 B 人工水晶體類型"></select>
+            </div>
+            <span class="distance-badge" id="distanceRight">5 m+</span>
+          </div>
+          <div class="scene-frame" id="sceneRight">
+            <div class="scene-layer scene-art"></div>
+            <div class="halo-layer"></div>
+            <div class="glare-layer"></div>
+            <div class="astigmatism-layer"></div>
+            <div class="frame-vignette"></div>
+            <div class="scene-caption"><span id="sceneNameRight"></span><small id="sceneHintRight"></small></div>
+          </div>
+          <div class="vision-profile" id="profileRight"></div>
+        </article>
+      </div>
+
+      <div class="controls-card">
+        <div class="controls-head">
+          <div>
+            <span class="kicker">PERSONALIZATION PREVIEW</span>
+            <h3>調整視覺參數</h3>
+          </div>
+          <p>這些控制項用來示範影響視覺品質的概念，不是臨床計算器。</p>
+        </div>
+        <div class="controls-grid">
+          <label>Halo 光暈
+            <div class="range-line"><input id="haloControl" type="range" min="0" max="100" value="38"><output id="haloOut">38</output></div>
+          </label>
+          <label>Glare 眩光
+            <div class="range-line"><input id="glareControl" type="range" min="0" max="100" value="26"><output id="glareOut">26</output></div>
+          </label>
+          <label>Contrast 對比
+            <div class="range-line"><input id="contrastControl" type="range" min="55" max="115" value="92"><output id="contrastOut">92%</output></div>
+          </label>
+          <label>Residual astigmatism 殘餘散光
+            <div class="range-line"><input id="astigControl" type="range" min="0" max="15" value="2"><output id="astigOut">0.2 D</output></div>
+          </label>
+          <label>Pupil size 瞳孔
+            <div class="range-line"><input id="pupilControl" type="range" min="20" max="60" value="34"><output id="pupilOut">3.4 mm</output></div>
+          </label>
+        </div>
+        <div class="micro-disclaimer">模擬畫面不等於實際術後視覺。實際結果仍受角膜、眼表、黃斑部、視神經、殘餘屈光、IOL centration 與 neuroadaptation 等因素影響。</div>
+      </div>
+    </section>
+
+    <section id="types" class="section types-section">
+      <div class="section-head">
+        <div>
+          <span class="kicker">LENS TYPES</span>
+          <h2>先理解鏡片「設計目標」，再談選擇</h2>
+        </div>
+        <p>以下內容採中性衛教描述；不同產品與個體差異可能很大。</p>
+      </div>
+      <div class="type-grid" id="typeGrid"></div>
+    </section>
+
+    <section id="lifestyle" class="section lifestyle-section">
+      <div class="lifestyle-card">
+        <div class="section-head compact">
+          <div>
+            <span class="kicker">YOUR DAILY LIFE</span>
+            <h2>哪些生活情境對你最重要？</h2>
+          </div>
+          <p>先定義需求，再把需求帶進門診討論。</p>
+        </div>
+        <div class="chip-grid" id="lifestyleChips"></div>
+        <div class="summary-card">
+          <span>你的重點</span>
+          <h3 id="lifestyleSummary">尚未選擇生活需求</h3>
+          <p>這些偏好可作為與眼科醫師進行 shared decision-making 的起點，而不是自動選擇某一種鏡片。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section factors-section">
+      <div class="section-head">
+        <div>
+          <span class="kicker">BEYOND THE LENS</span>
+          <h2>術前，還有這些因素會改變視覺結果</h2>
+        </div>
+        <p>同一顆 IOL，不同眼睛仍可能有不同的主觀視覺品質。</p>
+      </div>
+      <div class="factor-grid">
+        <article><span>01</span><h3>Corneal astigmatism</h3><p>殘餘散光可能降低遠中近的清晰度與影像銳利度。</p></article>
+        <article><span>02</span><h3>Ocular surface</h3><p>乾眼與淚膜不穩定可能讓術後視覺產生波動。</p></article>
+        <article><span>03</span><h3>Macula & optic nerve</h3><p>黃斑部或視神經狀態會影響可達到的視覺品質。</p></article>
+        <article><span>04</span><h3>Pupil size</h3><p>瞳孔大小尤其可能改變夜間光學表現與眩光感受。</p></article>
+        <article><span>05</span><h3>Residual refraction</h3><p>術後殘餘近視、遠視或散光都可能改變實際使用感。</p></article>
+        <article><span>06</span><h3>Neuroadaptation</h3><p>大腦對 multifocal optical image 的適應程度因人而異。</p></article>
+      </div>
+    </section>
+
+    <section class="section evidence-section">
+      <div class="evidence-panel">
+        <div>
+          <span class="kicker">EVIDENCE LAYER</span>
+          <h2>未來可把模擬建立在真正的公開研究資料上</h2>
+          <p>下一版可將 defocus curve、contrast sensitivity、halo/glare patient-reported outcomes 與公開 optical bench data 結構化，形成可追溯的模擬參數。</p>
+        </div>
+        <div class="citation-stack">
+          <div class="citation"><span>01</span><div><b>Defocus curve</b><small>預留：真實臨床文獻連結</small></div></div>
+          <div class="citation"><span>02</span><div><b>Contrast sensitivity</b><small>預留：不同照度與 glare 條件</small></div></div>
+          <div class="citation"><span>03</span><div><b>Dysphotopsia</b><small>預留：patient-reported outcome</small></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="section about-section">
+      <div class="about-card">
+        <div class="about-copy">
+          <span class="kicker">INDEPENDENT EDUCATIONAL PROJECT</span>
+          <h2>讓病人在術前，更容易理解不同人工水晶體的視覺取捨</h2>
+          <p>這是一個可逐步擴充的醫療教育專案。未來可加入真實 IOL 型號、文獻資料庫、個人生活需求問卷、雙眼策略模擬與醫師端衛教模式。</p>
+        </div>
+        <div class="founder-card">
+          <div class="avatar">YL</div>
+          <div>
+            <small>FOUNDER / EDITABLE PROFILE</small>
+            <h3>Yen-Chun Lai, MD</h3>
+            <p>PGY Physician · Ophthalmology · Clinical Research · Medical Technology</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-grid">
+      <div class="brand footer-brand"><span class="brand-mark">◉</span><span><b>IOL Vision Lab</b><small>人工水晶體視覺模擬器</small></span></div>
+      <p>本工具僅供衛教與視覺化示意，不可取代眼科醫師之完整檢查、診斷與共同決策。</p>
+      <div class="footer-links"><a href="#about">關於</a><a href="#">參考資料</a><a href="#">隱私權</a><a href="#">聯絡</a></div>
+    </div>
+    <div class="copyright">© 2026 IOL Vision Lab. Educational prototype.</div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
