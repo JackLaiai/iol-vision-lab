@@ -1,4 +1,8 @@
 /* Detail-page-only styles: the existing simulator does not load this file. */
+.iol-detail .evidence-distinction > section:first-child {grid-column:1 / -1}
+.iol-detail .optical-badge {background:#f0eef8;color:#55447b}
+.iol-detail .optical-measurement {padding-top:16px;margin-top:16px;border-top:1px solid var(--line)}
+.iol-detail .mtf-record {padding:16px;margin-top:12px;border:1px solid var(--line);border-radius:12px}
 .iol-detail .distance-calculator {padding:32px;border-top:1px solid var(--line);background:#f7fbfd}
 .iol-detail .distance-calculator[hidden] {display:none}
 .iol-detail .distance-calculator input {display:block;max-width:100%;width:180px;padding:10px;margin:8px 0 16px;border:1px solid #9cb3bf;border-radius:8px;font:inherit}

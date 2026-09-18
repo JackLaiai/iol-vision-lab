@@ -245,12 +245,68 @@ function renderSourceCards(record) {
     const parameterLinks = createElement("div", "parameter-links");
     parameterLinks.append(createElement("h4", "", "本頁哪些參數來自此來源？"));
     const parameterKeys = parameterKeysForSource(record, source.label);
+    if (Array.isArray(record.opticalEvidence?.mtf) && record.opticalEvidence.mtf.some(item => item.source === source.label)) {
+      parameterKeys.push("Optical Bench Evidence：MTF");
+    }
     const parameterText = parameterKeys.length
       ? parameterKeys.map(key => parameterLabels[key] || key).join("、")
       : "尚未建立參數對應。";
     parameterLinks.append(createElement("p", "", parameterText));
     card.append(parameterLinks);
     container.append(card);
+  });
+}
+
+function renderOpticalEvidence(record) {
+  const container = document.querySelector("#optical-evidence-data");
+  container.replaceChildren();
+  const definitions = [
+    // focus may be distance/intermediate/near; frequency units remain source-specific (e.g. lp/mm or cycles/degree).
+    ["mtf", "MTF", ["focus", "pupil_mm", "wavelength_nm", "spatial_frequency", "values", "measurement_system", "model_eye_condition", "measurement_condition", "source"]],
+    ["throughFocusMTF", "Through-focus MTF", ["defocus_D", "spatial_frequency", "value", "pupil_mm", "wavelength_nm", "measurement_condition", "source"]],
+    ["psf", "PSF", ["available", "pupil_mm", "wavelength_nm", "defocus_D", "values", "measurement_condition", "source"]]
+  ];
+  definitions.forEach(([key, title, fields]) => {
+    const section = createElement("section", "optical-measurement");
+    section.append(createElement("h4", "", title));
+    if (key === "mtf" && Array.isArray(record.opticalEvidence?.mtf)) {
+      record.opticalEvidence.mtf.forEach(item => {
+        const measurement = createElement("article", "mtf-record");
+        const heading = createElement("h4", "", `Pupil ${formatValue(item.pupil_mm, "mm")} · ${formatValue(item.focus)} focus`);
+        const details = createElement("dl", "source-fields");
+        [
+          ["MTF", "mtf_value"], ["Wavelength (nm)", "wavelength_nm"],
+          ["Spatial frequency", "spatial_frequency"], ["Measurement system", "measurement_system"],
+          ["Model eye condition", "model_eye_condition"], ["Measurement condition", "measurement_condition"]
+        ].forEach(([label, field]) => details.append(createSourceField(label, field, item)));
+        measurement.append(heading, details);
+        if ((record.sources || []).some(source => source.label === item.source)) {
+          measurement.append(createSourceMarker(item.source, `${item.pupil_mm} mm ${item.focus} MTF`));
+        }
+        section.append(measurement);
+      });
+      if (!record.opticalEvidence.mtf.length) section.append(createElement("p", "empty-evidence", EMPTY_VALUE));
+      container.append(section);
+      return;
+    }
+    const list = createElement("dl", "source-fields");
+    fields.forEach(field => {
+      const row = createElement("div");
+      const value = record.opticalEvidence?.[key]?.[field];
+      if (field === "spatial_frequency") {
+        row.append(createElement("dt", "", field), createElement("dd", "",
+          `value: ${formatValue(value?.value)}；unit: ${formatValue(value?.unit)}`));
+        list.append(row);
+        return;
+      }
+      // Present only stored data: no conversion, calculation, or clinical fallback.
+      const display = !hasValue(value) ? EMPTY_VALUE
+        : typeof value === "object" ? JSON.stringify(value) : String(value);
+      row.append(createElement("dt", "", field), createElement("dd", "", display));
+      list.append(row);
+    });
+    section.append(list);
+    container.append(section);
   });
 }
 
@@ -310,6 +366,7 @@ function renderEvidencePanel(record, product = null) {
   renderSourceCards(record);
   window.DefocusCalculator.mount(document.querySelector("#distance-calculator"), record);
   renderSimulation(record);
+  renderOpticalEvidence(record);
   renderDisclaimer(record);
   bindSourceNavigation();
   revealEvidenceSource(location.hash);
@@ -348,6 +405,7 @@ function renderCatalogProduct(product) {
 }
 
 function renderEvidenceUnavailable(message) {
+  renderOpticalEvidence({});
   document.querySelector("#source-type-badges").textContent = EMPTY_VALUE;
   document.querySelector("#last-verified-date").textContent = EMPTY_VALUE;
   const list = document.querySelector("#clinical-parameters");
@@ -369,6 +427,7 @@ function resolveEvidenceURL(path) {
 }
 
 async function initializeEvidencePanel() {
+  renderOpticalEvidence({});
   document.querySelector("#distance-calculator").hidden = true;
   document.querySelector("#distance-calculator").replaceChildren();
   document.querySelector("#product-details").hidden = true;

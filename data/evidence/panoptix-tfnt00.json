@@ -664,8 +664,141 @@
       "supplementary_file": "Table S1_4IOLs.pdf",
       "data_extraction_method": "direct table transcription",
       "PMID": "36233597"
+    },
+    {
+      "label": "S5",
+      "authors": "Son HS et al.",
+      "title": "Ray propagation imaging and optical quality evaluation of different intraocular lens models",
+      "journal": "PLOS ONE",
+      "year": 2020,
+      "sourceType": "laboratory optical bench study",
+      "studyDesign": "laboratory optical bench study",
+      "population": null,
+      "sampleSize": null,
+      "followUp": null,
+      "monocularOrBinocular": null,
+      "correctedOrUncorrected": null,
+      "DOI": "10.1371/journal.pone.0228342",
+      "PMID": "32017784",
+      "sourceIdentifier": "DOI: 10.1371/journal.pone.0228342; PMID: 32017784",
+      "url": null,
+      "derivedParameters": [
+        "opticalEvidence.mtf"
+      ],
+      "measurement": "MTF at 50 lp/mm; sagittal and tangential measurements averaged",
+      "data_extraction_method": "User-provided published values",
+      "source_note": "Through-focus response figures have no point-by-point raw numerical data supplied here. No usable numerical PSF matrix from this source. Ray propagation visualization uses a separate 532 nm condition, not the 546 nm MTF measurement."
     }
   ],
+  "opticalEvidence": {
+    "mtf": [
+      {
+        "focus": "distance",
+        "pupil_mm": 3,
+        "wavelength_nm": 546,
+        "spatial_frequency": {
+          "value": 50,
+          "unit": "lp/mm"
+        },
+        "mtf_value": 0.371,
+        "measurement_system": "OptiSpheric IOL PRO II",
+        "model_eye_condition": null,
+        "measurement_condition": "Sagittal and tangential measurements were averaged.",
+        "source": "S5"
+      },
+      {
+        "focus": "intermediate",
+        "pupil_mm": 3,
+        "wavelength_nm": 546,
+        "spatial_frequency": {
+          "value": 50,
+          "unit": "lp/mm"
+        },
+        "mtf_value": 0.164,
+        "measurement_system": "OptiSpheric IOL PRO II",
+        "model_eye_condition": null,
+        "measurement_condition": "Sagittal and tangential measurements were averaged.",
+        "source": "S5"
+      },
+      {
+        "focus": "near",
+        "pupil_mm": 3,
+        "wavelength_nm": 546,
+        "spatial_frequency": {
+          "value": 50,
+          "unit": "lp/mm"
+        },
+        "mtf_value": 0.172,
+        "measurement_system": "OptiSpheric IOL PRO II",
+        "model_eye_condition": null,
+        "measurement_condition": "Sagittal and tangential measurements were averaged.",
+        "source": "S5"
+      },
+      {
+        "focus": "distance",
+        "pupil_mm": 4.5,
+        "wavelength_nm": 546,
+        "spatial_frequency": {
+          "value": 50,
+          "unit": "lp/mm"
+        },
+        "mtf_value": 0.221,
+        "measurement_system": "OptiSpheric IOL PRO II",
+        "model_eye_condition": null,
+        "measurement_condition": "Sagittal and tangential measurements were averaged.",
+        "source": "S5"
+      },
+      {
+        "focus": "intermediate",
+        "pupil_mm": 4.5,
+        "wavelength_nm": 546,
+        "spatial_frequency": {
+          "value": 50,
+          "unit": "lp/mm"
+        },
+        "mtf_value": 0.106,
+        "measurement_system": "OptiSpheric IOL PRO II",
+        "model_eye_condition": null,
+        "measurement_condition": "Sagittal and tangential measurements were averaged.",
+        "source": "S5"
+      },
+      {
+        "focus": "near",
+        "pupil_mm": 4.5,
+        "wavelength_nm": 546,
+        "spatial_frequency": {
+          "value": 50,
+          "unit": "lp/mm"
+        },
+        "mtf_value": 0.084,
+        "measurement_system": "OptiSpheric IOL PRO II",
+        "model_eye_condition": null,
+        "measurement_condition": "Sagittal and tangential measurements were averaged.",
+        "source": "S5"
+      }
+    ],
+    "throughFocusMTF": {
+      "defocus_D": null,
+      "spatial_frequency": {
+        "value": null,
+        "unit": null
+      },
+      "value": null,
+      "pupil_mm": null,
+      "wavelength_nm": null,
+      "measurement_condition": null,
+      "source": null
+    },
+    "psf": {
+      "available": null,
+      "pupil_mm": null,
+      "wavelength_nm": null,
+      "defocus_D": null,
+      "values": null,
+      "measurement_condition": null,
+      "source": null
+    }
+  },
   "websiteSimulation": {
     "status": "NOT CONNECTED",
     "title": "Website-derived simulation / visualization",

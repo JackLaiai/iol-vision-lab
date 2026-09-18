@@ -38,13 +38,21 @@
       <div class="evidence-distinction">
         <section aria-labelledby="published-title">
           <span class="evidence-badge">研究資料</span>
-          <h3 id="published-title" lang="en">Published clinical evidence</h3>
+          <h3 id="published-title" lang="en">Clinical Evidence</h3>
+          <p>Published clinical evidence · 已發表臨床研究資料</p>
           <p>下列項目與來源標記由 JSON 產生；缺少的數值不會被推測或補值。</p>
           <dl class="clinical-parameters" id="clinical-parameters" aria-live="polite"></dl>
         </section>
+        <section class="optical-evidence" aria-labelledby="optical-title">
+          <span class="evidence-badge optical-badge">光學平台量測</span>
+          <h3 id="optical-title" lang="en">Optical Bench Evidence</h3>
+          <p>MTF = Modulation Transfer Function（調變傳遞函數）；PSF = Point Spread Function（點擴散函數）。</p>
+          <p>獨立保存光學平台量測與來源。未提供的資料顯示「尚無資料」，不從臨床視力推算，也不接入影像模擬。</p>
+          <div id="optical-evidence-data" aria-live="polite"></div>
+        </section>
         <section class="visualization-placeholder" aria-labelledby="visualization-title">
           <span class="evidence-badge visualization">網站呈現 · 非研究原始結果</span>
-          <h3 id="visualization-title" lang="en">Website-derived simulation / visualization</h3>
+          <h3 id="visualization-title" lang="en">Website-derived Simulation</h3>
           <p id="simulation-description">載入中…</p>
           <div class="empty-visual" id="simulation-status">載入中…</div>
         </section>
