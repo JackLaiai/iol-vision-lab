@@ -308,6 +308,7 @@ function renderEvidencePanel(record, product = null) {
   document.querySelector("#last-verified-date").textContent = formatValue(record.lastVerifiedDate);
   renderClinicalParameters(record);
   renderSourceCards(record);
+  window.DefocusCalculator.mount(document.querySelector("#distance-calculator"), record);
   renderSimulation(record);
   renderDisclaimer(record);
   bindSourceNavigation();
@@ -368,6 +369,8 @@ function resolveEvidenceURL(path) {
 }
 
 async function initializeEvidencePanel() {
+  document.querySelector("#distance-calculator").hidden = true;
+  document.querySelector("#distance-calculator").replaceChildren();
   document.querySelector("#product-details").hidden = true;
   document.querySelector("#product-fields").replaceChildren();
   const model = new URLSearchParams(location.search).get("model");

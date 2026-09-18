@@ -1,4 +1,10 @@
 /* Detail-page-only styles: the existing simulator does not load this file. */
+.iol-detail .distance-calculator {padding:32px;border-top:1px solid var(--line);background:#f7fbfd}
+.iol-detail .distance-calculator[hidden] {display:none}
+.iol-detail .distance-calculator input {display:block;max-width:100%;width:180px;padding:10px;margin:8px 0 16px;border:1px solid #9cb3bf;border-radius:8px;font:inherit}
+.iol-detail .distance-results p {overflow-wrap:anywhere}
+.iol-detail .published-point {background:#eaf5f4;color:#215d60}
+.iol-detail .interpolated-point {background:#fff0d6;color:#714b08}
 .iol-detail .detail-main {padding-top:52px;padding-bottom:72px}
 .iol-detail .detail-back {margin-left:auto;color:var(--blue);font-size:14px}
 .iol-detail .detail-heading {margin-bottom:32px}
