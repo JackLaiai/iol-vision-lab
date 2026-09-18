@@ -98,7 +98,7 @@ function renderProduct(record) {
 function renderSourceTypeBadges(record) {
   const container = document.querySelector("#source-type-badges");
   container.replaceChildren();
-  const types = uniqueStrings((record.sources || []).map(source => source.sourceType).filter(hasValue));
+  const types = uniqueStrings((record.sources || []).map(source => source.sourceType ?? source.source_type).filter(hasValue));
   if (!types.length) {
     container.textContent = "尚無已接入來源";
     return;
@@ -128,12 +128,50 @@ function renderClinicalParameters(record) {
     const label = parameter.label || parameter.key;
     row.append(createElement("dt", "", label));
     const value = createElement("dd", "", formatValue(parameter.value, parameter.unit));
+    if (parameter.key === "defocus_curve") {
+      const curves = (record.sources || []).filter(source =>
+        sourceIdsForParameter(record, parameter).includes(source.label) && Array.isArray(source.defocus_points) && source.defocus_points.length);
+      if (curves.length) {
+        row.classList.add("defocus-metric");
+        value.replaceChildren();
+        curves.forEach(source => value.append(renderDefocusTable(source)));
+      }
+    }
     const markers = createElement("span", "source-markers");
     sourceIdsForParameter(record, parameter).forEach(sourceId => markers.append(createSourceMarker(sourceId, label)));
     value.append(markers);
     row.append(value);
     container.append(row);
   });
+}
+
+function renderDefocusTable(source) {
+  const table = createElement("table", "defocus-table");
+  table.append(createElement("caption", "", `${source.source_table || "Defocus curve"} · ${source.label} · ${source.measurement || EMPTY_VALUE} · ${source.follow_up || EMPTY_VALUE} · ${source.lighting_condition || EMPTY_VALUE}`));
+  const head = createElement("thead");
+  const header = createElement("tr");
+  ["Defocus (D)", "mean logMAR", "SD logMAR", "Source"].forEach(label => {
+    const cell = createElement("th", "", label);
+    cell.scope = "col";
+    header.append(cell);
+  });
+  head.append(header);
+  table.append(head);
+  const body = createElement("tbody");
+  // Transcribed observations only. No interpolation or simulator access.
+  source.defocus_points.forEach(point => {
+    const row = createElement("tr");
+    const defocus = typeof point.defocus_D === "number" ? `${point.defocus_D > 0 ? "+" : ""}${point.defocus_D.toFixed(1)}` : EMPTY_VALUE;
+    [defocus, point.mean_logMAR, point.SD_logMAR].forEach((value, index) => {
+      row.append(createElement("td", "", index && typeof value === "number" ? value.toFixed(2) : formatValue(value)));
+    });
+    const citation = createElement("td");
+    citation.append(createSourceMarker(point.source, "Defocus curve"));
+    row.append(citation);
+    body.append(row);
+  });
+  table.append(body);
+  return table;
 }
 
 const sourceFields = [
@@ -176,6 +214,14 @@ function renderSourceCards(record) {
 
   const parameterLabels = parameterLabelsByKey(record);
   sources.forEach(source => {
+    // Accept supplementary field names without changing S1–S3.
+    source = { ...source,
+      sourceType: source.sourceType ?? source.source_type,
+      studyDesign: source.studyDesign ?? source.study_design,
+      sampleSize: source.sampleSize ?? source.panoptix_subgroup,
+      followUp: source.followUp ?? source.follow_up,
+      sourceIdentifier: source.sourceIdentifier ?? [source.DOI && `DOI: ${source.DOI}`, source.PMID && `PMID: ${source.PMID}`].filter(Boolean).join("; ")
+    };
     const card = createElement("article", "source-card");
     card.id = `source-${source.label}`;
     card.tabIndex = -1;
@@ -191,6 +237,9 @@ function renderSourceCards(record) {
 
     const fields = createElement("dl", "source-fields");
     sourceFields.forEach(([label, key]) => fields.append(createSourceField(label, key, source)));
+    [["Measurement", "measurement"], ["Lighting condition", "lighting_condition"], ["Visual acuity unit", "visual_acuity_unit"], ["Source table", "source_table"], ["Supplementary file", "supplementary_file"], ["Extraction method", "data_extraction_method"]].forEach(([label, key]) => {
+      if (hasValue(source[key])) fields.append(createSourceField(label, key, source));
+    });
     card.append(fields);
 
     const parameterLinks = createElement("div", "parameter-links");

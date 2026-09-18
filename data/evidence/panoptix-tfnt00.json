@@ -461,7 +461,8 @@
       "S2"
     ],
     "defocus_curve": [
-      "S2"
+      "S2",
+      "S4"
     ],
     "contrast_sensitivity_3_cpd": [
       "S2"
@@ -572,63 +573,81 @@
     {
       "label": "S4",
       "source_type": "peer-reviewed clinical study",
-      "measurement": "distance-corrected binocular defocus curve",
+      "measurement": "distant-corrected binocular defocus curve",
       "follow_up": "3 months",
       "panoptix_subgroup": "12 patients / 24 eyes",
       "visual_acuity_unit": "logMAR",
       "defocus_points": [
         {
-          "defocus_D": 1.0,
-          "mean_logMAR": null,
-          "SD_logMAR": null,
+          "defocus_D": 2,
+          "mean_logMAR": 0.42,
+          "SD_logMAR": 0.11,
+          "source": "S4"
+        },
+        {
+          "defocus_D": 1.5,
+          "mean_logMAR": 0.27,
+          "SD_logMAR": 0.15,
+          "source": "S4"
+        },
+        {
+          "defocus_D": 1,
+          "mean_logMAR": 0.12,
+          "SD_logMAR": 0.13,
           "source": "S4"
         },
         {
           "defocus_D": 0.5,
-          "mean_logMAR": null,
-          "SD_logMAR": null,
+          "mean_logMAR": -0.02,
+          "SD_logMAR": 0.13,
           "source": "S4"
         },
         {
-          "defocus_D": 0.0,
-          "mean_logMAR": null,
-          "SD_logMAR": null,
+          "defocus_D": 0,
+          "mean_logMAR": -0.11,
+          "SD_logMAR": 0.09,
           "source": "S4"
         },
         {
           "defocus_D": -0.5,
-          "mean_logMAR": null,
-          "SD_logMAR": null,
+          "mean_logMAR": -0.02,
+          "SD_logMAR": 0.09,
           "source": "S4"
         },
         {
-          "defocus_D": -1.0,
-          "mean_logMAR": null,
-          "SD_logMAR": null,
+          "defocus_D": -1,
+          "mean_logMAR": 0,
+          "SD_logMAR": 0.13,
           "source": "S4"
         },
         {
           "defocus_D": -1.5,
-          "mean_logMAR": null,
-          "SD_logMAR": null,
+          "mean_logMAR": -0.06,
+          "SD_logMAR": 0.12,
           "source": "S4"
         },
         {
-          "defocus_D": -2.0,
-          "mean_logMAR": null,
-          "SD_logMAR": null,
+          "defocus_D": -2,
+          "mean_logMAR": -0.04,
+          "SD_logMAR": 0.1,
           "source": "S4"
         },
         {
           "defocus_D": -2.5,
-          "mean_logMAR": null,
-          "SD_logMAR": null,
+          "mean_logMAR": 0.02,
+          "SD_logMAR": 0.09,
           "source": "S4"
         },
         {
-          "defocus_D": -3.0,
-          "mean_logMAR": null,
-          "SD_logMAR": null,
+          "defocus_D": -3,
+          "mean_logMAR": 0.14,
+          "SD_logMAR": 0.13,
+          "source": "S4"
+        },
+        {
+          "defocus_D": -3.5,
+          "mean_logMAR": 0.24,
+          "SD_logMAR": 0.16,
           "source": "S4"
         }
       ],
@@ -636,7 +655,15 @@
       "journal": "Journal of Clinical Medicine",
       "year": 2022,
       "DOI": "10.3390/jcm11195729",
-      "source_note": "exact point-by-point values are reported in Supplemental Table S1"
+      "source_note": "exact point-by-point values are reported in Supplemental Table S1",
+      "study_design": "retrospective",
+      "patients": 12,
+      "eyes": 24,
+      "lighting_condition": "photopic",
+      "source_table": "Supplemental Table S1",
+      "supplementary_file": "Table S1_4IOLs.pdf",
+      "data_extraction_method": "direct table transcription",
+      "PMID": "36233597"
     }
   ],
   "websiteSimulation": {

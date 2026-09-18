@@ -21,6 +21,12 @@
 .iol-detail .clinical-parameters {margin-bottom:0}
 .iol-detail .evidence-metric {display:flex;align-items:baseline;justify-content:space-between;gap:12px;border-bottom:1px solid var(--line);padding:10px 0}
 .iol-detail .evidence-metric dd {font-size:14px;margin:0}
+.iol-detail .defocus-metric {display:block}
+.iol-detail .defocus-metric dd {overflow-x:auto;margin-top:12px}
+.iol-detail .defocus-table {width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums}
+.iol-detail .defocus-table caption {text-align:left;color:#526975;margin-bottom:12px;font-size:12px}
+.iol-detail .defocus-table th,.iol-detail .defocus-table td {padding:8px;text-align:right;border-bottom:1px solid var(--line);white-space:nowrap}
+.iol-detail .defocus-table th {font-size:12px;background:var(--soft)}
 .iol-detail .source-marker {color:var(--blue);text-decoration:underline;text-underline-offset:3px}
 .iol-detail .source-markers {display:inline-flex;gap:6px;margin-left:8px}
 .iol-detail .source-type-badge + .source-type-badge {margin-left:6px}
