@@ -18,10 +18,13 @@
 .iol-detail .evidence-distinction p {font-size:14px}
 .iol-detail .evidence-badge {display:inline-block;padding:6px 10px;border-radius:8px;background:#eaf5f4;color:#215d60;font-size:12px;font-weight:700}
 .iol-detail .evidence-badge.visualization {background:#eef1f6;color:#495c76}
-.iol-detail .clinical-placeholders {margin-bottom:0}
+.iol-detail .clinical-parameters {margin-bottom:0}
 .iol-detail .evidence-metric {display:flex;align-items:baseline;justify-content:space-between;gap:12px;border-bottom:1px solid var(--line);padding:10px 0}
 .iol-detail .evidence-metric dd {font-size:14px;margin:0}
 .iol-detail .source-marker {color:var(--blue);text-decoration:underline;text-underline-offset:3px}
+.iol-detail .source-markers {display:inline-flex;gap:6px;margin-left:8px}
+.iol-detail .source-type-badge + .source-type-badge {margin-left:6px}
+.iol-detail .empty-evidence {color:#6f838f;font-size:14px;margin:0}
 .iol-detail .empty-visual {padding:40px 18px;text-align:center;border:1px dashed #b8cad3;border-radius:16px;background:var(--soft);color:#526975;margin-top:24px}
 .iol-detail .evidence-details {border-top:1px solid var(--line)}
 .iol-detail summary {padding:24px 32px;cursor:pointer;font-weight:700}

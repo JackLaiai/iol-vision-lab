@@ -1,0 +1,154 @@
+{
+  "schemaVersion": "1.0.0",
+  "recordId": "demo-placeholder",
+  "dataStatus": "PLACEHOLDER ONLY",
+  "product": {
+    "name": null,
+    "manufacturer": null,
+    "model": null
+  },
+  "lastVerifiedDate": null,
+  "clinicalRecord": {
+    "schemaVersion": "1.0.0",
+    "recordId": null,
+    "dataStatus": "TODO",
+    "manufacturer": null,
+    "model": null,
+    "iolType": null,
+    "study": {
+      "design": null,
+      "arm": null,
+      "population": null
+    },
+    "measurementContext": {
+      "viewingCondition": null,
+      "correctionStatus": null,
+      "correctionDetails": null,
+      "followUpDuration": { "value": null, "unit": null },
+      "sampleSize": { "value": null, "unit": null },
+      "pupilCondition": {
+        "diameterMm": null,
+        "dilationStatus": null,
+        "illumination": null,
+        "measurementMethod": null
+      }
+    },
+    "defocusCurve": {
+      "visualAcuityUnit": "logMAR",
+      "defocusUnit": "D",
+      "testDistanceM": null,
+      "chart": null,
+      "points": null
+    },
+    "contrastSensitivity": {
+      "test": null,
+      "unit": null,
+      "spatialFrequencyUnit": null,
+      "illumination": null,
+      "glareCondition": null,
+      "points": null
+    },
+    "halo": {
+      "instrument": null,
+      "endpoint": null,
+      "scale": null,
+      "value": null,
+      "unit": null,
+      "numerator": null,
+      "denominator": null,
+      "uncertainty": null
+    },
+    "glare": {
+      "instrument": null,
+      "endpoint": null,
+      "scale": null,
+      "value": null,
+      "unit": null,
+      "numerator": null,
+      "denominator": null,
+      "uncertainty": null
+    },
+    "source": {
+      "title": null,
+      "doi": null,
+      "pmid": null,
+      "fdaSource": { "url": null, "documentId": null },
+      "url": null,
+      "locator": null,
+      "extractionMethod": null
+    },
+    "review": {
+      "status": "TODO",
+      "reviewer": null,
+      "reviewedAt": null
+    },
+    "missingDataNotes": "TODO: populate only from traceable, reviewed sources."
+  },
+  "clinicalParameters": [
+    { "key": "40_cm_binocular_va", "label": "40 cm 雙眼視力", "value": null, "unit": "logMAR", "sourceIds": ["S1"] },
+    { "key": "defocus_curve", "label": "離焦曲線", "value": null, "unit": null, "sourceIds": ["S1", "S3"] },
+    { "key": "contrast_sensitivity", "label": "對比敏感度", "value": null, "unit": null, "sourceIds": ["S2"] },
+    { "key": "halo", "label": "Halo", "value": null, "unit": null, "sourceIds": ["S2", "S3"] },
+    { "key": "glare", "label": "Glare", "value": null, "unit": null, "sourceIds": [] },
+    { "key": "spectacle_independence", "label": "眼鏡獨立性", "value": null, "unit": null, "sourceIds": [] }
+  ],
+  "parameterSourceMap": {
+    "40_cm_binocular_va": ["S1"],
+    "defocus_curve": ["S1", "S3"],
+    "contrast_sensitivity": ["S2"],
+    "halo": ["S2", "S3"],
+    "glare": [],
+    "spectacle_independence": []
+  },
+  "sources": [
+    {
+      "label": "S1",
+      "title": null,
+      "sourceType": "PLACEHOLDER",
+      "studyDesign": null,
+      "population": null,
+      "sampleSize": null,
+      "followUp": null,
+      "monocularOrBinocular": null,
+      "correctedOrUncorrected": null,
+      "sourceIdentifier": null,
+      "url": null,
+      "derivedParameters": ["40_cm_binocular_va", "defocus_curve"]
+    },
+    {
+      "label": "S2",
+      "title": null,
+      "sourceType": "PLACEHOLDER",
+      "studyDesign": null,
+      "population": null,
+      "sampleSize": null,
+      "followUp": null,
+      "monocularOrBinocular": null,
+      "correctedOrUncorrected": null,
+      "sourceIdentifier": null,
+      "url": null,
+      "derivedParameters": ["contrast_sensitivity", "halo"]
+    },
+    {
+      "label": "S3",
+      "title": null,
+      "sourceType": "PLACEHOLDER",
+      "studyDesign": null,
+      "population": null,
+      "sampleSize": null,
+      "followUp": null,
+      "monocularOrBinocular": null,
+      "correctedOrUncorrected": null,
+      "sourceIdentifier": null,
+      "url": null,
+      "derivedParameters": ["defocus_curve", "halo"]
+    }
+  ],
+  "websiteSimulation": {
+    "status": "PLACEHOLDER ONLY",
+    "title": "Website-derived simulation / visualization",
+    "description": "尚未接入資料或產生預測。網站模擬結果與 published clinical evidence 分開保存。",
+    "sourceIds": []
+  },
+  "disclaimer": "本網站的部分畫面為根據公開研究資料進行之教育性模擬，不等同於個人術後實際視覺結果。此檔案目前只含 placeholder，不代表任何 clinical evidence。"
+}
