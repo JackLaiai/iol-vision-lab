@@ -984,6 +984,34 @@
       "defocus_D": null,
       "values": null,
       "measurement_condition": null,
+      "source": null,
+      "matrix": null,
+      "pixel_scale": null,
+      "normalization": null
+    },
+    "ptf": {
+      "focus": null,
+      "defocus_D": null,
+      "pupil_mm": null,
+      "wavelength_nm": null,
+      "spatial_frequency": {
+        "value": null,
+        "unit": null
+      },
+      "phase_value": null,
+      "phase_unit": null,
+      "measurement_system": null,
+      "model_eye_condition": null,
+      "source": null
+    },
+    "otf": {
+      "available": null,
+      "representation": null,
+      "spatial_frequency_grid": null,
+      "complex_values": null,
+      "pupil_mm": null,
+      "wavelength_nm": null,
+      "defocus_D": null,
       "source": null
     }
   },

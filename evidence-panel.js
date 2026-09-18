@@ -257,18 +257,36 @@ function renderSourceCards(record) {
   });
 }
 
+function containsOpticalNumber(value) {
+  if (typeof value === "number") return Number.isFinite(value);
+  if (Array.isArray(value)) return value.some(containsOpticalNumber);
+  if (value && typeof value === "object") return Object.values(value).some(containsOpticalNumber);
+  return false;
+}
+
 function renderOpticalEvidence(record) {
   const container = document.querySelector("#optical-evidence-data");
   container.replaceChildren();
   const definitions = [
     // focus may be distance/intermediate/near; frequency units remain source-specific (e.g. lp/mm or cycles/degree).
-    ["mtf", "MTF", ["focus", "pupil_mm", "wavelength_nm", "spatial_frequency", "values", "measurement_system", "model_eye_condition", "measurement_condition", "source"]],
+    ["mtf", "MTF — Modulation Transfer Function", ["focus", "pupil_mm", "wavelength_nm", "spatial_frequency", "values", "measurement_system", "model_eye_condition", "measurement_condition", "source"]],
     ["throughFocusMTF", "Through-focus MTF", ["defocus_D", "spatial_frequency", "value", "pupil_mm", "wavelength_nm", "measurement_condition", "source"]],
-    ["psf", "PSF", ["available", "pupil_mm", "wavelength_nm", "defocus_D", "values", "measurement_condition", "source"]]
+    ["ptf", "PTF — Phase Transfer Function", ["focus", "defocus_D", "pupil_mm", "wavelength_nm", "spatial_frequency", "phase_value", "phase_unit", "measurement_system", "model_eye_condition", "source"]],
+    ["otf", "OTF — Optical Transfer Function", ["available", "representation", "spatial_frequency_grid", "complex_values", "pupil_mm", "wavelength_nm", "defocus_D", "source"]],
+    ["psf", "PSF — Point Spread Function", ["available", "pupil_mm", "wavelength_nm", "defocus_D", "values", "matrix", "pixel_scale", "normalization", "measurement_condition", "source"]]
   ];
   definitions.forEach(([key, title, fields]) => {
     const section = createElement("section", "optical-measurement");
     section.append(createElement("h4", "", title));
+    const data = record.opticalEvidence?.[key];
+    const valueFields = { mtf: ["mtf_value", "values"], throughFocusMTF: ["value"], ptf: ["phase_value"], otf: ["complex_values"], psf: ["matrix", "values"] };
+    const records = Array.isArray(data) ? data : [data];
+    const hasNumbers = records.some(item => valueFields[key].some(field => containsOpticalNumber(item?.[field])));
+    if (!hasNumbers) {
+      section.append(createElement("p", "empty-evidence", "尚無公開數值資料"));
+      container.append(section);
+      return;
+    }
     if (key === "mtf" && Array.isArray(record.opticalEvidence?.mtf)) {
       record.opticalEvidence.mtf.forEach(item => {
         const measurement = createElement("article", "mtf-record");
