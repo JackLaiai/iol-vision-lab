@@ -568,6 +568,75 @@
         "severity_severe_starburst",
         "bothersomeness_very_much_starburst"
       ]
+    },
+    {
+      "label": "S4",
+      "source_type": "peer-reviewed clinical study",
+      "measurement": "distance-corrected binocular defocus curve",
+      "follow_up": "3 months",
+      "panoptix_subgroup": "12 patients / 24 eyes",
+      "visual_acuity_unit": "logMAR",
+      "defocus_points": [
+        {
+          "defocus_D": 1.0,
+          "mean_logMAR": null,
+          "SD_logMAR": null,
+          "source": "S4"
+        },
+        {
+          "defocus_D": 0.5,
+          "mean_logMAR": null,
+          "SD_logMAR": null,
+          "source": "S4"
+        },
+        {
+          "defocus_D": 0.0,
+          "mean_logMAR": null,
+          "SD_logMAR": null,
+          "source": "S4"
+        },
+        {
+          "defocus_D": -0.5,
+          "mean_logMAR": null,
+          "SD_logMAR": null,
+          "source": "S4"
+        },
+        {
+          "defocus_D": -1.0,
+          "mean_logMAR": null,
+          "SD_logMAR": null,
+          "source": "S4"
+        },
+        {
+          "defocus_D": -1.5,
+          "mean_logMAR": null,
+          "SD_logMAR": null,
+          "source": "S4"
+        },
+        {
+          "defocus_D": -2.0,
+          "mean_logMAR": null,
+          "SD_logMAR": null,
+          "source": "S4"
+        },
+        {
+          "defocus_D": -2.5,
+          "mean_logMAR": null,
+          "SD_logMAR": null,
+          "source": "S4"
+        },
+        {
+          "defocus_D": -3.0,
+          "mean_logMAR": null,
+          "SD_logMAR": null,
+          "source": "S4"
+        }
+      ],
+      "title": "Clinical Outcomes after Bilateral Implantation of Trifocal Diffractive Intraocular Lenses and Extended Depth of Focus Intraocular Lenses",
+      "journal": "Journal of Clinical Medicine",
+      "year": 2022,
+      "DOI": "10.3390/jcm11195729",
+      "source_note": "exact point-by-point values are reported in Supplemental Table S1"
     }
   ],
   "websiteSimulation": {
