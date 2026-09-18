@@ -688,6 +688,92 @@
       "measurement": "MTF at 50 lp/mm; sagittal and tangential measurements averaged",
       "data_extraction_method": "User-provided published values",
       "source_note": "Through-focus response figures have no point-by-point raw numerical data supplied here. No usable numerical PSF matrix from this source. Ray propagation visualization uses a separate 532 nm condition, not the 546 nm MTF measurement."
+    },
+    {
+      "label": "S6",
+      "title": "Optical bench performance of a novel trifocal intraocular lens compared with a multifocal intraocular lens",
+      "authors": "Lee et al.",
+      "year": 2016,
+      "PMID": "27330273",
+      "PMCID": "PMC4898421",
+      "source_type": "laboratory optical bench study",
+      "study_design": "laboratory optical bench study",
+      "manufacturer_affiliation": true,
+      "note": "authors were affiliated with Alcon Research",
+      "sourceIdentifier": "PMID: 27330273; PMCID: PMC4898421",
+      "url": null,
+      "measurement": "mean vertical and horizontal slit values",
+      "data_extraction_method": "User-provided published values",
+      "derivedParameters": [
+        "opticalEvidence.mtf"
+      ],
+      "through_focus_mtf": {
+        "figure_available": true,
+        "spatial_frequency": [
+          {
+            "value": 50,
+            "unit": "lp/mm"
+          },
+          {
+            "value": 100,
+            "unit": "lp/mm"
+          }
+        ],
+        "numerical_values": null,
+        "source": "S6"
+      },
+      "badal_image_evidence": {
+        "measurement": "through-focus Badal images",
+        "viewing_conditions": [
+          {
+            "distance_label": "infinity",
+            "distance_cm": null,
+            "vergence_D": 0
+          },
+          {
+            "distance_label": "80 cm",
+            "distance_cm": 80,
+            "vergence_D": 1.25
+          },
+          {
+            "distance_label": "60 cm",
+            "distance_cm": 60,
+            "vergence_D": 1.67
+          },
+          {
+            "distance_label": "40 cm",
+            "distance_cm": 40,
+            "vergence_D": 2.5
+          }
+        ],
+        "pupil_conditions": [
+          {
+            "pupil_mm": 3,
+            "coverage": null
+          },
+          {
+            "pupil_mm": 4.5,
+            "coverage": "partial measurements"
+          }
+        ],
+        "note": "Positive diopter labels are recorded as supplied for Badal viewing conditions, not converted to the clinical defocus convention. Exact distance-by-pupil measurement coverage was not supplied.",
+        "source": "S6"
+      },
+      "headlight_halo_evidence": {
+        "methodology": {
+          "illuminated_pinhole_um": 50,
+          "simulated_headlight_distance_m": 250,
+          "distance_is_approximate": true,
+          "pupil_mm": 5,
+          "illumination": "white light",
+          "focus": "distance"
+        },
+        "result_type": "qualitative halo comparison",
+        "qualitative_result": null,
+        "numerical_halo_strength": null,
+        "note": "Specific qualitative findings were not supplied; no numerical halo strength or simulation parameter is derived.",
+        "source": "S6"
+      }
     }
   ],
   "opticalEvidence": {
@@ -775,6 +861,108 @@
         "model_eye_condition": null,
         "measurement_condition": "Sagittal and tangential measurements were averaged.",
         "source": "S5"
+      },
+      {
+        "iol": "PanOptix",
+        "focus": "distance",
+        "pupil_mm": 3,
+        "wavelength_nm": 550,
+        "wavelength_condition": "narrow-band filter",
+        "spatial_frequency": {
+          "value": 50,
+          "unit": "lp/mm"
+        },
+        "mtf_value": 0.402,
+        "measurement_system": null,
+        "model_eye_condition": "spherical-aberration-matching model cornea",
+        "measurement": "mean vertical and horizontal slit values",
+        "measurement_condition": "mean vertical and horizontal slit values; narrow-band filter",
+        "source": "S6"
+      },
+      {
+        "iol": "PanOptix",
+        "focus": "intermediate",
+        "pupil_mm": 3,
+        "wavelength_nm": 550,
+        "wavelength_condition": "narrow-band filter",
+        "spatial_frequency": {
+          "value": 50,
+          "unit": "lp/mm"
+        },
+        "mtf_value": 0.153,
+        "measurement_system": null,
+        "model_eye_condition": "spherical-aberration-matching model cornea",
+        "measurement": "mean vertical and horizontal slit values",
+        "measurement_condition": "mean vertical and horizontal slit values; narrow-band filter",
+        "source": "S6"
+      },
+      {
+        "iol": "PanOptix",
+        "focus": "near",
+        "pupil_mm": 3,
+        "wavelength_nm": 550,
+        "wavelength_condition": "narrow-band filter",
+        "spatial_frequency": {
+          "value": 50,
+          "unit": "lp/mm"
+        },
+        "mtf_value": 0.181,
+        "measurement_system": null,
+        "model_eye_condition": "spherical-aberration-matching model cornea",
+        "measurement": "mean vertical and horizontal slit values",
+        "measurement_condition": "mean vertical and horizontal slit values; narrow-band filter",
+        "source": "S6"
+      },
+      {
+        "iol": "PanOptix",
+        "focus": "distance",
+        "pupil_mm": 3,
+        "wavelength_nm": 550,
+        "wavelength_condition": "narrow-band filter",
+        "spatial_frequency": {
+          "value": 100,
+          "unit": "lp/mm"
+        },
+        "mtf_value": 0.309,
+        "measurement_system": null,
+        "model_eye_condition": "spherical-aberration-matching model cornea",
+        "measurement": "mean vertical and horizontal slit values",
+        "measurement_condition": "mean vertical and horizontal slit values; narrow-band filter",
+        "source": "S6"
+      },
+      {
+        "iol": "PanOptix",
+        "focus": "intermediate",
+        "pupil_mm": 3,
+        "wavelength_nm": 550,
+        "wavelength_condition": "narrow-band filter",
+        "spatial_frequency": {
+          "value": 100,
+          "unit": "lp/mm"
+        },
+        "mtf_value": 0.133,
+        "measurement_system": null,
+        "model_eye_condition": "spherical-aberration-matching model cornea",
+        "measurement": "mean vertical and horizontal slit values",
+        "measurement_condition": "mean vertical and horizontal slit values; narrow-band filter",
+        "source": "S6"
+      },
+      {
+        "iol": "PanOptix",
+        "focus": "near",
+        "pupil_mm": 3,
+        "wavelength_nm": 550,
+        "wavelength_condition": "narrow-band filter",
+        "spatial_frequency": {
+          "value": 100,
+          "unit": "lp/mm"
+        },
+        "mtf_value": 0.153,
+        "measurement_system": null,
+        "model_eye_condition": "spherical-aberration-matching model cornea",
+        "measurement": "mean vertical and horizontal slit values",
+        "measurement_condition": "mean vertical and horizontal slit values; narrow-band filter",
+        "source": "S6"
       }
     ],
     "throughFocusMTF": {
