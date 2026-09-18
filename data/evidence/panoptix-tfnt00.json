@@ -1,0 +1,580 @@
+{
+  "schemaVersion": "1.0.0",
+  "recordId": "panoptix-tfnt00",
+  "dataStatus": "USER_PROVIDED_EVIDENCE",
+  "product": {
+    "name": "AcrySof IQ PanOptix Trifocal Intraocular Lens",
+    "manufacturer": "Alcon",
+    "model": "AcrySof IQ PanOptix Trifocal Intraocular Lens",
+    "model_number": "TFNT00",
+    "iolType": "trifocal",
+    "toric": false,
+    "marketEvidence": [
+      {
+        "key": "taiwan_nhi_special_material_code",
+        "label": "Taiwan NHI special material code",
+        "value": "FALSNMULT3A1",
+        "unit": null,
+        "sourceIds": [
+          "S1"
+        ]
+      },
+      {
+        "key": "tfda_license_number",
+        "label": "TFDA license number（來源）",
+        "value": "衛部醫器輸字第029127號",
+        "unit": null,
+        "sourceIds": [
+          "S1"
+        ]
+      },
+      {
+        "key": "taiwan_availability",
+        "label": "Taiwan availability",
+        "value": "confirmed from public Taiwan hospital records",
+        "unit": null,
+        "sourceIds": [
+          "S1"
+        ]
+      }
+    ]
+  },
+  "lastVerifiedDate": null,
+  "clinicalRecord": {
+    "schemaVersion": "1.0.0",
+    "recordId": "panoptix-tfnt00-s2",
+    "dataStatus": "USER_PROVIDED_EVIDENCE",
+    "manufacturer": "Alcon",
+    "model": "AcrySof IQ PanOptix Trifocal Intraocular Lens",
+    "iolType": "trifocal",
+    "study": {
+      "design": "prospective, multicenter, single-arm",
+      "arm": null,
+      "population": "Korean cataract patients"
+    },
+    "measurementContext": {
+      "viewingCondition": null,
+      "correctionStatus": null,
+      "correctionDetails": null,
+      "followUpDuration": {
+        "value": 3,
+        "unit": "months"
+      },
+      "sampleSize": {
+        "value": 44,
+        "unit": "subjects"
+      },
+      "pupilCondition": {
+        "diameterMm": null,
+        "dilationStatus": null,
+        "illumination": null,
+        "measurementMethod": null
+      }
+    },
+    "defocusCurve": {
+      "visualAcuityUnit": "logMAR",
+      "defocusUnit": "D",
+      "testDistanceM": null,
+      "chart": null,
+      "points": null
+    },
+    "contrastSensitivity": {
+      "test": null,
+      "unit": "log units",
+      "spatialFrequencyUnit": "cycles/degree",
+      "illumination": null,
+      "glareCondition": "with glare",
+      "points": [
+        {
+          "spatialFrequency": 3,
+          "mean": 1.67,
+          "uncertainty": {
+            "value": 0.13,
+            "type": null
+          }
+        },
+        {
+          "spatialFrequency": 6,
+          "mean": 1.91,
+          "uncertainty": {
+            "value": 0.17,
+            "type": null
+          }
+        },
+        {
+          "spatialFrequency": 12,
+          "mean": 1.54,
+          "uncertainty": {
+            "value": 0.21,
+            "type": null
+          }
+        },
+        {
+          "spatialFrequency": 18,
+          "mean": 1.14,
+          "uncertainty": {
+            "value": 0.2,
+            "type": null
+          }
+        }
+      ]
+    },
+    "halo": {
+      "instrument": null,
+      "endpoint": null,
+      "scale": null,
+      "value": null,
+      "unit": null,
+      "numerator": null,
+      "denominator": null,
+      "uncertainty": null
+    },
+    "glare": {
+      "instrument": null,
+      "endpoint": null,
+      "scale": null,
+      "value": null,
+      "unit": null,
+      "numerator": null,
+      "denominator": null,
+      "uncertainty": null
+    },
+    "source": {
+      "title": "Visual outcomes and safety after bilateral implantation of a trifocal presbyopia correcting intraocular lens in a Korean population: a prospective single-arm study",
+      "doi": "10.1186/s12886-020-01549-z",
+      "pmid": "32669090",
+      "fdaSource": {
+        "url": null,
+        "documentId": null
+      },
+      "url": null,
+      "locator": null,
+      "extractionMethod": "User-provided transcription; independent source review pending."
+    },
+    "review": {
+      "status": "TODO",
+      "reviewer": null,
+      "reviewedAt": null
+    },
+    "missingDataNotes": "S2 only. Endpoint-specific conditions are in clinicalParameters. 44 subjects / 88 eyes, bilateral implantation. Point-by-point defocus values, pupil conditions and unprovided methods remain null. S3 outcomes are separate clinicalParameters; do not populate scalar halo/glare or simulator values."
+  },
+  "clinicalParameters": [
+    {
+      "key": "4_m_binocular_ucva",
+      "label": "4 m 雙眼未矯正視力（3 個月，mean ± SD）",
+      "value": {
+        "mean": 0.03,
+        "uncertainty": {
+          "value": 0.1,
+          "type": "SD"
+        }
+      },
+      "unit": "logMAR",
+      "sourceIds": [
+        "S2"
+      ],
+      "measurementContext": {
+        "viewingCondition": "binocular",
+        "correctionStatus": "uncorrected",
+        "testDistanceM": 4,
+        "followUpDuration": {
+          "value": 3,
+          "unit": "months"
+        }
+      }
+    },
+    {
+      "key": "60_cm_binocular_ucva",
+      "label": "60 cm 雙眼未矯正視力（3 個月，mean ± SD）",
+      "value": {
+        "mean": 0,
+        "uncertainty": {
+          "value": 0.11,
+          "type": "SD"
+        }
+      },
+      "unit": "logMAR",
+      "sourceIds": [
+        "S2"
+      ],
+      "measurementContext": {
+        "viewingCondition": "binocular",
+        "correctionStatus": "uncorrected",
+        "testDistanceM": 0.6,
+        "followUpDuration": {
+          "value": 3,
+          "unit": "months"
+        }
+      }
+    },
+    {
+      "key": "40_cm_binocular_va",
+      "label": "40 cm 雙眼未矯正視力（3 個月，mean ± SD）",
+      "value": {
+        "mean": 0.03,
+        "uncertainty": {
+          "value": 0.12,
+          "type": "SD"
+        }
+      },
+      "unit": "logMAR",
+      "sourceIds": [
+        "S2"
+      ],
+      "measurementContext": {
+        "viewingCondition": "binocular",
+        "correctionStatus": "uncorrected",
+        "testDistanceM": 0.4,
+        "followUpDuration": {
+          "value": 3,
+          "unit": "months"
+        }
+      }
+    },
+    {
+      "key": "4_m_binocular_bcdva",
+      "label": "4 m 雙眼最佳矯正遠距視力（3 個月，mean ± SD）",
+      "value": {
+        "mean": -0.05,
+        "uncertainty": {
+          "value": 0.07,
+          "type": "SD"
+        }
+      },
+      "unit": "logMAR",
+      "sourceIds": [
+        "S2"
+      ],
+      "measurementContext": {
+        "viewingCondition": "binocular",
+        "correctionStatus": "best-corrected",
+        "testDistanceM": 4,
+        "followUpDuration": {
+          "value": 3,
+          "unit": "months"
+        }
+      }
+    },
+    {
+      "key": "defocus_range",
+      "label": "雙眼 defocus range（3 個月；僅範圍摘要）",
+      "value": {
+        "fromDiopters": 0.5,
+        "throughDiopters": -2.5,
+        "visualAcuityUpperBound": 0.1,
+        "comparison": "≤"
+      },
+      "unit": "logMAR",
+      "sourceIds": [
+        "S2"
+      ]
+    },
+    {
+      "key": "defocus_curve",
+      "label": "完整逐點 defocus curve",
+      "value": null,
+      "unit": "logMAR",
+      "sourceIds": [
+        "S2"
+      ]
+    },
+    {
+      "key": "contrast_sensitivity_3_cpd",
+      "label": "有眩光對比敏感度 3 cycles/degree（3 個月；± 統計類型未提供）",
+      "value": {
+        "mean": 1.67,
+        "uncertainty": {
+          "value": 0.13,
+          "type": null
+        }
+      },
+      "unit": "log units",
+      "sourceIds": [
+        "S2"
+      ]
+    },
+    {
+      "key": "contrast_sensitivity_6_cpd",
+      "label": "有眩光對比敏感度 6 cycles/degree（3 個月；± 統計類型未提供）",
+      "value": {
+        "mean": 1.91,
+        "uncertainty": {
+          "value": 0.17,
+          "type": null
+        }
+      },
+      "unit": "log units",
+      "sourceIds": [
+        "S2"
+      ]
+    },
+    {
+      "key": "contrast_sensitivity_12_cpd",
+      "label": "有眩光對比敏感度 12 cycles/degree（3 個月；± 統計類型未提供）",
+      "value": {
+        "mean": 1.54,
+        "uncertainty": {
+          "value": 0.21,
+          "type": null
+        }
+      },
+      "unit": "log units",
+      "sourceIds": [
+        "S2"
+      ]
+    },
+    {
+      "key": "contrast_sensitivity_18_cpd",
+      "label": "有眩光對比敏感度 18 cycles/degree（3 個月；± 統計類型未提供）",
+      "value": {
+        "mean": 1.14,
+        "uncertainty": {
+          "value": 0.2,
+          "type": null
+        }
+      },
+      "unit": "log units",
+      "sourceIds": [
+        "S2"
+      ]
+    },
+    {
+      "key": "spectacle_independence_near",
+      "label": "近距離眼鏡獨立性（3 個月）",
+      "value": 84,
+      "unit": "%",
+      "sourceIds": [
+        "S2"
+      ]
+    },
+    {
+      "key": "spectacle_independence_intermediate",
+      "label": "中距離眼鏡獨立性（3 個月）",
+      "value": 91,
+      "unit": "%",
+      "sourceIds": [
+        "S2"
+      ]
+    },
+    {
+      "key": "severity_severe_glare",
+      "denominator": 126,
+      "denominatorType": "valid questionnaire responses",
+      "label": "glare：severity = severe（6 個月）",
+      "value": 3.2,
+      "unit": "%",
+      "sourceIds": [
+        "S3"
+      ],
+      "outcomeDomain": "severity",
+      "responseCategory": "severe"
+    },
+    {
+      "key": "bothersomeness_very_much_glare",
+      "denominator": 126,
+      "denominatorType": "valid questionnaire responses",
+      "label": "glare：bothersomeness = bothered very much（6 個月）",
+      "value": 1.6,
+      "unit": "%",
+      "sourceIds": [
+        "S3"
+      ],
+      "outcomeDomain": "bothersomeness",
+      "responseCategory": "bothered very much"
+    },
+    {
+      "key": "severity_severe_halo",
+      "denominator": 127,
+      "denominatorType": "valid questionnaire responses",
+      "label": "halo：severity = severe（6 個月）",
+      "value": 12.6,
+      "unit": "%",
+      "sourceIds": [
+        "S3"
+      ],
+      "outcomeDomain": "severity",
+      "responseCategory": "severe"
+    },
+    {
+      "key": "bothersomeness_very_much_halo",
+      "denominator": 127,
+      "denominatorType": "valid questionnaire responses",
+      "label": "halo：bothersomeness = bothered very much（6 個月）",
+      "value": 2.4,
+      "unit": "%",
+      "sourceIds": [
+        "S3"
+      ],
+      "outcomeDomain": "bothersomeness",
+      "responseCategory": "bothered very much"
+    },
+    {
+      "key": "severity_severe_starburst",
+      "denominator": 125,
+      "denominatorType": "valid questionnaire responses",
+      "label": "starburst：severity = severe（6 個月）",
+      "value": 16,
+      "unit": "%",
+      "sourceIds": [
+        "S3"
+      ],
+      "outcomeDomain": "severity",
+      "responseCategory": "severe"
+    },
+    {
+      "key": "bothersomeness_very_much_starburst",
+      "denominator": 125,
+      "denominatorType": "valid questionnaire responses",
+      "label": "starburst：bothersomeness = bothered very much（6 個月）",
+      "value": 4.8,
+      "unit": "%",
+      "sourceIds": [
+        "S3"
+      ],
+      "outcomeDomain": "bothersomeness",
+      "responseCategory": "bothered very much"
+    }
+  ],
+  "parameterSourceMap": {
+    "taiwan_nhi_special_material_code": [
+      "S1"
+    ],
+    "tfda_license_number": [
+      "S1"
+    ],
+    "taiwan_availability": [
+      "S1"
+    ],
+    "4_m_binocular_ucva": [
+      "S2"
+    ],
+    "60_cm_binocular_ucva": [
+      "S2"
+    ],
+    "40_cm_binocular_va": [
+      "S2"
+    ],
+    "4_m_binocular_bcdva": [
+      "S2"
+    ],
+    "defocus_range": [
+      "S2"
+    ],
+    "defocus_curve": [
+      "S2"
+    ],
+    "contrast_sensitivity_3_cpd": [
+      "S2"
+    ],
+    "contrast_sensitivity_6_cpd": [
+      "S2"
+    ],
+    "contrast_sensitivity_12_cpd": [
+      "S2"
+    ],
+    "contrast_sensitivity_18_cpd": [
+      "S2"
+    ],
+    "spectacle_independence_near": [
+      "S2"
+    ],
+    "spectacle_independence_intermediate": [
+      "S2"
+    ],
+    "severity_severe_glare": [
+      "S3"
+    ],
+    "bothersomeness_very_much_glare": [
+      "S3"
+    ],
+    "severity_severe_halo": [
+      "S3"
+    ],
+    "bothersomeness_very_much_halo": [
+      "S3"
+    ],
+    "severity_severe_starburst": [
+      "S3"
+    ],
+    "bothersomeness_very_much_starburst": [
+      "S3"
+    ]
+  },
+  "sources": [
+    {
+      "label": "S1",
+      "title": null,
+      "sourceType": "Taiwan market / hospital public record",
+      "studyDesign": null,
+      "population": null,
+      "sampleSize": null,
+      "followUp": null,
+      "monocularOrBinocular": null,
+      "correctedOrUncorrected": null,
+      "sourceIdentifier": "TFDA license: 衛部醫器輸字第029127號; Taiwan NHI special material code: FALSNMULT3A1",
+      "url": null,
+      "derivedParameters": [
+        "taiwan_nhi_special_material_code",
+        "tfda_license_number",
+        "taiwan_availability"
+      ]
+    },
+    {
+      "label": "S2",
+      "title": "Visual outcomes and safety after bilateral implantation of a trifocal presbyopia correcting intraocular lens in a Korean population: a prospective single-arm study",
+      "sourceType": "clinical study",
+      "studyDesign": "prospective, multicenter, single-arm",
+      "population": "Korean cataract patients",
+      "sampleSize": "44 subjects / 88 eyes",
+      "followUp": "3 months",
+      "monocularOrBinocular": "binocular (visual acuity and defocus range)",
+      "correctedOrUncorrected": "Endpoint-specific: uncorrected VA and best-corrected distance VA; defocus correction not provided.",
+      "sourceIdentifier": "PMID: 32669090; DOI: 10.1186/s12886-020-01549-z",
+      "url": null,
+      "derivedParameters": [
+        "4_m_binocular_ucva",
+        "60_cm_binocular_ucva",
+        "40_cm_binocular_va",
+        "4_m_binocular_bcdva",
+        "defocus_range",
+        "defocus_curve",
+        "contrast_sensitivity_3_cpd",
+        "contrast_sensitivity_6_cpd",
+        "contrast_sensitivity_12_cpd",
+        "contrast_sensitivity_18_cpd",
+        "spectacle_independence_near",
+        "spectacle_independence_intermediate"
+      ],
+      "implantation": "bilateral"
+    },
+    {
+      "label": "S3",
+      "title": null,
+      "sourceType": "FDA Summary of Safety and Effectiveness Data",
+      "studyDesign": null,
+      "population": null,
+      "study_arm_N": 129,
+      "sampleSize": "PanOptix study arm overall N = 129；不是各問卷結果的共同分母。有效回覆數：glare n = 126、halo n = 127、starburst n = 125（severity 與 bothersomeness 分開記錄）。",
+      "followUp": "6 months",
+      "monocularOrBinocular": null,
+      "correctedOrUncorrected": null,
+      "sourceIdentifier": "PMA: P040020/S087",
+      "url": null,
+      "derivedParameters": [
+        "severity_severe_glare",
+        "bothersomeness_very_much_glare",
+        "severity_severe_halo",
+        "bothersomeness_very_much_halo",
+        "severity_severe_starburst",
+        "bothersomeness_very_much_starburst"
+      ]
+    }
+  ],
+  "websiteSimulation": {
+    "status": "NOT CONNECTED",
+    "title": "Website-derived simulation / visualization",
+    "description": "本頁 clinical observations 未轉換成任何 simulator parameter；現有 demo / heuristic blur、halo、glare、contrast 模擬與本頁證據完全分離。",
+    "sourceIds": []
+  },
+  "disclaimer": "本網站的部分畫面為根據公開研究資料進行之教育性模擬，不等同於個人術後實際視覺結果。本頁依使用者提供的來源與數值轉錄，尚未獨立查核；不同研究條件不可合併為個人預測。S1 的醫院名稱與原始網址尚未提供，最後查核日期尚無資料。"
+}

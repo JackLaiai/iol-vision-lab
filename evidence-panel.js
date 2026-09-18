@@ -16,6 +16,15 @@ function hasValue(value) {
 function formatValue(value, unit) {
   if (!hasValue(value)) return EMPTY_VALUE;
   if (typeof value === "object") {
+    // Display reported observations only; never interpolate or feed the simulator.
+    if (hasValue(value.mean)) {
+      const uncertainty = hasValue(value.uncertainty?.value)
+        ? ` ± ${value.uncertainty.value}${hasValue(value.uncertainty.type) ? ` (${value.uncertainty.type})` : ""}` : "";
+      return `${value.mean}${uncertainty}${hasValue(unit) ? ` ${unit}` : ""}`;
+    }
+    if (hasValue(value.fromDiopters) && hasValue(value.throughDiopters) && hasValue(value.visualAcuityUpperBound)) {
+      return `${value.fromDiopters > 0 ? "+" : ""}${value.fromDiopters} D 至 ${value.throughDiopters} D：VA ${value.comparison} ${value.visualAcuityUpperBound} ${unit || ""}`;
+    }
     if (Array.isArray(value)) return value.length ? value.join("、") : EMPTY_VALUE;
     if (hasValue(value.value)) return `${value.value}${hasValue(value.unit) ? ` ${value.unit}` : ""}`;
     return EMPTY_VALUE;
@@ -33,12 +42,16 @@ function sourceIdsForParameter(record, parameter) {
 }
 
 function parameterLabelsByKey(record) {
-  return Object.fromEntries((record.clinicalParameters || []).map(parameter => [parameter.key, parameter.label || parameter.key]));
+  return Object.fromEntries(evidenceParameters(record).map(parameter => [parameter.key, parameter.label || parameter.key]));
+}
+
+function evidenceParameters(record) {
+  return [...(record.clinicalParameters || []), ...(record.product?.marketEvidence || [])];
 }
 
 function parameterKeysForSource(record, sourceLabel) {
   const keys = [];
-  (record.clinicalParameters || []).forEach(parameter => {
+  evidenceParameters(record).forEach(parameter => {
     if (sourceIdsForParameter(record, parameter).includes(sourceLabel)) keys.push(parameter.key);
   });
   return uniqueStrings(keys);
@@ -51,7 +64,7 @@ function validateEvidenceRecord(record) {
     errors.push("缺少以 clinical-record.template.json 為基礎的 clinicalRecord。");
   }
 
-  const parameters = Array.isArray(record.clinicalParameters) ? record.clinicalParameters : [];
+  const parameters = evidenceParameters(record);
   const sources = Array.isArray(record.sources) ? record.sources : [];
   const parameterKeys = new Set();
   parameters.forEach(parameter => {
@@ -124,6 +137,7 @@ function renderClinicalParameters(record) {
 }
 
 const sourceFields = [
+  ["Implantation", "implantation"],
   ["Study design", "studyDesign"],
   ["Population", "population"],
   ["Sample size", "sampleSize"],
@@ -230,6 +244,17 @@ function renderEvidencePanel(record, product = null) {
   if (errors.length) throw new Error(errors.join(" "));
   if (product) renderCatalogProduct(product);
   else renderProduct(record);
+  // Taiwan market claims stay with product data, outside clinical observations.
+  const productFields = document.querySelector("#product-fields");
+  productFields.querySelectorAll("[data-market-evidence]").forEach(field => field.remove());
+  (record.product?.marketEvidence || []).forEach(parameter => {
+    const field = createSourceField(parameter.label || parameter.key, "value", parameter);
+    field.dataset.marketEvidence = parameter.key;
+    const markers = createElement("span", "source-markers");
+    sourceIdsForParameter(record, parameter).forEach(id => markers.append(createSourceMarker(id, parameter.label || parameter.key)));
+    field.querySelector("dd").append(markers);
+    productFields.append(field);
+  });
   renderSourceTypeBadges(record);
   document.querySelector("#last-verified-date").textContent = formatValue(record.lastVerifiedDate);
   renderClinicalParameters(record);
