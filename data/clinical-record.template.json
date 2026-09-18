@@ -1,0 +1,76 @@
+{
+  "schemaVersion": "1.0.0",
+  "recordId": null,
+  "dataStatus": "TODO",
+  "manufacturer": null,
+  "model": null,
+  "iolType": null,
+  "study": {
+    "design": null,
+    "arm": null,
+    "population": null
+  },
+  "measurementContext": {
+    "viewingCondition": null,
+    "correctionStatus": null,
+    "correctionDetails": null,
+    "followUpDuration": { "value": null, "unit": null },
+    "sampleSize": { "value": null, "unit": null },
+    "pupilCondition": {
+      "diameterMm": null,
+      "dilationStatus": null,
+      "illumination": null,
+      "measurementMethod": null
+    }
+  },
+  "defocusCurve": {
+    "visualAcuityUnit": "logMAR",
+    "defocusUnit": "D",
+    "testDistanceM": null,
+    "chart": null,
+    "points": null
+  },
+  "contrastSensitivity": {
+    "test": null,
+    "unit": null,
+    "spatialFrequencyUnit": null,
+    "illumination": null,
+    "glareCondition": null,
+    "points": null
+  },
+  "halo": {
+    "instrument": null,
+    "endpoint": null,
+    "scale": null,
+    "value": null,
+    "unit": null,
+    "numerator": null,
+    "denominator": null,
+    "uncertainty": null
+  },
+  "glare": {
+    "instrument": null,
+    "endpoint": null,
+    "scale": null,
+    "value": null,
+    "unit": null,
+    "numerator": null,
+    "denominator": null,
+    "uncertainty": null
+  },
+  "source": {
+    "title": null,
+    "doi": null,
+    "pmid": null,
+    "fdaSource": { "url": null, "documentId": null },
+    "url": null,
+    "locator": null,
+    "extractionMethod": null
+  },
+  "review": {
+    "status": "TODO",
+    "reviewer": null,
+    "reviewedAt": null
+  },
+  "missingDataNotes": "TODO: populate only from traceable, reviewed sources."
+}

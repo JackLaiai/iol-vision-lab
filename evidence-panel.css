@@ -1,0 +1,49 @@
+/* Detail-page-only styles: the existing simulator does not load this file. */
+.iol-detail .detail-main {padding-top:52px;padding-bottom:72px}
+.iol-detail .detail-back {margin-left:auto;color:var(--blue);font-size:14px}
+.iol-detail .detail-heading {margin-bottom:32px}
+.iol-detail h1 {font-size:36px;letter-spacing:-.03em;margin:10px 0}
+.iol-detail p {color:#526975}
+.iol-detail .evidence-panel {display:block;padding:0;overflow:hidden;background:#fff;box-shadow:var(--shadow)}
+.iol-detail .evidence-summary {padding:32px;background:linear-gradient(135deg,#eef8f8,#f7fbfd)}
+.iol-detail .evidence-summary h2 {margin:8px 0;font-size:32px}
+.iol-detail .summary-fields {display:flex;gap:40px;flex-wrap:wrap;margin:24px 0 12px}
+.iol-detail dt {font-size:12px;color:#526975}
+.iol-detail dd {margin:6px 0 0;overflow-wrap:anywhere}
+.iol-detail .source-types {font-size:13px}
+.iol-detail .disclaimer-box {border-left:3px solid var(--teal);background:#fff;padding:18px 20px;border-radius:0 12px 12px 0;margin-top:24px}
+.iol-detail .disclaimer-box p {font-size:14px;margin:8px 0 0}
+.iol-detail .evidence-distinction {display:grid;grid-template-columns:1.2fr 1fr;gap:28px;padding:32px}
+.iol-detail h3 {font-size:19px;line-height:1.4;margin:14px 0 8px}
+.iol-detail .evidence-distinction p {font-size:14px}
+.iol-detail .evidence-badge {display:inline-block;padding:6px 10px;border-radius:8px;background:#eaf5f4;color:#215d60;font-size:12px;font-weight:700}
+.iol-detail .evidence-badge.visualization {background:#eef1f6;color:#495c76}
+.iol-detail .clinical-placeholders {margin-bottom:0}
+.iol-detail .evidence-metric {display:flex;align-items:baseline;justify-content:space-between;gap:12px;border-bottom:1px solid var(--line);padding:10px 0}
+.iol-detail .evidence-metric dd {font-size:14px;margin:0}
+.iol-detail .source-marker {color:var(--blue);text-decoration:underline;text-underline-offset:3px}
+.iol-detail .empty-visual {padding:40px 18px;text-align:center;border:1px dashed #b8cad3;border-radius:16px;background:var(--soft);color:#526975;margin-top:24px}
+.iol-detail .evidence-details {border-top:1px solid var(--line)}
+.iol-detail summary {padding:24px 32px;cursor:pointer;font-weight:700}
+.iol-detail summary span {font-size:12px;font-weight:400;color:#526975;margin-left:12px}
+.iol-detail .source-list {display:grid;gap:18px;padding:0 32px 32px}
+.iol-detail .source-card {border:1px solid var(--line);border-radius:18px;padding:24px;scroll-margin-top:96px}
+.iol-detail .source-card:target {border-color:var(--blue);box-shadow:0 0 0 2px #dceef2}
+.iol-detail .source-card header p {font-size:13px}
+.iol-detail .source-fields {display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px 28px}
+.iol-detail .source-fields dd {font-size:14px}
+.iol-detail .parameter-links {border-top:1px solid var(--line);padding-top:16px;margin-top:20px}
+.iol-detail h4 {font-size:14px;margin:0}
+.iol-detail .parameter-links p {font-size:14px;margin-bottom:0}
+.iol-detail #sources-evidence {scroll-margin-top:96px}
+.iol-detail a:focus-visible,.iol-detail summary:focus-visible {outline:3px solid var(--blue);outline-offset:4px;border-radius:3px}
+@media(max-width:640px) {
+  .iol-detail .detail-main {padding:32px 16px}
+  .iol-detail h1 {font-size:28px}
+  .iol-detail .evidence-summary,.iol-detail .evidence-distinction {padding:22px}
+  .iol-detail .evidence-distinction,.iol-detail .source-fields {grid-template-columns:1fr}
+  .iol-detail .source-list {padding:0 16px 20px}
+  .iol-detail .source-card {padding:18px}
+  .iol-detail summary {padding:20px}
+  .iol-detail summary span {display:block;margin:8px 0 0}
+}

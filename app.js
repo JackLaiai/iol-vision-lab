@@ -1,43 +1,13 @@
+// Current renderer explicitly uses demo / heuristic data only.
+// Clinical records are separate and must not fall back to these values.
+// DEMO / HEURISTIC DATA: not published clinical data; cannot be used for real IOL prediction.
+// Category profiles (far/intermediate/near/dys), base halo/glare/contrast and blur
+// are defined in data/demo-lenses.js for all four IOL categories.
+const lensData = demoLensData;
 
-const lensData = {
-  monofocal: {
-    name:"Monofocal｜單焦點",
-    short:"Monofocal",
-    profile:{far:96,intermediate:58,near:28,dys:18},
-    base:{halo:10,glare:14,contrast:103},
-    blur:{street:0.2,computer:1.25,phone:2.45,night:0.45,restaurant:1.05},
-    desc:"通常以單一主要焦點為設計核心，常見設定是優先遠距離清晰。",
-    bullets:["遠距離通常最穩定","中近距離常需眼鏡輔助","夜間光暈通常較少"]
-  },
-  enhanced: {
-    name:"Enhanced Monofocal｜增強型單焦點",
-    short:"Enhanced",
-    profile:{far:94,intermediate:74,near:38,dys:25},
-    base:{halo:16,glare:18,contrast:100},
-    blur:{street:0.25,computer:.72,phone:1.85,night:.48,restaurant:.75},
-    desc:"在維持單焦點設計精神下，嘗試延伸部分中距離視覺。",
-    bullets:["遠距離表現通常良好","中距離可能優於傳統單焦點","近距離仍可能需要眼鏡"]
-  },
-  edof: {
-    name:"EDOF｜延伸焦深",
-    short:"EDOF",
-    profile:{far:91,intermediate:88,near:58,dys:42},
-    base:{halo:28,glare:27,contrast:94},
-    blur:{street:.34,computer:.34,phone:1.05,night:.65,restaurant:.38},
-    desc:"藉由延伸焦深，強調遠距離到中距離之間較連續的視覺範圍。",
-    bullets:["遠至中距離通常較連續","近距離依設計與個體而異","夜間光學現象可能增加"]
-  },
-  trifocal: {
-    name:"Trifocal｜三焦點",
-    short:"Trifocal",
-    profile:{far:88,intermediate:91,near:88,dys:67},
-    base:{halo:52,glare:45,contrast:88},
-    blur:{street:.42,computer:.25,phone:.28,night:.8,restaurant:.3},
-    desc:"同時配置遠、中、近焦點，以降低多距離情境下的眼鏡依賴。",
-    bullets:["遠中近距離涵蓋較完整","較可能降低近用眼鏡依賴","halo / glare 較需要討論"]
-  }
-};
-
+// Demo scene distances are labels, not measured optical inputs.
+// DEMO / HEURISTIC DATA: not published clinical data; cannot be used for real IOL prediction.
+// Distance labels are illustrative scene settings, not clinical measurements.
 const scenes = {
   street:{name:"遠距離街景",distance:"5 m+",hint:"道路、招牌、遠方物體",className:"scene-street"},
   computer:{name:"電腦工作",distance:"60–80 cm",hint:"螢幕與桌面工作距離",className:"scene-computer"},
@@ -47,6 +17,9 @@ const scenes = {
 };
 
 let currentScene = "street";
+// Demo / heuristic defaults; not patient measurements.
+// DEMO / HEURISTIC DATA: not published clinical data; cannot be used for real IOL prediction.
+// Initial halo, glare, contrast, residual astigmatism and pupil are demo inputs.
 let settings = {halo:38,glare:26,contrast:92,astig:.2,pupil:3.4};
 
 const $ = s => document.querySelector(s);
@@ -72,6 +45,10 @@ Object.entries(scenes).forEach(([key,scene])=>{
   $("#sceneTabs").appendChild(b);
 });
 
+// Demo / heuristic model: all weights, thresholds and limits are unvalidated.
+// DEMO / HEURISTIC DATA: not published clinical data; cannot be used for real IOL prediction.
+// Night/pupil multipliers, blending weights, contrast/blur coefficients and clamps
+// are manually assigned effects, with no validated clinical prediction mapping.
 function effective(side){
   const lens = lensData[$(`#lens${side}`).value];
   const scene = scenes[currentScene];
@@ -85,6 +62,9 @@ function effective(side){
   return {lens,scene,halo,glare,contrast,blur};
 }
 
+// Demo rendering coefficients map to CSS effects, not clinical units.
+// DEMO / HEURISTIC DATA: not published clinical data; cannot be used for real IOL prediction.
+// CSS blur, contrast, saturation, scale and overlay opacity coefficients are visual effects.
 function renderSide(side){
   const e=effective(side);
   const frame=$(`#scene${side}`);
@@ -100,6 +80,8 @@ function renderSide(side){
   $(`#sceneName${side}`).textContent=e.scene.name;
   $(`#sceneHint${side}`).textContent=e.scene.hint;
 
+  // DEMO / HEURISTIC DATA: not published clinical data; cannot be used for real IOL prediction.
+  // Scores and /100 bars are illustrative; dys is not an incidence rate.
   const p=e.lens.profile;
   $(`#profile${side}`).innerHTML=[
     ["遠距離",p.far],["中距離",p.intermediate],["近距離",p.near],["夜間光學現象",100-p.dys]
@@ -112,6 +94,8 @@ function render(){
 }
 $("#lensLeft").onchange=render; $("#lensRight").onchange=render;
 
+// DEMO / HEURISTIC DATA: not published clinical data; cannot be used for real IOL prediction.
+// Slider unit formatting (D/mm/%) does not validate the underlying demo inputs.
 const controlMap = [
   ["haloControl","halo","haloOut",v=>v],
   ["glareControl","glare","glareOut",v=>v],
@@ -129,6 +113,9 @@ controlMap.forEach(([id,key,out,fmt,transform])=>{
   };
 });
 
+// Demo / heuristic presets, including astigmatism and pupil values.
+// DEMO / HEURISTIC DATA: not published clinical data; cannot be used for real IOL prediction.
+// All night/computer/reading preset values are manually assigned demo settings.
 $$("[data-preset]").forEach(btn=>btn.onclick=()=>{
   const p=btn.dataset.preset;
   if(p==="night"){currentScene="night"; settings={halo:58,glare:52,contrast:83,astig:.4,pupil:5.0};}
@@ -136,6 +123,8 @@ $$("[data-preset]").forEach(btn=>btn.onclick=()=>{
   if(p==="reading"){currentScene="phone"; settings={halo:20,glare:16,contrast:101,astig:.1,pupil:2.8};}
   syncControls(); render();
 });
+// DEMO / HEURISTIC DATA: not published clinical data; cannot be used for real IOL prediction.
+// Display conversions only; D/mm labels do not turn presets into clinical measurements.
 function syncControls(){
   $("#haloControl").value=settings.halo; $("#haloOut").value=settings.halo;
   $("#glareControl").value=settings.glare; $("#glareOut").value=settings.glare;
@@ -145,6 +134,9 @@ function syncControls(){
 }
 
 Object.entries(lensData).forEach(([key,lens],idx)=>{
+  // Demo categorical coverage indicators, not measured outcomes.
+  // DEMO / HEURISTIC DATA: not published clinical data; cannot be used for real IOL prediction.
+  // Binary near/intermediate/far coverage flags are illustrative category assignments.
   const active = key==="monofocal" ? [0,0,1] : key==="enhanced" ? [0,1,1] : key==="edof" ? [0,1,1] : [1,1,1];
   const labels=["Near","Intermediate","Far"];
   const card=document.createElement("article"); card.className="type-card";
@@ -152,6 +144,8 @@ Object.entries(lensData).forEach(([key,lens],idx)=>{
   $("#typeGrid").appendChild(card);
 });
 
+// DEMO / HEURISTIC DATA: not published clinical data; cannot be used for real IOL prediction.
+// Reading/computer distance labels are illustrative, not measured patient data.
 const lifestyle = {
   "夜間開車":"夜間視覺與 dysphotopsia",
   "手機":"35–40 cm 近距離",
