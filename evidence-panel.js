@@ -413,6 +413,16 @@ function renderEvidencePanel(record, product = null) {
   renderClinicalParameters(record);
   renderSourceCards(record);
   window.DefocusCalculator.mount(document.querySelector("#distance-calculator"), record);
+  const chartContainer = document.getElementById("defocus-chart");
+  const numericalSource = (record.sources || []).find(source => Array.isArray(source.defocus_points) && source.defocus_points.some(p => Number.isFinite(p.defocus_D) && Number.isFinite(p.mean_logMAR)));
+  const input = document.getElementById("viewing-distance-cm");
+  const chart = window.DefocusChart.mount(chartContainer, {
+    points: numericalSource?.defocus_points, source: numericalSource,
+    measurementConditions: numericalSource ? [numericalSource.measurement, numericalSource.follow_up ?? numericalSource.followUp, numericalSource.lighting_condition, numericalSource.visual_acuity_unit, numericalSource.panoptix_subgroup ?? numericalSource.sampleSize] : [],
+    selectedDistanceCm: input?.valueAsNumber,
+    calculate: distance => window.DefocusCalculator.calculate(distance, record)
+  });
+  if (input) input.addEventListener("input", () => chart.update(input.valueAsNumber));
   renderSimulation(record);
   renderOpticalEvidence(record);
   renderDisclaimer(record);
