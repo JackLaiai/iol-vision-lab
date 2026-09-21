@@ -273,6 +273,265 @@
         "P1"
       ],
       "study_id": "SON2026_PURESEE_EYHANCE"
+    },
+    {
+      "key": "kim2025_dysphotopsia_halo",
+      "label": "P2 · Dysphotopsia · halo（3 months）",
+      "evidenceCategory": "dysphotopsia",
+      "value": {
+        "count": 4,
+        "denominator": 25,
+        "percentage": 16
+      },
+      "unit": "%",
+      "count": 4,
+      "denominator": 25,
+      "percentage": 16,
+      "denominatorType": "questionnaire patients",
+      "between_group_p": {
+        "operator": "=",
+        "value": 0.66
+      },
+      "sourceIds": [
+        "P2"
+      ],
+      "study_id": "KIM2025_PURESEE_EYHANCE",
+      "measurementContext": {
+        "followUpDuration": {
+          "value": 3,
+          "unit": "months"
+        },
+        "instrument": "questionnaire",
+        "scale": null
+      }
+    },
+    {
+      "key": "kim2025_dysphotopsia_glare",
+      "label": "P2 · Dysphotopsia · glare（3 months）",
+      "evidenceCategory": "dysphotopsia",
+      "value": {
+        "count": 4,
+        "denominator": 25,
+        "percentage": 16
+      },
+      "unit": "%",
+      "count": 4,
+      "denominator": 25,
+      "percentage": 16,
+      "denominatorType": "questionnaire patients",
+      "between_group_p": {
+        "operator": "=",
+        "value": 0.11
+      },
+      "sourceIds": [
+        "P2"
+      ],
+      "study_id": "KIM2025_PURESEE_EYHANCE",
+      "measurementContext": {
+        "followUpDuration": {
+          "value": 3,
+          "unit": "months"
+        },
+        "instrument": "questionnaire",
+        "scale": null
+      }
+    },
+    {
+      "key": "kim2025_dysphotopsia_starburst",
+      "label": "P2 · Dysphotopsia · starburst（3 months）",
+      "evidenceCategory": "dysphotopsia",
+      "value": {
+        "count": 1,
+        "denominator": 25,
+        "percentage": 4
+      },
+      "unit": "%",
+      "count": 1,
+      "denominator": 25,
+      "percentage": 4,
+      "denominatorType": "questionnaire patients",
+      "between_group_p": {
+        "operator": "=",
+        "value": 1.0
+      },
+      "sourceIds": [
+        "P2"
+      ],
+      "study_id": "KIM2025_PURESEE_EYHANCE",
+      "measurementContext": {
+        "followUpDuration": {
+          "value": 3,
+          "unit": "months"
+        },
+        "instrument": "questionnaire",
+        "scale": null
+      }
+    },
+    {
+      "key": "kim2025_spectacle_dependence_distance",
+      "label": "P2 · Spectacle dependence（需要眼鏡） · distance（3 months）",
+      "evidenceCategory": "spectacle_dependence",
+      "value": {
+        "count": 0,
+        "denominator": 25,
+        "percentage": null
+      },
+      "unit": "%",
+      "count": 0,
+      "denominator": 25,
+      "percentage": null,
+      "denominatorType": "questionnaire patients",
+      "between_group_p": {
+        "operator": "=",
+        "value": 1.0
+      },
+      "sourceIds": [
+        "P2"
+      ],
+      "study_id": "KIM2025_PURESEE_EYHANCE",
+      "measurementContext": {
+        "followUpDuration": {
+          "value": 3,
+          "unit": "months"
+        },
+        "instrument": "questionnaire",
+        "scale": null
+      }
+    },
+    {
+      "key": "kim2025_spectacle_dependence_intermediate",
+      "label": "P2 · Spectacle dependence（需要眼鏡） · intermediate（3 months）",
+      "evidenceCategory": "spectacle_dependence",
+      "value": {
+        "count": 1,
+        "denominator": 25,
+        "percentage": 4
+      },
+      "unit": "%",
+      "count": 1,
+      "denominator": 25,
+      "percentage": 4,
+      "denominatorType": "questionnaire patients",
+      "between_group_p": {
+        "operator": "=",
+        "value": 1.0
+      },
+      "sourceIds": [
+        "P2"
+      ],
+      "study_id": "KIM2025_PURESEE_EYHANCE",
+      "measurementContext": {
+        "followUpDuration": {
+          "value": 3,
+          "unit": "months"
+        },
+        "instrument": "questionnaire",
+        "scale": null
+      }
+    },
+    {
+      "key": "kim2025_spectacle_dependence_near",
+      "label": "P2 · Spectacle dependence（需要眼鏡） · near（3 months）",
+      "evidenceCategory": "spectacle_dependence",
+      "value": {
+        "count": 9,
+        "denominator": 25,
+        "percentage": 36
+      },
+      "unit": "%",
+      "count": 9,
+      "denominator": 25,
+      "percentage": 36,
+      "denominatorType": "questionnaire patients",
+      "between_group_p": {
+        "operator": "=",
+        "value": 0.002
+      },
+      "sourceIds": [
+        "P2"
+      ],
+      "study_id": "KIM2025_PURESEE_EYHANCE",
+      "measurementContext": {
+        "followUpDuration": {
+          "value": 3,
+          "unit": "months"
+        },
+        "instrument": "questionnaire",
+        "scale": null
+      }
+    },
+    {
+      "key": "kim2025_satisfaction_satisfied",
+      "label": "P2 · Satisfaction（病人問卷，非 clinical efficacy） · satisfied（3 months）",
+      "evidenceCategory": "satisfaction",
+      "value": {
+        "count": 24,
+        "denominator": 25,
+        "percentage": 96
+      },
+      "unit": "%",
+      "count": 24,
+      "denominator": 25,
+      "percentage": 96,
+      "denominatorType": "questionnaire patients",
+      "between_group_p": {
+        "operator": "=",
+        "value": 1.0
+      },
+      "sourceIds": [
+        "P2"
+      ],
+      "study_id": "KIM2025_PURESEE_EYHANCE",
+      "measurementContext": {
+        "followUpDuration": {
+          "value": 3,
+          "unit": "months"
+        },
+        "instrument": "questionnaire",
+        "scale": null
+      }
+    },
+    {
+      "key": "kim2025_satisfaction_would_recommend_same_IOL",
+      "label": "P2 · Satisfaction（病人問卷，非 clinical efficacy） · would recommend same IOL（3 months）",
+      "evidenceCategory": "satisfaction",
+      "value": {
+        "count": 25,
+        "denominator": 25,
+        "percentage": 100
+      },
+      "unit": "%",
+      "count": 25,
+      "denominator": 25,
+      "percentage": 100,
+      "denominatorType": "questionnaire patients",
+      "between_group_p": {
+        "operator": "=",
+        "value": 1.0
+      },
+      "sourceIds": [
+        "P2"
+      ],
+      "study_id": "KIM2025_PURESEE_EYHANCE",
+      "measurementContext": {
+        "followUpDuration": {
+          "value": 3,
+          "unit": "months"
+        },
+        "instrument": "questionnaire",
+        "scale": null
+      }
+    },
+    {
+      "key": "kim2025_contrast_sensitivity_qualitative",
+      "label": "P2 · Contrast sensitivity（figure / qualitative structured evidence）",
+      "evidenceCategory": "contrast_sensitivity",
+      "value": "Photopic / mesopic, without glare. No statistically significant between-group differences reported across spatial frequencies; not evidence of equivalence. No numerical points supplied.",
+      "unit": null,
+      "sourceIds": [
+        "P2"
+      ],
+      "study_id": "KIM2025_PURESEE_EYHANCE"
     }
   ],
   "parameterSourceMap": {
@@ -308,6 +567,33 @@
     ],
     "taiwan_models": [
       "TW2"
+    ],
+    "kim2025_dysphotopsia_halo": [
+      "P2"
+    ],
+    "kim2025_dysphotopsia_glare": [
+      "P2"
+    ],
+    "kim2025_dysphotopsia_starburst": [
+      "P2"
+    ],
+    "kim2025_spectacle_dependence_distance": [
+      "P2"
+    ],
+    "kim2025_spectacle_dependence_intermediate": [
+      "P2"
+    ],
+    "kim2025_spectacle_dependence_near": [
+      "P2"
+    ],
+    "kim2025_satisfaction_satisfied": [
+      "P2"
+    ],
+    "kim2025_satisfaction_would_recommend_same_IOL": [
+      "P2"
+    ],
+    "kim2025_contrast_sensitivity_qualitative": [
+      "P2"
     ]
   },
   "sources": [
@@ -401,6 +687,56 @@
         ],
         "notes": "依使用者提供的 TFDA-derived public dataset 登錄；尚未直接向 TFDA 官網核對。資料集名稱與網址未提供。"
       }
+    },
+    {
+      "label": "P2",
+      "study_id": "KIM2025_PURESEE_EYHANCE",
+      "title": "Comparative Outcomes of the Next-Generation Extended Depth-of-Focus Intraocular Lens and Enhanced Monofocal Intraocular Lens in Cataract Surgery",
+      "sourceType": "adult clinical study",
+      "studyDesign": "single-center retrospective comparative study",
+      "sampleSize": "50 patients / 100 eyes total; questionnaire n = 25 patients per group",
+      "followUp": "3 months",
+      "implantation": "bilateral",
+      "study_model": "ZEN00V",
+      "monocularOrBinocular": null,
+      "correctedOrUncorrected": null,
+      "sourceIdentifier": "DOI: 10.3390/jcm14144967; PMID: 40725660; PMCID: PMC12295884",
+      "DOI": "10.3390/jcm14144967",
+      "PMID": "40725660",
+      "PMCID": "PMC12295884",
+      "url": null,
+      "contrast_sensitivity": {
+        "contrast_sensitivity_available": true,
+        "numerical_points_available": false,
+        "evidence_type": "figure / qualitative structured evidence",
+        "photopic": "available",
+        "mesopic": "available",
+        "glare_condition": "without glare",
+        "points": null,
+        "qualitative_result": "No statistically significant between-group differences reported across spatial frequencies. This does not establish equivalence."
+      },
+      "derivedParameters": [
+        "kim2025_dysphotopsia_halo",
+        "kim2025_dysphotopsia_glare",
+        "kim2025_dysphotopsia_starburst",
+        "kim2025_spectacle_dependence_distance",
+        "kim2025_spectacle_dependence_intermediate",
+        "kim2025_spectacle_dependence_near",
+        "kim2025_satisfaction_satisfied",
+        "kim2025_satisfaction_would_recommend_same_IOL",
+        "kim2025_contrast_sensitivity_qualitative"
+      ],
+      "verification": {
+        "status": "verified_primary_or_official_source",
+        "verified_date": "2026-09-21",
+        "verified_against": [
+          "PMID 40725660",
+          "PMCID PMC12295884",
+          "DOI 10.3390/jcm14144967"
+        ],
+        "notes": "依使用者提供的來源核對結果登錄；本次未重新查核原文。只加入 patient-reported outcomes 與 qualitative contrast sensitivity，不轉錄 visual acuity、defocus points 或圖像估值。"
+      },
+      "notes": "Spectacle dependence is the reported need for glasses, not calculated independence. Distance dependence percentage was not explicitly supplied and remains null; 0/25 count retained. Satisfaction is not clinical efficacy or website advice."
     }
   ],
   "websiteSimulation": {
@@ -535,6 +871,216 @@
         ],
         "measured_range_D": null,
         "review_status": "User-provided transcription; independent source review pending"
+      }
+    },
+    {
+      "study_id": "KIM2025_PURESEE_EYHANCE",
+      "arm_id": "puresee",
+      "source": "P2",
+      "study": {
+        "study_id": "KIM2025_PURESEE_EYHANCE",
+        "title": "Comparative Outcomes of the Next-Generation Extended Depth-of-Focus Intraocular Lens and Enhanced Monofocal Intraocular Lens in Cataract Surgery",
+        "journal": "Journal of Clinical Medicine",
+        "year": 2025,
+        "volume": 14,
+        "issue": 14,
+        "article_number": 4967,
+        "DOI": "10.3390/jcm14144967",
+        "PMID": "40725660",
+        "PMCID": "PMC12295884",
+        "design": "single-center retrospective comparative study",
+        "total_sample": {
+          "patients": 50,
+          "eyes": 100
+        },
+        "implantation": "bilateral",
+        "follow_up": "3 months",
+        "refractive_target": null,
+        "measurement_conditions": "Patient-reported questionnaire; denominator 25 patients per group; postoperative 3 months; bilateral implantation. Contrast sensitivity: photopic and mesopic, without glare.",
+        "arms": {
+          "puresee": {
+            "product_family": "TECNIS PureSee",
+            "study_model": "ZEN00V",
+            "patients": 25,
+            "eyes": null,
+            "questionnaire_denominator": 25
+          },
+          "eyhance": {
+            "product_family": "TECNIS Eyhance",
+            "study_model": "ICB00",
+            "patients": 25,
+            "eyes": null,
+            "questionnaire_denominator": 25
+          }
+        },
+        "outcomes": [],
+        "patient_reported_outcomes": [
+          {
+            "domain": "dysphotopsia",
+            "label": "Dysphotopsia",
+            "outcomes": [
+              {
+                "endpoint": "halo",
+                "puresee": {
+                  "count": 4,
+                  "denominator": 25,
+                  "percentage": 16
+                },
+                "eyhance": {
+                  "count": 2,
+                  "denominator": 25,
+                  "percentage": 8
+                },
+                "between_group_p": {
+                  "operator": "=",
+                  "value": 0.66
+                }
+              },
+              {
+                "endpoint": "glare",
+                "puresee": {
+                  "count": 4,
+                  "denominator": 25,
+                  "percentage": 16
+                },
+                "eyhance": {
+                  "count": 0,
+                  "denominator": 25,
+                  "percentage": 0
+                },
+                "between_group_p": {
+                  "operator": "=",
+                  "value": 0.11
+                }
+              },
+              {
+                "endpoint": "starburst",
+                "puresee": {
+                  "count": 1,
+                  "denominator": 25,
+                  "percentage": 4
+                },
+                "eyhance": {
+                  "count": 0,
+                  "denominator": 25,
+                  "percentage": 0
+                },
+                "between_group_p": {
+                  "operator": "=",
+                  "value": 1.0
+                }
+              }
+            ]
+          },
+          {
+            "domain": "spectacle_dependence",
+            "label": "Spectacle dependence（需要眼鏡）",
+            "outcomes": [
+              {
+                "endpoint": "distance",
+                "puresee": {
+                  "count": 0,
+                  "denominator": 25,
+                  "percentage": null
+                },
+                "eyhance": {
+                  "count": 0,
+                  "denominator": 25,
+                  "percentage": null
+                },
+                "between_group_p": {
+                  "operator": "=",
+                  "value": 1.0
+                }
+              },
+              {
+                "endpoint": "intermediate",
+                "puresee": {
+                  "count": 1,
+                  "denominator": 25,
+                  "percentage": 4
+                },
+                "eyhance": {
+                  "count": 1,
+                  "denominator": 25,
+                  "percentage": 4
+                },
+                "between_group_p": {
+                  "operator": "=",
+                  "value": 1.0
+                }
+              },
+              {
+                "endpoint": "near",
+                "puresee": {
+                  "count": 9,
+                  "denominator": 25,
+                  "percentage": 36
+                },
+                "eyhance": {
+                  "count": 20,
+                  "denominator": 25,
+                  "percentage": 80
+                },
+                "between_group_p": {
+                  "operator": "=",
+                  "value": 0.002
+                }
+              }
+            ]
+          },
+          {
+            "domain": "satisfaction",
+            "label": "Satisfaction（病人問卷，非 clinical efficacy）",
+            "outcomes": [
+              {
+                "endpoint": "satisfied",
+                "puresee": {
+                  "count": 24,
+                  "denominator": 25,
+                  "percentage": 96
+                },
+                "eyhance": {
+                  "count": 23,
+                  "denominator": 25,
+                  "percentage": 92
+                },
+                "between_group_p": {
+                  "operator": "=",
+                  "value": 1.0
+                }
+              },
+              {
+                "endpoint": "would recommend same IOL",
+                "puresee": {
+                  "count": 25,
+                  "denominator": 25,
+                  "percentage": 100
+                },
+                "eyhance": {
+                  "count": 25,
+                  "denominator": 25,
+                  "percentage": 100
+                },
+                "between_group_p": {
+                  "operator": "=",
+                  "value": 1.0
+                }
+              }
+            ]
+          }
+        ],
+        "contrast_sensitivity": {
+          "contrast_sensitivity_available": true,
+          "numerical_points_available": false,
+          "evidence_type": "figure / qualitative structured evidence",
+          "photopic": "available",
+          "mesopic": "available",
+          "glare_condition": "without glare",
+          "points": null,
+          "qualitative_result": "No statistically significant between-group differences reported across spatial frequencies. This does not establish equivalence."
+        },
+        "review_status": "Verification recorded from user-provided source review; this update does not independently recheck the paper."
       }
     }
   ]

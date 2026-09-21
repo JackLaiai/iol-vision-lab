@@ -16,6 +16,9 @@ function hasValue(value) {
 function formatValue(value, unit) {
   if (!hasValue(value)) return EMPTY_VALUE;
   if (typeof value === "object") {
+    if (Number.isFinite(value.count) && Number.isFinite(value.denominator)) {
+      return `${value.count}/${value.denominator}${Number.isFinite(value.percentage) ? ` (${value.percentage}%)` : "（percentage 未轉錄）"}`;
+    }
     // Display reported observations only; never interpolate or feed the simulator.
     if (hasValue(value.mean)) {
       const uncertainty = hasValue(value.uncertainty?.value)
@@ -126,7 +129,7 @@ function renderClinicalParameters(record) {
   const grouped = Array.isArray(record.in_vivo_optical_quality);
   const targets = {};
   if (grouped) {
-    for (const [key, title] of [["va", "Clinical visual acuity"], ["vivo", "In-vivo optical quality"], ["defocus", "Defocus curve qualitative evidence"]]) {
+    for (const [key, title] of [["va", "Clinical visual acuity"], ["vivo", "In-vivo optical quality"], ["defocus", "Defocus curve qualitative evidence"], ["questionnaire", "Patient-reported outcomes"], ["contrast", "Contrast sensitivity"]]) {
       const group = createElement("div", "clinical-group");
       const heading = createElement("dt", "", title);
       const body = createElement("dd");
@@ -150,6 +153,7 @@ function renderClinicalParameters(record) {
         curves.forEach(source => value.append(renderDefocusTable(source)));
       }
     }
+    if (parameter.between_group_p) value.append(createElement("p", "", `Between-group p ${parameter.between_group_p.operator} ${parameter.between_group_p.value}`));
     const markers = createElement("span", "source-markers");
     sourceIdsForParameter(record, parameter).forEach(sourceId => markers.append(createSourceMarker(sourceId, label)));
     value.append(markers);
@@ -157,7 +161,7 @@ function renderClinicalParameters(record) {
     if (grouped) {
       const vivo = record.in_vivo_optical_quality.includes(parameter);
       if (vivo) value.append(createElement("p", "", `Measurement conditions: ${parameter.measurementContext.measurement_system}; pupil ${parameter.measurementContext.pupil_mm} mm; postoperative ${parameter.measurementContext.followUpDuration.value} ${parameter.measurementContext.followUpDuration.unit}.`));
-      targets[vivo ? "vivo" : parameter.key.includes("defocus") ? "defocus" : "va"].append(row);
+      targets[vivo ? "vivo" : parameter.evidenceCategory === "contrast_sensitivity" ? "contrast" : ["dysphotopsia", "spectacle_dependence", "satisfaction"].includes(parameter.evidenceCategory) ? "questionnaire" : parameter.key.includes("defocus") ? "defocus" : "va"].append(row);
     } else container.append(row);
   });
 }

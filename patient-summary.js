@@ -21,7 +21,7 @@
    }else if(i>0&&(coverage[1].status!=='Not structured yet'||coverage[2].status!=='Not structured yet')){status='Partial / qualitative only';lines.push('有離焦曲線相關資料；不能直接代替特定距離的日常未矯正視力測量。');}else lines.push('目前網站尚未整理足夠資料');
    add(title,status,lines,matches.length?'#clinical-parameters':'#defocus-chart');
   });
-  add('光暈／眩光等視覺現象',coverage[5].status,[coverage[5].status==='Not structured yet'?'目前網站尚未整理足夠資料':'已收錄相關問卷結果；severity 與 bothersomeness 分開保存，請查看各來源條件。'],'#clinical-parameters');
+  add('光暈／眩光等視覺現象',coverage[5].status,[coverage[5].status==='Not structured yet'?'目前網站尚未整理足夠資料':'已收錄相關問卷結果；症狀比例、severity 與 bothersomeness 依原來源分開保存，請查看各來源條件。'],'#clinical-parameters');
   const market=record?.product?.marketEvidence||[];
   const taiwan=[];
   for(const [title,pattern,catalogValue] of [['台灣許可資料',/tfda_license/,product.tfda_license_number],['NHI／特材資料',/nhi/,product.nhi_category]]){
@@ -32,7 +32,7 @@
    taiwan.push(`${title}：${exists?'已有資料':'目前尚未整理'}${verification?' · '+ver[verification]+' ('+verification+')':''}`);
   }
   add('台灣資訊',coverage[12].status,taiwan,'#product-details');
-  const extra=el('p');extra.className='patient-summary-extra';extra.textContent=[[1,'逐點離焦曲線'],[3,'對比敏感度'],[4,'眼鏡獨立性'],[7,'光學平台資料']].map(([i,title])=>`${title}：${i===1&&coverage[i].status==='Partial / qualitative only'?'部分資料（僅定性／圖表證據，尚無逐點數值）':labels[coverage[i].status]}`).join('；');container.append(extra,el('p','研究平均結果不代表個人術後視覺。人工水晶體選擇仍需考量眼部狀況、生活需求與醫師評估。'));
+  const extra=el('p');extra.className='patient-summary-extra';extra.textContent=[[1,'逐點離焦曲線'],[3,'對比敏感度'],[4,'眼鏡獨立性／依賴性資料'],[7,'光學平台資料']].map(([i,title])=>`${title}：${i===1&&coverage[i].status==='Partial / qualitative only'?'部分資料（僅定性／圖表證據，尚無逐點數值）':labels[coverage[i].status]}`).join('；');container.append(extra,el('p','研究平均結果不代表個人術後視覺。人工水晶體選擇仍需考量眼部狀況、生活需求與醫師評估。'));
  }
  window.PatientSummary={mount};
 })();

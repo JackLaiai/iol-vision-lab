@@ -57,8 +57,29 @@
       const right = (b.record.sharedStudies || []).find(s => s.study_id === left.study_id && s.arm_id !== left.arm_id);
       if (!right || JSON.stringify(left.study) !== JSON.stringify(right.study)) continue;
       const s = left.study; box.hidden = false;
-      box.append(el("h2", "Direct head-to-head evidence"), el("p", "Direct head-to-head study · " + s.study_id), el("h3", s.title), fields([["Study design", s.design], ["Total sample", `${s.total_sample.patients} patients / ${s.total_sample.eyes} eyes`], ["Follow-up", s.follow_up], ["Refractive target", `Approximately ${s.refractive_target.from_D} to ${s.refractive_target.to_D} D`], ["Measurement conditions", s.measurement_conditions]]));
-      for (const ref of [left, right]) { const arm = s.arms[ref.arm_id]; box.append(el("p", `${arm.product_family}: ${arm.patients} patients / ${arm.eyes} eyes; study model: ${arm.study_model || "尚無資料（此研究未提供）"}`)); }
+      box.append(el("h2", "Direct head-to-head evidence"), el("p", "Direct head-to-head study · " + s.study_id), el("h3", s.title), fields([["Study design", s.design], ["Total sample", `${s.total_sample.patients} patients / ${s.total_sample.eyes} eyes`], ["Follow-up", s.follow_up], ["Refractive target", s.refractive_target ? `Approximately ${s.refractive_target.from_D} to ${s.refractive_target.to_D} D` : null], ["Measurement conditions", s.measurement_conditions]]));
+      for (const ref of [left, right]) { const arm = s.arms[ref.arm_id]; box.append(el("p", `${arm.product_family}: ${arm.patients} patients / ${arm.eyes ?? "尚無資料"} eyes; study model: ${arm.study_model || "尚無資料（此研究未提供）"}`)); }
+      for (const group of s.patient_reported_outcomes || []) {
+        const section = el("section"); section.dataset.studyId = s.study_id; section.dataset.domain = group.domain;
+        section.append(el("h3", group.label));
+        const table = el("table"), head = el("tr"), thead = el("thead"), tbody = el("tbody");
+        for (const label of ["Questionnaire endpoint", s.arms[left.arm_id].product_family, s.arms[right.arm_id].product_family, "Between-group p-value"]) head.append(el("th", label));
+        thead.append(head); table.append(thead);
+        for (const o of group.outcomes) {
+          const row = el("tr"); row.dataset.endpoint = o.endpoint;
+          row.append(el("td", o.endpoint === "would recommend same IOL" ? "Would recommend same IOL（原問卷項目，非網站建議）" : o.endpoint));
+          for (const ref of [left, right]) { const v = o[ref.arm_id]; row.append(el("td", `${v.count}/${v.denominator}${Number.isFinite(v.percentage) ? ` (${v.percentage}%)` : "（percentage 未轉錄）"}`)); }
+          const p = o.between_group_p; row.append(el("td", `${p.operator} ${p.value.toFixed(p.value < 0.01 && p.value !== 0 ? 3 : 2)}`));
+          tbody.append(row);
+          if (p.operator === "=" && p.value < 0.05) section.append(el("p", `${o.endpoint}：原研究報告組間差異具統計顯著性`));
+        }
+        table.append(tbody); section.append(table); box.append(section);
+      }
+      if (s.patient_reported_outcomes?.length) {
+        box.append(el("p", `Questionnaire denominator：${[left,right].map(ref => `${s.arms[ref.arm_id].product_family} n=${s.arms[ref.arm_id].questionnaire_denominator ?? "尚無資料"} patients`).join("；")}。Spectacle dependence 表示需要眼鏡，未轉算成 independence。未達統計顯著不代表兩組完全相同；滿意度不等於 clinical efficacy。`), el("p", `${s.review_status} · DOI ${s.DOI} · PMID ${s.PMID}`));
+        if (s.contrast_sensitivity) box.append(el("p", `Contrast sensitivity：photopic / mesopic, ${s.contrast_sensitivity.glare_condition}；figure / qualitative structured evidence only。${s.contrast_sensitivity.qualitative_result}`));
+      }
+      if (!s.outcomes?.length) continue;
       const table = el("table"), head = el("tr");
       for (const title of ["Endpoint (logMAR, mean ± SD)", s.arms[left.arm_id].product_family, s.arms[right.arm_id].product_family, "Between-group p-value"]) head.append(el("th", title));
       const thead = el("thead"); thead.append(head); table.append(thead); const tbody = el("tbody");

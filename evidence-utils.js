@@ -1,7 +1,7 @@
 /* Shared structured coverage rules; extracted without changing classifications. */
 (()=>{
  const A="Available", P="Partial / qualitative only", N="Not structured yet";
- const columns=["Clinical visual acuity","Numerical Defocus Curve","Qualitative / figure-only Defocus Curve","Contrast sensitivity","Spectacle independence","Dysphotopsia","In-vivo optical quality","Optical bench MTF","Through-focus MTF numerical","PSF","OTF / PTF","Direct head-to-head evidence","Taiwan regulatory / market evidence"];
+ const columns=["Clinical visual acuity","Numerical Defocus Curve","Qualitative / figure-only Defocus Curve","Contrast sensitivity","Spectacle independence/dependence evidence","Dysphotopsia","In-vivo optical quality","Optical bench MTF","Through-focus MTF numerical","PSF","OTF / PTF","Direct head-to-head evidence","Taiwan regulatory / market evidence"];
  const arr=x=>Array.isArray(x)?x:x?[x]:[];
  const num=x=>typeof x==="number"&&Number.isFinite(x);
  const has=x=>x!==null&&x!==undefined&&x!=="";
@@ -19,6 +19,9 @@
   const curves=sources.filter(s=>arr(s.defocus_points).some(p=>num(p.defocus_D)&&num(p.mean_logMAR)));
   const qualitative=sources.filter(s=>s.defocus_curve_available===true&&s.numerical_points_available===false);
   const ranges=params.filter(p=>/defocus/.test(p.key)&&num(p.value?.visualAcuityUpperBound));
+  const questionnaire=category=>params.filter(p=>p.evidenceCategory===category&&num(p.value?.count)&&num(p.value?.denominator)&&p.value.denominator>0);
+  const contrastQual=sources.filter(s=>s.contrast_sensitivity?.contrast_sensitivity_available===true&&s.contrast_sensitivity?.numerical_points_available===false);
+  const contrastNumeric=endpoints(/^contrast_sensitivity/);
   const mtf=arr(optical.mtf).filter(p=>ids.has(p.source)&&num(p.mtf_value));
   const through=arr(optical.throughFocusMTF).filter(p=>ids.has(p.source)&&num(p.defocus_D)&&num(p.value));
   const figures=sources.filter(s=>s.through_focus_mtf?.figure_available===true);
@@ -34,7 +37,7 @@
   return [from(endpoints(/(?:ucva|bcdva|binocular_va|udva|cdva|uiva|unva)$/),"clinicalParameters 視力 endpoint 的 mean/value 有數值，並連到正式來源。"),
    cell(curves.length?A:qualitative.length||ranges.length?P:N,curves.length?curves.map(s=>s.label):[...qualitative.map(s=>s.label),...ranges.flatMap(sourceIds)],curves.length?"source.defocus_points 同時具有 defocus_D 與 mean_logMAR；未使用 40 cm VA 推導。":"沒有逐點數值；若有 figure/range evidence，僅標記 Partial。"),
    cell(qualitative.length||ranges.length?P:N,[...qualitative.map(s=>s.label),...ranges.flatMap(sourceIds)],"僅根據明確 figure-only flag 或 clinical defocus range summary；不從圖取值。"),
-   from(endpoints(/^contrast_sensitivity/),"對比敏感度 endpoint 有數值。"),from(endpoints(/^spectacle_independence/),"眼鏡獨立性 endpoint 有數值。"),from(endpoints(/^(severity_|bothersomeness_)/),"Severity / bothersomeness 原始 endpoint 分開保存。"),
+   cell(contrastNumeric.length?A:contrastQual.length?P:N,contrastNumeric.length?contrastNumeric.flatMap(sourceIds):contrastQual.map(s=>s.label),"數值 endpoint 與來源明示 figure / qualitative contrast sensitivity 分開判定；不從圖補值。"),from([...endpoints(/^spectacle_independence/),...questionnaire("spectacle_dependence")],"獨立性／依賴性原始 endpoint 依 source wording 分開保存，不互相轉算。"),from([...endpoints(/^(severity_|bothersomeness_)/),...questionnaire("dysphotopsia")],"問卷 count / denominator 或 severity / bothersomeness endpoint 存在；不把症狀比例視為 severity。"),
    from(arr(record?.in_vivo_optical_quality).filter(p=>sourceIds(p).length&&num(p.value?.mean)),"獨立 in_vivo_optical_quality 有結果；不是 bench MTF。"),
    from(mtf,"opticalEvidence.mtf 有 mtf_value 與 source。"),
    cell(through.length?A:figures.length?P:N,through.length?through.map(p=>p.source):figures.map(s=>s.label),through.length?"Through-focus 記錄含 defocus_D 與 value。":"沒有 through-focus numerical table；figure metadata 僅算 Partial。"),
