@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>這些資料怎麼來的？｜IOL Vision Lab</title>
+<meta name="description" content="了解 IOL Vision Lab 如何區分原始研究、光學平台量測、網站計算與待核對資料。">
+<link rel="stylesheet" href="styles.css"><link rel="stylesheet" href="methodology.css">
+</head>
+<body class="methodology">
+<header class="nav-shell"><nav class="nav" aria-label="主要導覽"><a class="brand" href="index.html">IOL Vision Lab</a><a href="iol-catalog.html">Explore IOLs</a><a href="methodology.html" aria-current="page">資料怎麼來的？</a></nav></header>
+<main>
+<header class="method-intro"><p class="method-kicker">METHODOLOGY</p><h1>這些資料怎麼來的？</h1><p>我們區分原始研究結果、網站計算結果與尚未取得的資料，避免把不同層級的證據混在一起。</p></header>
+<nav class="method-contents" aria-label="本頁章節"><a href="#layers">三種資料層級</a><a href="#calculation">直接數值與內插</a><a href="#verification">來源核對</a><a href="#coverage">資料覆蓋</a><a href="#head-to-head">同研究比較</a><a href="#defocus">認識離焦曲線</a><a href="#images">影像模擬的界線</a><a href="#disclaimer">使用提醒</a></nav>
+<section id="layers"><h2>三種資料層級，分開閱讀</h2><div class="method-cards">
+<article><h3>Published clinical evidence<br><span>原始臨床研究</span></h3><p>這些是研究對受試者實際量測或由問卷取得的結果，包括病人術後視力、Defocus Curve（離焦視力曲線）、contrast sensitivity（對比敏感度）、spectacle independence（眼鏡獨立性），以及 halo／glare（光暈／眩光）問卷。</p><p>閱讀時要看清楚是單眼或雙眼、矯正或未矯正視力、測量距離與術後追蹤時間。不同條件的結果分別保存，不合併為一個人的視力預測。</p></article>
+<article><h3>Optical bench evidence<br><span>實驗室光學量測</span></h3><p>MTF = Modulation Transfer Function（調變傳遞函數）；PSF = Point Spread Function（點擴散函數）；OTF = Optical Transfer Function（光學傳遞函數）；PTF = Phase Transfer Function（相位傳遞函數）。</p><p>這些描述光學系統在特定量測條件下的表現，不等同於某位病人的實際術後視覺。術後眼睛的 in-vivo optical quality（例如 OQAS）另外保存，不與 IOL-only bench MTF 混用。</p></article>
+<article><h3>Website-derived calculation<br><span>網站計算結果</span></h3><p>網站可把主要觀看目標距離換算為離焦需求，再查找已收錄的研究曲線。若位於兩個可用的 published points 之間，才做 Linear Interpolation（線性內插）。</p><p><strong>網站計算值不是新的臨床研究資料。</strong>超出支援範圍或缺少相鄰數值時不外推，也不從圖中估值補點。</p></article>
+</div></section>
+<section id="calculation"><h2>直接數值與線性內插有什麼不同？</h2><p class="method-formula">Defocus = −1 / viewing distance (m)</p><div class="method-cards two">
+<article><h3>Direct published point</h3><p class="method-formula">40 cm → 0.40 m → −2.50 D</p><p>若該研究的數值曲線本身有 −2.50 D，網站直接顯示該點的 published mean ± SD。這裡的 mean 是研究平均值，SD 是研究報告的標準差，不代表個人的結果範圍。</p></article>
+<article><h3>Website-derived linear interpolation</h3><p class="method-formula">70 cm → 0.70 m → 約 −1.43 D</p><p>若研究沒有這個精確點，但兩側相鄰 published points 有可用數值，網站用線性內插估計 mean，另外標示為網站計算。<strong>不自行產生或內插 SD。</strong></p></article>
+</div><p>這些是距離換算示例，不表示每顆 IOL 都有可用的數值曲線。40 cm 未矯正近距視力不能直接當成 −2.50 D 的遠距矯正離焦測量。</p></section>
+<section id="verification"><h2>來源 badge 在說什麼？</h2><dl class="method-definitions"><div><dt>Source verified</dt><dd>網站中的轉錄內容已與原始研究或官方來源核對。具體核對範圍、依據與日期可在來源卡片查看。</dd></div><div><dt>Partially verified</dt><dd>部分資訊已有官方／可信來源交叉核對，但仍有項目尚未直接確認。類別涵蓋多個來源且核對程度不同時，也可能顯示此狀態。</dd></div><div><dt>Verification pending</dt><dd>已建立來源紀錄，但網站尚未完成獨立核對。</dd></div></dl><p class="method-note">Verification status 只表示網站資料是否完成來源核對，不代表研究品質高低。</p><p>Funding 與作者 industry relationship 另外記錄，不能把它們或 verification badge 直接當成品質評分。</p></section>
+<section id="coverage"><h2>資料覆蓋程度不等於產品表現</h2><dl class="method-definitions"><div><dt>Available</dt><dd>目前網站已收錄符合該類別的結構化結果或資訊，不表示涵蓋所有研究。</dd></div><div><dt>Partial / qualitative only</dt><dd>目前只有部分資料、範圍摘要或圖表／定性證據；例如有離焦圖，但沒有逐點 numerical table。</dd></div><div><dt>Not structured yet</dt><dd>目前尚無符合該類別的結構化資料。</dd></div></dl><p class="method-note">Not structured yet 不代表產品沒有這項效果或沒有研究，只表示目前網站資料庫尚未完成整理。</p><p>Coverage 與 verification 分開判定；兩者都不是產品評分。例如缺少光暈問卷資料，不能解讀為「沒有光暈」。</p></section>
+<section id="head-to-head"><h2>什麼才是同一研究的直接比較？</h2><p>只有相同 <code>study_id</code>、同一研究中明確不同的 IOL treatment groups，且 outcome 與 measurement conditions 可對應時，網站才標示 <strong>Direct head-to-head evidence</strong>。</p><p>不同研究的結果即使並排，也不能視為正式 head-to-head comparison。原研究的 p-value 只按原資料呈現；統計顯著不等同於個人臨床優越性。</p></section>
+<section id="defocus"><h2>用觀看需求理解 Defocus Curve</h2><p>0 D ≈ distance focus（遠距焦點）。在此觀看距離換算中，負 defocus 對應較近的觀看需求。</p><ol class="distance-diagram" aria-label="觀看需求近似換算"><li><b>0 D</b><span>約為遠距焦點</span></li><li><b>−1.0 D</b><span>約 100 cm</span></li><li><b>−2.0 D</b><span>約 50 cm</span></li><li><b>−2.5 D</b><span>約 40 cm</span></li></ol><p>這是光學觀看需求的近似換算，不代表場景中所有物體都位於同一距離。Scene Library 的距離僅指主要觀看目標；沒有單一主要距離時不強制換算。</p><p>離焦曲線中的較低 logMAR 代表較佳視力，本站圖表將較低值放在上方。原始點的直線連接只是視覺輔助，不代表新增測量。這裡的距離換算也不能直接套用到尚未對應臨床慣例的 nominal optical-bench defocus 軸。</p></section>
+<section id="images"><h2>為什麼目前沒有正式「看出去的圖片」？</h2><p class="method-note">目前網站尚未啟用 evidence-based optical image simulation。</p><ul><li>logMAR 不能直接轉成 blur。</li><li>單一 MTF 數值不足以唯一決定影像。</li><li>PSF／OTF calibration 仍需驗證。</li></ul><p>因此網站不會用任意 CSS blur 假裝成真實術後視覺。首頁既有 demo／heuristic 視覺模擬是示意功能，與正式臨床 evidence、研究距離計算及 research pipeline 分開，不能視為經驗證的術後影像。</p><p>Scene Library 目前也不套用光學影像效果。未來若加入影像模擬，會另外標示其資料來源、假設與限制。</p></section>
+<section id="disclaimer"><h2>使用提醒</h2><p class="method-note">本網站為醫療教育與公開證據整理工具，不提供個別人工水晶體選擇建議。實際選擇仍需依眼部狀況、屈光目標、生活需求與眼科醫師評估。</p></section>
+<footer><h2>繼續探索</h2><nav aria-label="探索資料"><a href="iol-catalog.html">Explore IOLs</a><a href="iol-comparison.html">Compare IOLs</a><a href="evidence-coverage.html">Evidence Coverage</a><a href="scene-library.html">Scene Library</a></nav></footer>
+</main></body></html>
