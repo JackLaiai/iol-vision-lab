@@ -1,0 +1,430 @@
+{
+  "schemaVersion": "1.0.0",
+  "recordId": "eyhance-dib00",
+  "dataStatus": "USER_PROVIDED_EVIDENCE",
+  "product": {
+    "name": "TECNIS Eyhance",
+    "manufacturer": "Johnson & Johnson",
+    "model": "TECNIS Eyhance",
+    "model_number": "DIB00",
+    "catalog_model": "DIB00",
+    "study_model": "ICB00",
+    "iolType": "enhanced monofocal / short-range extended focus",
+    "toric": false,
+    "marketEvidence": [
+      {
+        "key": "model_relationship",
+        "label": "Catalog DIB00 / study ICB00 型號關係",
+        "value": "ICB00 lens / DIB00 preloaded delivery-system configuration",
+        "unit": null,
+        "sourceIds": [
+          "E1"
+        ]
+      }
+    ]
+  },
+  "lastVerifiedDate": null,
+  "clinicalRecord": {
+    "schemaVersion": "1.0.0",
+    "recordId": "eyhance-icb00-e2",
+    "dataStatus": "USER_PROVIDED_EVIDENCE",
+    "manufacturer": "Johnson & Johnson",
+    "model": "ICB00",
+    "iolType": "enhanced monofocal / short-range extended focus",
+    "study": {
+      "design": "prospective, randomized, comparative controlled study",
+      "arm": "ICB00",
+      "comparator": "ZCB00",
+      "population": "Korean adult clinical population",
+      "patients_per_group": 25,
+      "implantation": "bilateral"
+    },
+    "measurementContext": {
+      "viewingCondition": null,
+      "correctionStatus": null,
+      "correctionDetails": "Endpoint-specific: UDVA/UIVA/UNVA uncorrected; CDVA corrected.",
+      "followUpDuration": {
+        "value": 3,
+        "unit": "months"
+      },
+      "sampleSize": {
+        "value": 25,
+        "unit": "patients in ICB00 group"
+      },
+      "pupilCondition": {
+        "diameterMm": null,
+        "dilationStatus": null,
+        "illumination": null,
+        "measurementMethod": null
+      }
+    },
+    "defocusCurve": {
+      "visualAcuityUnit": "logMAR",
+      "defocusUnit": "D",
+      "testDistanceM": null,
+      "chart": null,
+      "points": null
+    },
+    "contrastSensitivity": {
+      "test": null,
+      "unit": null,
+      "spatialFrequencyUnit": null,
+      "illumination": null,
+      "glareCondition": null,
+      "points": null
+    },
+    "halo": {
+      "instrument": null,
+      "endpoint": null,
+      "scale": null,
+      "value": null,
+      "unit": null,
+      "numerator": null,
+      "denominator": null,
+      "uncertainty": null
+    },
+    "glare": {
+      "instrument": null,
+      "endpoint": null,
+      "scale": null,
+      "value": null,
+      "unit": null,
+      "numerator": null,
+      "denominator": null,
+      "uncertainty": null
+    },
+    "source": {
+      "title": "Clinical outcomes of bilateral implantation of new generation monofocal IOL enhanced for intermediate distance and conventional monofocal IOL in a Korean population",
+      "doi": null,
+      "pmid": null,
+      "fdaSource": {
+        "url": null,
+        "documentId": null
+      },
+      "url": null,
+      "locator": null,
+      "extractionMethod": "User-provided transcription; independent source review pending."
+    },
+    "review": {
+      "status": "TODO",
+      "reviewer": null,
+      "reviewedAt": null
+    },
+    "missingDataNotes": "TODO: populate only from traceable, reviewed sources."
+  },
+  "clinicalParameters": [
+    {
+      "key": "binocular_udva",
+      "label": "ICB00 binocular UDVA（3 months; mean ± SD）",
+      "value": {
+        "mean": 0.01,
+        "uncertainty": {
+          "value": 0.03,
+          "type": "SD"
+        }
+      },
+      "unit": "logMAR",
+      "sourceIds": [
+        "E2"
+      ],
+      "measurementContext": {
+        "viewingCondition": "binocular",
+        "correctionStatus": "uncorrected",
+        "testDistanceCm": null,
+        "followUpDuration": {
+          "value": 3,
+          "unit": "months"
+        }
+      }
+    },
+    {
+      "key": "binocular_cdva",
+      "label": "ICB00 binocular CDVA（3 months; mean ± SD）",
+      "value": {
+        "mean": -0.03,
+        "uncertainty": {
+          "value": 0.06,
+          "type": "SD"
+        }
+      },
+      "unit": "logMAR",
+      "sourceIds": [
+        "E2"
+      ],
+      "measurementContext": {
+        "viewingCondition": "binocular",
+        "correctionStatus": "corrected",
+        "testDistanceCm": null,
+        "followUpDuration": {
+          "value": 3,
+          "unit": "months"
+        }
+      }
+    },
+    {
+      "key": "binocular_uiva",
+      "label": "ICB00 binocular UIVA at 60 cm（3 months; mean ± SD）",
+      "value": {
+        "mean": 0.04,
+        "uncertainty": {
+          "value": 0.05,
+          "type": "SD"
+        }
+      },
+      "unit": "logMAR",
+      "sourceIds": [
+        "E2"
+      ],
+      "measurementContext": {
+        "viewingCondition": "binocular",
+        "correctionStatus": "uncorrected",
+        "testDistanceCm": 60,
+        "followUpDuration": {
+          "value": 3,
+          "unit": "months"
+        }
+      }
+    },
+    {
+      "key": "binocular_unva",
+      "label": "ICB00 binocular UNVA at 40 cm（3 months; mean ± SD）",
+      "value": {
+        "mean": 0.14,
+        "uncertainty": {
+          "value": 0.13,
+          "type": "SD"
+        }
+      },
+      "unit": "logMAR",
+      "sourceIds": [
+        "E2"
+      ],
+      "measurementContext": {
+        "viewingCondition": "binocular",
+        "correctionStatus": "uncorrected",
+        "testDistanceCm": 40,
+        "followUpDuration": {
+          "value": 3,
+          "unit": "months"
+        }
+      }
+    },
+    {
+      "key": "monocular_udva",
+      "label": "ICB00 monocular UDVA（3 months; mean ± SD）",
+      "value": {
+        "mean": 0.03,
+        "uncertainty": {
+          "value": 0.05,
+          "type": "SD"
+        }
+      },
+      "unit": "logMAR",
+      "sourceIds": [
+        "E2"
+      ],
+      "measurementContext": {
+        "viewingCondition": "monocular",
+        "correctionStatus": "uncorrected",
+        "testDistanceCm": null,
+        "followUpDuration": {
+          "value": 3,
+          "unit": "months"
+        }
+      }
+    },
+    {
+      "key": "monocular_cdva",
+      "label": "ICB00 monocular CDVA（3 months; mean ± SD）",
+      "value": {
+        "mean": -0.02,
+        "uncertainty": {
+          "value": 0.07,
+          "type": "SD"
+        }
+      },
+      "unit": "logMAR",
+      "sourceIds": [
+        "E2"
+      ],
+      "measurementContext": {
+        "viewingCondition": "monocular",
+        "correctionStatus": "corrected",
+        "testDistanceCm": null,
+        "followUpDuration": {
+          "value": 3,
+          "unit": "months"
+        }
+      }
+    },
+    {
+      "key": "monocular_uiva",
+      "label": "ICB00 monocular UIVA at 60 cm（3 months; mean ± SD）",
+      "value": {
+        "mean": 0.05,
+        "uncertainty": {
+          "value": 0.05,
+          "type": "SD"
+        }
+      },
+      "unit": "logMAR",
+      "sourceIds": [
+        "E2"
+      ],
+      "measurementContext": {
+        "viewingCondition": "monocular",
+        "correctionStatus": "uncorrected",
+        "testDistanceCm": 60,
+        "followUpDuration": {
+          "value": 3,
+          "unit": "months"
+        }
+      }
+    },
+    {
+      "key": "monocular_unva",
+      "label": "ICB00 monocular UNVA at 40 cm（3 months; mean ± SD）",
+      "value": {
+        "mean": 0.2,
+        "uncertainty": {
+          "value": 0.14,
+          "type": "SD"
+        }
+      },
+      "unit": "logMAR",
+      "sourceIds": [
+        "E2"
+      ],
+      "measurementContext": {
+        "viewingCondition": "monocular",
+        "correctionStatus": "uncorrected",
+        "testDistanceCm": 40,
+        "followUpDuration": {
+          "value": 3,
+          "unit": "months"
+        }
+      }
+    },
+    {
+      "key": "defocus_curve",
+      "label": "Defocus curve · figure / qualitative structured evidence only",
+      "value": "Binocular ICB00 significantly better than ZCB00 from -1.5 to -4.0 D; no point-by-point numerical table supplied.",
+      "unit": null,
+      "sourceIds": [
+        "E2"
+      ]
+    }
+  ],
+  "parameterSourceMap": {
+    "binocular_udva": [
+      "E2"
+    ],
+    "binocular_cdva": [
+      "E2"
+    ],
+    "binocular_uiva": [
+      "E2"
+    ],
+    "binocular_unva": [
+      "E2"
+    ],
+    "monocular_udva": [
+      "E2"
+    ],
+    "monocular_cdva": [
+      "E2"
+    ],
+    "monocular_uiva": [
+      "E2"
+    ],
+    "monocular_unva": [
+      "E2"
+    ],
+    "defocus_curve": [
+      "E2"
+    ],
+    "model_relationship": [
+      "E1"
+    ]
+  },
+  "sources": [
+    {
+      "label": "E1",
+      "title": "FDA PMA P980040/S117",
+      "sourceType": "FDA / regulatory model mapping",
+      "sourceIdentifier": "PMA: P980040/S117",
+      "url": null,
+      "studyDesign": null,
+      "population": null,
+      "sampleSize": null,
+      "followUp": null,
+      "monocularOrBinocular": null,
+      "correctedOrUncorrected": null,
+      "model_mapping": {
+        "ICB00": "TECNIS Eyhance IOL",
+        "DIB00": "TECNIS Eyhance IOL with TECNIS Simplicity Delivery System"
+      },
+      "official_catalogue": {
+        "publisher": "Johnson & Johnson",
+        "title": null,
+        "url": null
+      },
+      "derivedParameters": [
+        "model_relationship"
+      ],
+      "clinical_outcomes": null
+    },
+    {
+      "label": "E2",
+      "title": "Clinical outcomes of bilateral implantation of new generation monofocal IOL enhanced for intermediate distance and conventional monofocal IOL in a Korean population",
+      "sourceType": "adult clinical study",
+      "studyDesign": "prospective, randomized, comparative controlled study",
+      "population": "Korean adult clinical population",
+      "study_model": "ICB00",
+      "comparator": "ZCB00",
+      "sampleSize": "25 patients per group",
+      "patients_per_group": 25,
+      "implantation": "bilateral",
+      "followUp": "3 months",
+      "monocularOrBinocular": "Both; separate endpoints",
+      "correctedOrUncorrected": "UDVA/UIVA/UNVA uncorrected; CDVA corrected",
+      "sourceIdentifier": null,
+      "DOI": null,
+      "PMID": null,
+      "url": null,
+      "defocus_curve_available": true,
+      "numerical_points_available": false,
+      "defocus_points": null,
+      "qualitative_defocus_result": "Binocular Eyhance ICB00 significantly better than ZCB00 from -1.5 to -4.0 D",
+      "derivedParameters": [
+        "binocular_udva",
+        "binocular_cdva",
+        "binocular_uiva",
+        "binocular_unva",
+        "monocular_udva",
+        "monocular_cdva",
+        "monocular_uiva",
+        "monocular_unva",
+        "defocus_curve"
+      ]
+    }
+  ],
+  "websiteSimulation": {
+    "status": "NOT CONNECTED",
+    "title": "Website-derived simulation / visualization",
+    "description": "Clinical observations are not simulator parameters. UNVA at 40 cm is not a -2.5 D defocus point.",
+    "sourceIds": []
+  },
+  "disclaimer": "Adult clinical evidence available：研究型號為 ICB00，catalog 型號為 DIB00；E1 僅支持型號關係，E2 才提供臨床結果。數值依使用者提供資料轉錄，尚未獨立查核；未提供的 DOI、PMID、來源網址保持 null。40 cm UNVA 不等於 -2.5 D 的遠距矯正離焦視力，不能用於 defocus calculator。不同研究結果不可視為直接 head-to-head comparison，亦不代表個人術後視力。",
+  "modelRelationship": {
+    "catalog_model": "DIB00",
+    "study_model": "ICB00",
+    "product_family": "TECNIS Eyhance",
+    "relationship": "ICB00 lens / DIB00 preloaded delivery-system configuration",
+    "evidence_basis": "FDA P980040/S117 + official J&J catalogue",
+    "sourceIds": [
+      "E1"
+    ]
+  },
+  "opticalEvidence": null
+}

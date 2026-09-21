@@ -18,8 +18,8 @@
     const through = list(optical.throughFocusMTF).some(p => numeric(p.value));
     const throughFigure = sources.some(s => s.through_focus_mtf?.figure_available === true);
     return [
-      ["Clinical outcomes", endpoint(/(?:ucva|bcdva|binocular_va)$/) ? NUM : NONE],
-      ["Defocus Curve", defocus ? NUM : params.some(p => p.key === "defocus_range" && numeric(p.value?.visualAcuityUpperBound)) ? "Published range summary only; no structured points" : NONE],
+      ["Clinical outcomes", endpoint(/(?:ucva|bcdva|binocular_va|udva|cdva|uiva|unva)$/) ? NUM : NONE],
+      ["Defocus Curve", defocus ? NUM : sources.some(s => s.defocus_curve_available === true) ? `${QUAL} · figure / qualitative structured evidence only` : params.some(p => p.key === "defocus_range" && numeric(p.value?.visualAcuityUpperBound)) ? "Published range summary only; no structured points" : NONE],
       ["Contrast sensitivity", endpoint(/^contrast_sensitivity/) ? NUM : NONE],
       ["Spectacle independence", endpoint(/^spectacle_independence/) ? NUM : NONE],
       ["Dysphotopsia", endpoint(/^(severity_|bothersomeness_)/) ? NUM : NONE],
@@ -57,6 +57,12 @@
     if (product.model_number) { const a = el("a", "查看完整資料與來源"); a.href = `iol-detail.html?model=${encodeURIComponent(product.model_number)}`; node.append(a); }
     if (loading || error) return;
     node.append(el("h3", "Evidence comparison"), fields(availability(record)), el("h3", "Published study results · Viewing distance"), distanceResult(product, record));
+    if (record?.modelRelationship) {
+      node.append(el("h3", "Model relationship"), fields([["Catalog model", record.modelRelationship.catalog_model], ["Study model", record.modelRelationship.study_model], ["Relationship", record.modelRelationship.relationship]]));
+      node.append(el("h3", "Adult clinical evidence available · Published study results"));
+      const rows = (record.clinicalParameters || []).filter(p => numeric(p.value?.mean)).map(p => [p.label, `${p.value.mean.toFixed(2)} ± ${p.value.uncertainty.value.toFixed(2)} ${p.unit} [${p.sourceIds.join(", ")}]`]);
+      node.append(fields(rows), el("p", "Measurement conditions：各列保留單眼／雙眼、矯正條件、距離與追蹤時間，請查看完整來源。"));
+    }
     if (record?.disclaimer) node.append(el("p", record.disclaimer));
   }
   async function select(side) {
