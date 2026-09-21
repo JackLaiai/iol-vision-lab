@@ -16,7 +16,7 @@
         "value": "FALSNMULT3A1",
         "unit": null,
         "sourceIds": [
-          "S1"
+          "S1-NHI"
         ]
       },
       {
@@ -25,7 +25,7 @@
         "value": "衛部醫器輸字第029127號",
         "unit": null,
         "sourceIds": [
-          "S1"
+          "S1-LICENSE"
         ]
       },
       {
@@ -34,7 +34,7 @@
         "value": "confirmed from public Taiwan hospital records",
         "unit": null,
         "sourceIds": [
-          "S1"
+          "S1-HOSPITAL"
         ]
       }
     ]
@@ -437,13 +437,13 @@
   ],
   "parameterSourceMap": {
     "taiwan_nhi_special_material_code": [
-      "S1"
+      "S1-NHI"
     ],
     "tfda_license_number": [
-      "S1"
+      "S1-LICENSE"
     ],
     "taiwan_availability": [
-      "S1"
+      "S1-HOSPITAL"
     ],
     "4_m_binocular_ucva": [
       "S2"
@@ -514,17 +514,14 @@
       "correctedOrUncorrected": null,
       "sourceIdentifier": "TFDA license: 衛部醫器輸字第029127號; Taiwan NHI special material code: FALSNMULT3A1",
       "url": null,
-      "derivedParameters": [
-        "taiwan_nhi_special_material_code",
-        "tfda_license_number",
-        "taiwan_availability"
-      ],
+      "derivedParameters": [],
       "verification": {
         "status": "not_independently_verified",
         "verified_date": null,
         "verified_against": [],
         "notes": "未在本次指定已完成來源核對；維持待核對。"
-      }
+      },
+      "note": "Legacy aggregate provenance retained for backward references; individual claims now map to S1-LICENSE, S1-NHI or S1-HOSPITAL. Not independently verified."
     },
     {
       "label": "S2",
@@ -554,10 +551,22 @@
       ],
       "implantation": "bilateral",
       "verification": {
-        "status": "not_independently_verified",
-        "verified_date": null,
-        "verified_against": [],
-        "notes": "未在本次指定已完成來源核對；維持待核對。"
+        "status": "verified_primary_or_official_source",
+        "verified_date": "2026-09-21",
+        "verified_against": [
+          "PMID 32669090",
+          "DOI 10.1186/s12886-020-01549-z"
+        ],
+        "notes": "依使用者指定的來源核對結果登錄；本次未重新逐筆核對所有結果。僅代表網站資料與來源核對，不代表研究品質。"
+      },
+      "industry_relationship": {
+        "funding": [
+          "Alcon Research LLC",
+          "Alcon Korea Ltd"
+        ],
+        "author_affiliation": "Kyounghwa Lee: Alcon Korea Ltd; employee during the study",
+        "source": "https://link.springer.com/article/10.1186/s12886-020-01549-z",
+        "note": "Funding / affiliation disclosure only; not a study-quality score."
       }
     },
     {
@@ -582,10 +591,12 @@
         "bothersomeness_very_much_starburst"
       ],
       "verification": {
-        "status": "not_independently_verified",
-        "verified_date": null,
-        "verified_against": [],
-        "notes": "未在本次指定已完成來源核對；維持待核對。"
+        "status": "verified_primary_or_official_source",
+        "verified_date": "2026-09-21",
+        "verified_against": [
+          "FDA P040020/S087"
+        ],
+        "notes": "依使用者指定的來源核對結果登錄；本次未重新逐筆核對所有結果。僅代表網站資料與來源核對，不代表研究品質。"
       }
     },
     {
@@ -683,10 +694,12 @@
       "data_extraction_method": "direct table transcription",
       "PMID": "36233597",
       "verification": {
-        "status": "not_independently_verified",
-        "verified_date": null,
-        "verified_against": [],
-        "notes": "未在本次指定已完成來源核對；維持待核對。"
+        "status": "verified_primary_or_official_source",
+        "verified_date": "2026-09-21",
+        "verified_against": [
+          "Supplementary Table S1"
+        ],
+        "notes": "本次由本機 Table S1_4IOLs.pdf 表格逐行核對 12 組 mean/SD，全部一致；無圖像估值。SHA256: 4643b48a4b04aa14f85afb21b00363a7e7bd8a198846cfd217304c234dd8604e"
       }
     },
     {
@@ -713,10 +726,13 @@
       "data_extraction_method": "User-provided published values",
       "source_note": "Through-focus response figures have no point-by-point raw numerical data supplied here. No usable numerical PSF matrix from this source. Ray propagation visualization uses a separate 532 nm condition, not the 546 nm MTF measurement.",
       "verification": {
-        "status": "not_independently_verified",
-        "verified_date": null,
-        "verified_against": [],
-        "notes": "未在本次指定已完成來源核對；維持待核對。"
+        "status": "verified_primary_or_official_source",
+        "verified_date": "2026-09-21",
+        "verified_against": [
+          "DOI 10.1371/journal.pone.0228342",
+          "PMID 32017784"
+        ],
+        "notes": "依使用者指定的來源核對結果登錄；本次未重新逐筆核對所有結果。僅代表網站資料與來源核對，不代表研究品質。"
       }
     },
     {
@@ -805,11 +821,105 @@
         "source": "S6"
       },
       "verification": {
+        "status": "verified_primary_or_official_source",
+        "verified_date": "2026-09-21",
+        "verified_against": [
+          "DOI 10.2147/OPTH.S106646",
+          "PMID 27330273"
+        ],
+        "notes": "依使用者指定的來源核對結果登錄；本次未重新逐筆核對所有結果。僅代表網站資料與來源核對，不代表研究品質。"
+      },
+      "industry_relationship": {
+        "funding": "Alcon Research, Ltd.",
+        "author_affiliation": "Alcon Research, Ltd.",
+        "source": "https://www.dovepress.com/optical-bench-performance-of-a-novel-trifocal-intraocular-lens-compare-peer-reviewed-fulltext-article-OPTH",
+        "note": "Funding / affiliation disclosure only; not a study-quality score."
+      }
+    },
+    {
+      "label": "S1-LICENSE",
+      "title": null,
+      "sourceType": "Taiwan device-license information (NHI official document cross-check; direct TFDA database verification pending)",
+      "studyDesign": null,
+      "population": null,
+      "sampleSize": null,
+      "followUp": null,
+      "monocularOrBinocular": null,
+      "correctedOrUncorrected": null,
+      "sourceIdentifier": "衛部醫器輸字第029127號",
+      "url": null,
+      "derivedParameters": [
+        "tfda_license_number"
+      ],
+      "verification": {
+        "status": "partially_verified",
+        "verified_date": "2026-09-21",
+        "verified_against": [
+          "Taiwan NHI 114年特殊材質量調查品項明細表"
+        ],
+        "notes": "依使用者提供的 Taiwan NHI official document cross-check，許可證號為衛部醫器輸字第029127號；尚未完成 direct TFDA database verification，因此維持 partially_verified。本次未重新查閱原始文件。"
+      },
+      "legacy_source": "S1",
+      "note": "Legacy hospital-record provenance retained via legacy_source=S1. License number cross-checked through the user-confirmed NHI official document; direct TFDA verification remains pending.",
+      "hospital": null,
+      "record_date": null,
+      "price": null
+    },
+    {
+      "label": "S1-NHI",
+      "title": "Taiwan NHI 114年特殊材質量調查品項明細表",
+      "sourceType": "Taiwan NHI official special-material document",
+      "studyDesign": null,
+      "population": null,
+      "sampleSize": null,
+      "followUp": null,
+      "monocularOrBinocular": null,
+      "correctedOrUncorrected": null,
+      "sourceIdentifier": "FALSNMULT3A1",
+      "url": null,
+      "derivedParameters": [
+        "taiwan_nhi_special_material_code"
+      ],
+      "verification": {
+        "status": "verified_primary_or_official_source",
+        "verified_date": "2026-09-21",
+        "verified_against": [
+          "Taiwan NHI 114年特殊材質量調查品項明細表"
+        ],
+        "notes": "依使用者提供的官方文件核對結果登錄；同一列確認 FALSNMULT3A1、AcrySof IQ PanOptix Trifocal Intraocular Lens、TFNT00、payment points 2744、衛部醫器輸字第029127號。本次未重新查閱原始文件；支付點數僅記錄為核對依據，不新增或改寫產品數值，亦非自費價格。來源核對不代表研究品質評分。"
+      },
+      "legacy_source": "S1",
+      "note": "Legacy hospital-record provenance retained via legacy_source=S1. Current verification is based on the user-confirmed Taiwan NHI official document; document URL has not been provided. No nationwide availability or uniform-price claim.",
+      "hospital": null,
+      "record_date": null,
+      "price": null
+    },
+    {
+      "label": "S1-HOSPITAL",
+      "title": null,
+      "sourceType": "Hospital public-record availability (specific institution/date pending)",
+      "studyDesign": null,
+      "population": null,
+      "sampleSize": null,
+      "followUp": null,
+      "monocularOrBinocular": null,
+      "correctedOrUncorrected": null,
+      "sourceIdentifier": null,
+      "url": null,
+      "derivedParameters": [
+        "taiwan_availability"
+      ],
+      "verification": {
         "status": "not_independently_verified",
         "verified_date": null,
         "verified_against": [],
         "notes": "未在本次指定已完成來源核對；維持待核對。"
-      }
+      },
+      "legacy_source": "S1",
+      "note": "Inherited from unverified legacy hospital-public-record transcription. Not a nationwide availability or uniform-price claim. Institution, document, URL and date remain unknown.",
+      "hospital": null,
+      "record_date": null,
+      "price": null
     }
   ],
   "opticalEvidence": {
