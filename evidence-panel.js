@@ -301,6 +301,9 @@ function containsOpticalNumber(value) {
 function renderOpticalEvidence(record) {
   const container = document.querySelector("#optical-evidence-data");
   container.replaceChildren();
+  const charts = createElement("div");
+  window.OpticalBenchChart.mount(charts, {opticalEvidence: record.opticalEvidence, sources: record.sources || []});
+  container.append(charts);
   const definitions = [
     // focus may be distance/intermediate/near; frequency units remain source-specific (e.g. lp/mm or cycles/degree).
     ["mtf", "MTF — Modulation Transfer Function", ["focus", "pupil_mm", "wavelength_nm", "spatial_frequency", "values", "measurement_system", "model_eye_condition", "measurement_condition", "source"]],
