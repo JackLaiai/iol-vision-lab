@@ -482,7 +482,8 @@ async function initializeEvidencePanel() {
   document.querySelector("#product-fields").replaceChildren();
   const model = new URLSearchParams(location.search).get("model");
   const productKey = new URLSearchParams(location.search).get("product");
-  if (!productKey && (!model || !model.trim())) {
+  const catalogIndex = new URLSearchParams(location.search).get("catalog");
+  if (catalogIndex === null && !productKey && (!model || !model.trim())) {
     document.querySelector("#product-name").textContent = "請指定產品型號";
     document.querySelector("#product-summary").textContent = "請透過含有 model 參數的產品連結開啟本頁。";
     renderEvidenceUnavailable("尚未選擇產品");
@@ -492,7 +493,7 @@ async function initializeEvidencePanel() {
   try {
     const catalog = await loadEvidenceData(CATALOG_URL);
     if (!Array.isArray(catalog)) throw new Error("產品 catalog 格式無效。");
-    const matches = catalog.filter(item => productKey ? item.product_key === productKey : item.model_number === model.trim());
+    const matches = catalog.filter((item, i) => catalogIndex !== null ? /^\d+$/.test(catalogIndex) && i === Number(catalogIndex) : productKey ? item.product_key === productKey : item.model_number === model.trim());
     if (!matches.length) {
       document.querySelector("#product-name").textContent = "找不到此產品";
       document.querySelector("#product-summary").textContent = `台灣 catalog 中沒有型號：${model}`;
