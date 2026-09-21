@@ -468,7 +468,8 @@ async function initializeEvidencePanel() {
   document.querySelector("#product-details").hidden = true;
   document.querySelector("#product-fields").replaceChildren();
   const model = new URLSearchParams(location.search).get("model");
-  if (!model || !model.trim()) {
+  const productKey = new URLSearchParams(location.search).get("product");
+  if (!productKey && (!model || !model.trim())) {
     document.querySelector("#product-name").textContent = "請指定產品型號";
     document.querySelector("#product-summary").textContent = "請透過含有 model 參數的產品連結開啟本頁。";
     renderEvidenceUnavailable("尚未選擇產品");
@@ -478,7 +479,7 @@ async function initializeEvidencePanel() {
   try {
     const catalog = await loadEvidenceData(CATALOG_URL);
     if (!Array.isArray(catalog)) throw new Error("產品 catalog 格式無效。");
-    const matches = catalog.filter(item => item.model_number === model.trim());
+    const matches = catalog.filter(item => productKey ? item.product_key === productKey : item.model_number === model.trim());
     if (!matches.length) {
       document.querySelector("#product-name").textContent = "找不到此產品";
       document.querySelector("#product-summary").textContent = `台灣 catalog 中沒有型號：${model}`;
@@ -496,13 +497,13 @@ async function initializeEvidencePanel() {
   try {
     const index = await loadEvidenceData(EVIDENCE_INDEX_URL);
     if (!index || Array.isArray(index) || typeof index !== "object") throw new Error("Evidence index 格式無效。");
-    const path = Object.hasOwn(index, product.model_number) ? index[product.model_number] : null;
+    const path = window.EvidenceRouting.path(index, product);
     if (path === null || path === undefined) {
       renderEvidenceUnavailable("臨床證據資料整理中");
       return;
     }
     const record = await loadEvidenceData(resolveEvidenceURL(path));
-    if (record.product?.model_number !== product.model_number || /placeholder|demo/i.test(record.dataStatus || "")) {
+    if (!window.EvidenceRouting.matches(record, product) || /placeholder|demo/i.test(record.dataStatus || "")) {
       throw new Error("Evidence 產品型號不符或仍為測試資料。");
     }
     renderEvidencePanel(record, product);

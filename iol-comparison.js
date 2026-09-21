@@ -55,7 +55,7 @@
     const node = document.getElementById(`side-${side}`); node.replaceChildren(el("h2", product.model || EMPTY));
     const market = key => record?.product?.marketEvidence?.find(p => p.key === key)?.value;
     node.append(fields([["Manufacturer", product.manufacturer], ["Product name", product.model], ["Model", product.model_number], ["Lens category", product.iol_type], ["Toric / non-toric", product.toric === true ? "Toric" : product.toric === false ? "Non-toric" : null], ["Taiwan market status", product.taiwan_market_status], ["Taiwan availability (source record)", market("taiwan_availability")], ["TFDA status", product.taiwan_tfda_status], ["TFDA license", product.tfda_license_number ?? market("tfda_license_number")], ["NHI code", product.nhi_code ?? market("taiwan_nhi_special_material_code")], ["Evidence availability", loading ? "載入中…" : error ? `資料載入失敗：${error}` : record ? "Structured evidence record available" : NONE]]));
-    if (product.model_number) { const a = el("a", "查看完整資料與來源"); a.href = `iol-detail.html?model=${encodeURIComponent(product.model_number)}`; node.append(a); }
+    if (product.model_number || product.product_key) { const a = el("a", "查看完整資料與來源"); a.href = window.EvidenceRouting.detail(product); node.append(a); }
     if (loading || error) return;
     node.append(el("h3", "Evidence comparison"), fields(availability(record)), el("h3", "Published study results · Viewing distance"), distanceResult(product, record));
     if (record?.modelRelationship) {
@@ -66,21 +66,38 @@
     }
     if (record?.disclaimer) node.append(el("p", record.disclaimer));
   }
+  function renderShared() {
+    const box = document.getElementById("shared-study"); box.replaceChildren(); box.hidden = true;
+    const a = state.sides.a, b = state.sides.b;
+    if (!a?.record || !b?.record || a.loading || b.loading) return;
+    for (const left of a.record.sharedStudies || []) {
+      const right = (b.record.sharedStudies || []).find(s => s.study_id === left.study_id && s.arm_id !== left.arm_id);
+      if (!right || JSON.stringify(left.study) !== JSON.stringify(right.study)) continue;
+      const s = left.study; box.hidden = false;
+      box.append(el("h2", "Direct head-to-head evidence"), el("p", "Direct head-to-head study · " + s.study_id), el("h3", s.title), fields([["Study design", s.design], ["Total sample", `${s.total_sample.patients} patients / ${s.total_sample.eyes} eyes`], ["Follow-up", s.follow_up], ["Refractive target", `Approximately ${s.refractive_target.from_D} to ${s.refractive_target.to_D} D`], ["Measurement conditions", s.measurement_conditions]]));
+      for (const ref of [left, right]) { const arm = s.arms[ref.arm_id]; box.append(el("p", `${arm.product_family}: ${arm.patients} patients / ${arm.eyes} eyes; study model: ${arm.study_model || "尚無資料（此研究未提供）"}`)); }
+      const table = el("table"), head = el("tr");
+      for (const title of ["Endpoint (logMAR, mean ± SD)", s.arms[left.arm_id].product_family, s.arms[right.arm_id].product_family, "Between-group p-value"]) head.append(el("th", title));
+      const thead = el("thead"); thead.append(head); table.append(thead); const tbody = el("tbody");
+      for (const o of s.outcomes) { const row = el("tr"); for (const v of [o.endpoint + (o.distance_cm ? ` (${o.distance_cm} cm)` : ""), ...[left,right].map(ref => `${o[ref.arm_id].mean.toFixed(2)} ± ${o[ref.arm_id].SD.toFixed(2)}`), `${o.between_group_p.operator} ${o.between_group_p.value}`]) row.append(el("td", v)); tbody.append(row); }
+      table.append(tbody); box.append(table, el("p", "UIVA / UNVA: This study reported a statistically significant between-group difference. 統計顯著不等於臨床優越性；未重新計算 effect size，亦不提供排名或推薦。"), el("p", `${s.review_status} · DOI ${s.DOI} · PMID ${s.PMID}`));
+    }
+  }
   async function select(side) {
     const product = state.products[Number(document.getElementById(`iol-${side}`).value)];
-    const entry = { product, record: null, loading: true, error: null }; state.sides[side] = entry; render(side);
+    const entry = { product, record: null, loading: true, error: null }; state.sides[side] = entry; render(side); renderShared();
     try {
-      const path = Object.hasOwn(state.index, product.model_number) ? state.index[product.model_number] : null;
+      const path = window.EvidenceRouting.path(state.index, product);
       if (path) {
         const base = new URL("data/evidence/", document.baseURI), url = new URL(path, document.baseURI);
         if (url.origin !== base.origin || !url.pathname.startsWith(base.pathname)) throw new Error("Evidence path invalid");
         const record = await fetchJSON(url);
-        if (record.product?.model_number !== product.model_number || /demo|placeholder/i.test(record.dataStatus || "")) throw new Error("Evidence product mismatch or placeholder");
+        if (!window.EvidenceRouting.matches(record, product) || /demo|placeholder/i.test(record.dataStatus || "")) throw new Error("Evidence product mismatch or placeholder");
         entry.record = record;
       }
     } catch (e) { entry.error = e.message; }
     entry.loading = false;
-    if (state.sides[side] === entry) render(side);
+    if (state.sides[side] === entry) { render(side); renderShared(); }
   }
   async function init() {
     try {

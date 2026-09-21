@@ -1,0 +1,402 @@
+{
+  "schemaVersion": "1.0.0",
+  "recordId": "tecnis-puresee",
+  "dataStatus": "USER_PROVIDED_EVIDENCE",
+  "product": {
+    "name": "TECNIS PureSee",
+    "manufacturer": "Johnson & Johnson",
+    "model": "TECNIS PureSee",
+    "model_number": null,
+    "product_key": "tecnis-puresee",
+    "product_family": "TECNIS PureSee",
+    "study_model": "ZEN00V",
+    "catalog_model": null,
+    "iolType": "EDOF",
+    "toric": false
+  },
+  "lastVerifiedDate": null,
+  "clinicalRecord": {
+    "schemaVersion": "1.0.0",
+    "recordId": "puresee-son2026",
+    "dataStatus": "USER_PROVIDED_EVIDENCE",
+    "manufacturer": "Johnson & Johnson",
+    "model": "ZEN00V",
+    "iolType": "EDOF",
+    "study": {
+      "design": "retrospective comparative study",
+      "arm": "PureSee ZEN00V",
+      "population": null
+    },
+    "measurementContext": {
+      "viewingCondition": "monocular",
+      "correctionStatus": null,
+      "correctionDetails": null,
+      "followUpDuration": {
+        "value": 3,
+        "unit": "months"
+      },
+      "sampleSize": {
+        "value": 23,
+        "unit": "patients (34 eyes)"
+      },
+      "pupilCondition": {
+        "diameterMm": null,
+        "dilationStatus": null,
+        "illumination": null,
+        "measurementMethod": null
+      }
+    },
+    "defocusCurve": {
+      "visualAcuityUnit": "logMAR",
+      "defocusUnit": "D",
+      "testDistanceM": null,
+      "chart": null,
+      "points": null
+    },
+    "contrastSensitivity": {
+      "test": null,
+      "unit": null,
+      "spatialFrequencyUnit": null,
+      "illumination": null,
+      "glareCondition": null,
+      "points": null
+    },
+    "halo": {
+      "instrument": null,
+      "endpoint": null,
+      "scale": null,
+      "value": null,
+      "unit": null,
+      "numerator": null,
+      "denominator": null,
+      "uncertainty": null
+    },
+    "glare": {
+      "instrument": null,
+      "endpoint": null,
+      "scale": null,
+      "value": null,
+      "unit": null,
+      "numerator": null,
+      "denominator": null,
+      "uncertainty": null
+    },
+    "source": {
+      "title": "Visual function comparison of a non-diffractive extended depth-of-focus and an enhanced monofocal intraocular lens sharing the same platform",
+      "doi": "10.1038/s41598-026-52866-0",
+      "pmid": "42128901",
+      "fdaSource": {
+        "url": null,
+        "documentId": null
+      },
+      "url": null,
+      "locator": null,
+      "extractionMethod": null
+    },
+    "review": {
+      "status": "TODO",
+      "reviewer": null,
+      "reviewedAt": null
+    },
+    "missingDataNotes": "TODO: populate only from traceable, reviewed sources."
+  },
+  "clinicalParameters": [
+    {
+      "key": "son2026_monocular_udva",
+      "label": "P1 · SON2026_PURESEE_EYHANCE · monocular UDVA (3 months)",
+      "value": {
+        "mean": 0.03,
+        "uncertainty": {
+          "value": 0.06,
+          "type": "SD"
+        }
+      },
+      "unit": "logMAR",
+      "study_id": "SON2026_PURESEE_EYHANCE",
+      "sourceIds": [
+        "P1"
+      ],
+      "measurementContext": {
+        "viewingCondition": "monocular",
+        "correctionStatus": "uncorrected",
+        "testDistanceCm": null,
+        "followUpDuration": {
+          "value": 3,
+          "unit": "months"
+        }
+      }
+    },
+    {
+      "key": "son2026_monocular_cdva",
+      "label": "P1 · SON2026_PURESEE_EYHANCE · monocular CDVA (3 months)",
+      "value": {
+        "mean": 0.01,
+        "uncertainty": {
+          "value": 0.02,
+          "type": "SD"
+        }
+      },
+      "unit": "logMAR",
+      "study_id": "SON2026_PURESEE_EYHANCE",
+      "sourceIds": [
+        "P1"
+      ],
+      "measurementContext": {
+        "viewingCondition": "monocular",
+        "correctionStatus": "corrected",
+        "testDistanceCm": null,
+        "followUpDuration": {
+          "value": 3,
+          "unit": "months"
+        }
+      }
+    },
+    {
+      "key": "son2026_monocular_uiva",
+      "label": "P1 · SON2026_PURESEE_EYHANCE · monocular UIVA at 66 cm (3 months)",
+      "value": {
+        "mean": 0.16,
+        "uncertainty": {
+          "value": 0.08,
+          "type": "SD"
+        }
+      },
+      "unit": "logMAR",
+      "study_id": "SON2026_PURESEE_EYHANCE",
+      "sourceIds": [
+        "P1"
+      ],
+      "measurementContext": {
+        "viewingCondition": "monocular",
+        "correctionStatus": "uncorrected",
+        "testDistanceCm": 66,
+        "followUpDuration": {
+          "value": 3,
+          "unit": "months"
+        }
+      }
+    },
+    {
+      "key": "son2026_monocular_unva",
+      "label": "P1 · SON2026_PURESEE_EYHANCE · monocular UNVA at 40 cm (3 months)",
+      "value": {
+        "mean": 0.32,
+        "uncertainty": {
+          "value": 0.07,
+          "type": "SD"
+        }
+      },
+      "unit": "logMAR",
+      "study_id": "SON2026_PURESEE_EYHANCE",
+      "sourceIds": [
+        "P1"
+      ],
+      "measurementContext": {
+        "viewingCondition": "monocular",
+        "correctionStatus": "uncorrected",
+        "testDistanceCm": 40,
+        "followUpDuration": {
+          "value": 3,
+          "unit": "months"
+        }
+      }
+    },
+    {
+      "key": "son2026_defocus_qualitative",
+      "label": "P1 · Defocus curve qualitative evidence",
+      "value": "Monocular defocus figure; significant between-group positions: +1.0, −1.5, −2.5 D. No point-by-point numerical table supplied.",
+      "unit": null,
+      "sourceIds": [
+        "P1"
+      ],
+      "study_id": "SON2026_PURESEE_EYHANCE"
+    }
+  ],
+  "parameterSourceMap": {
+    "son2026_monocular_udva": [
+      "P1"
+    ],
+    "son2026_monocular_cdva": [
+      "P1"
+    ],
+    "son2026_monocular_uiva": [
+      "P1"
+    ],
+    "son2026_monocular_unva": [
+      "P1"
+    ],
+    "son2026_defocus_qualitative": [
+      "P1"
+    ]
+  },
+  "sources": [
+    {
+      "label": "P1",
+      "study_id": "SON2026_PURESEE_EYHANCE",
+      "title": "Visual function comparison of a non-diffractive extended depth-of-focus and an enhanced monofocal intraocular lens sharing the same platform",
+      "sourceType": "adult clinical study",
+      "studyDesign": "retrospective comparative study",
+      "sampleSize": "Total 49 patients / 69 eyes; puresee: 23 patients / 34 eyes",
+      "followUp": "3 months",
+      "monocularOrBinocular": "monocular",
+      "correctedOrUncorrected": "UDVA/UIVA/UNVA uncorrected; CDVA corrected",
+      "sourceIdentifier": "DOI: 10.1038/s41598-026-52866-0; PMID: 42128901; PMCID: PMC13365184",
+      "url": null,
+      "DOI": "10.1038/s41598-026-52866-0",
+      "PMID": "42128901",
+      "PMCID": "PMC13365184",
+      "study_model": "ZEN00V",
+      "defocus_curve_available": true,
+      "numerical_points_available": false,
+      "defocus_points": null,
+      "significant_between_group_positions_D": [
+        1.0,
+        -1.5,
+        -2.5
+      ],
+      "measured_range_D": null,
+      "derivedParameters": [
+        "son2026_monocular_udva",
+        "son2026_monocular_cdva",
+        "son2026_monocular_uiva",
+        "son2026_monocular_unva",
+        "son2026_defocus_qualitative"
+      ]
+    }
+  ],
+  "websiteSimulation": {
+    "status": "NOT CONNECTED",
+    "description": "No image simulation. Clinical VA endpoints are not defocus points.",
+    "sourceIds": []
+  },
+  "disclaimer": "依使用者提供資料轉錄，尚未獨立查核。ZEN00V 僅為研究型號，不代表台灣 catalog 型號。缺少逐點 defocus numerical data，不能將 40 cm UNVA 用作 −2.5 D 離焦點。統計差異不等於臨床優越性或個人術後結果。",
+  "opticalEvidence": null,
+  "modelRelationship": {
+    "product_family": "TECNIS PureSee",
+    "catalog_model": null,
+    "study_model": "ZEN00V",
+    "relationship": "ZEN00V is the study model only; Taiwan catalog model remains unknown."
+  },
+  "sharedStudies": [
+    {
+      "study_id": "SON2026_PURESEE_EYHANCE",
+      "arm_id": "puresee",
+      "source": "P1",
+      "study": {
+        "study_id": "SON2026_PURESEE_EYHANCE",
+        "title": "Visual function comparison of a non-diffractive extended depth-of-focus and an enhanced monofocal intraocular lens sharing the same platform",
+        "journal": "Scientific Reports",
+        "year": 2026,
+        "DOI": "10.1038/s41598-026-52866-0",
+        "PMID": "42128901",
+        "PMCID": "PMC13365184",
+        "design": "retrospective comparative study",
+        "total_sample": {
+          "patients": 49,
+          "eyes": 69
+        },
+        "follow_up": "3 months",
+        "measurement_conditions": "monocular outcomes; UIVA at 66 cm; UNVA at 40 cm; UDVA/UIVA/UNVA uncorrected, CDVA corrected",
+        "refractive_target": {
+          "approximate": true,
+          "from_D": -0.2,
+          "to_D": -0.3
+        },
+        "arms": {
+          "eyhance": {
+            "product_family": "TECNIS Eyhance",
+            "study_model": null,
+            "patients": 26,
+            "eyes": 35
+          },
+          "puresee": {
+            "product_family": "TECNIS PureSee",
+            "study_model": "ZEN00V",
+            "patients": 23,
+            "eyes": 34
+          }
+        },
+        "outcomes": [
+          {
+            "endpoint": "UDVA",
+            "distance_cm": null,
+            "unit": "logMAR",
+            "eyhance": {
+              "mean": 0.04,
+              "SD": 0.03
+            },
+            "puresee": {
+              "mean": 0.03,
+              "SD": 0.06
+            },
+            "between_group_p": {
+              "operator": "=",
+              "value": 0.825
+            }
+          },
+          {
+            "endpoint": "CDVA",
+            "distance_cm": null,
+            "unit": "logMAR",
+            "eyhance": {
+              "mean": 0.02,
+              "SD": 0.03
+            },
+            "puresee": {
+              "mean": 0.01,
+              "SD": 0.02
+            },
+            "between_group_p": {
+              "operator": "=",
+              "value": 0.105
+            }
+          },
+          {
+            "endpoint": "UIVA",
+            "distance_cm": 66,
+            "unit": "logMAR",
+            "eyhance": {
+              "mean": 0.23,
+              "SD": 0.08
+            },
+            "puresee": {
+              "mean": 0.16,
+              "SD": 0.08
+            },
+            "between_group_p": {
+              "operator": "<",
+              "value": 0.001
+            }
+          },
+          {
+            "endpoint": "UNVA",
+            "distance_cm": 40,
+            "unit": "logMAR",
+            "eyhance": {
+              "mean": 0.4,
+              "SD": 0.09
+            },
+            "puresee": {
+              "mean": 0.32,
+              "SD": 0.07
+            },
+            "between_group_p": {
+              "operator": "<",
+              "value": 0.001
+            }
+          }
+        ],
+        "defocus_curve_available": true,
+        "numerical_points_available": false,
+        "defocus_points": null,
+        "significant_between_group_positions_D": [
+          1.0,
+          -1.5,
+          -2.5
+        ],
+        "measured_range_D": null,
+        "review_status": "User-provided transcription; independent source review pending"
+      }
+    }
+  ]
+}

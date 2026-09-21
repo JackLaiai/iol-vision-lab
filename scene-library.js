@@ -80,10 +80,10 @@
         render(scenes, product, null); status.textContent = "正在讀取所選 IOL 的研究資料。";
         let record = null, error = null;
         try {
-          const path = Object.hasOwn(index, product.model_number) ? localFile(index[product.model_number], "data/evidence/") : null;
+          const path = localFile(window.EvidenceRouting.path(index, product), "data/evidence/");
           if (path) {
             record = await json(path);
-            if (record.product?.model_number !== product.model_number || /demo|placeholder/i.test(record.dataStatus || "")) throw new Error("Evidence 與所選產品不符或仍為 placeholder。");
+            if (!window.EvidenceRouting.matches(record, product) || /demo|placeholder/i.test(record.dataStatus || "")) throw new Error("Evidence 與所選產品不符或仍為 placeholder。");
           }
         } catch (e) { record = null; error = e.message; }
         if (token !== generation) return;
