@@ -26,6 +26,7 @@
   const through=arr(optical.throughFocusMTF).filter(p=>ids.has(p.source)&&num(p.defocus_D)&&num(p.value));
   const figures=sources.filter(s=>s.through_focus_mtf?.figure_available===true);
   const psf=arr(optical.psf).filter(p=>ids.has(p.source)&&(numbers(p.matrix)||numbers(p.values)));
+  const psfQual=arr(optical.psf).filter(p=>ids.has(p.source)&&p.available===true&&!numbers(p.matrix)&&!numbers(p.values));
   const otf=arr(optical.otf).filter(p=>ids.has(p.source)&&numbers(p.complex_values));
   const ptf=arr(optical.ptf).filter(p=>ids.has(p.source)&&num(p.phase_value));
   const shared=(record?.sharedStudies||[]).filter(s=>ids.has(s.source)&&records.some(other=>other!==record&&(other?.sharedStudies||[]).some(t=>t.study_id===s.study_id&&t.arm_id!==s.arm_id&&JSON.stringify(t.study)===JSON.stringify(s.study))));
@@ -41,7 +42,7 @@
    from(arr(record?.in_vivo_optical_quality).filter(p=>sourceIds(p).length&&num(p.value?.mean)),"獨立 in_vivo_optical_quality 有結果；不是 bench MTF。"),
    from(mtf,"opticalEvidence.mtf 有 mtf_value 與 source。"),
    cell(through.length?A:figures.length?P:N,through.length?through.map(p=>p.source):figures.map(s=>s.label),through.length?"Through-focus 記錄含 defocus_D 與 value。":"沒有 through-focus numerical table；figure metadata 僅算 Partial。"),
-   from(psf,"PSF matrix / numerical values 存在，非僅 pupil 等 metadata。"),
+   cell(psf.length?A:psfQual.length?P:N,(psf.length?psf:psfQual).map(p=>p.source),psf.length?"PSF matrix / numerical values 存在。":"只有來源報告 PSF 可用，未收錄 raw numerical matrix；不可當作 numerical PSF。"),
    cell(otf.length&&ptf.length?A:otf.length||ptf.length?P:N,[...otf,...ptf].map(p=>p.source),"分別檢查 OTF complex_values 與 PTF phase_value；只有其中一類數值則為 Partial。"),
    cell(shared.length?A:N,shared.map(s=>s.source),"跨產品相同 study_id、相同 study 內容且不同 arm_id，才算 shared head-to-head。"),
    cell(structuredMarket?A:market.length||catalogKeys.length?P:N,market.flatMap(sourceIds),structuredMarket?"有 source-linked 許可證及 NHI 類別／代碼；Available 不代表已完整驗證或目前上市狀態。":market.length||catalogKeys.length?`已有部分市場／法規欄位：${catalogKeys.join(', ')}${market.length?'；另有來源 marketEvidence':''}。不由許可證推斷目前核准／上市狀態。`:"尚無具體台灣法規／市場欄位；僅 market=Taiwan 或 source_status 不算。")];

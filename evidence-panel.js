@@ -309,6 +309,15 @@ function renderOpticalEvidence(record) {
     ["otf", "OTF — Optical Transfer Function", ["available", "representation", "spatial_frequency_grid", "complex_values", "pupil_mm", "wavelength_nm", "defocus_D", "source"]],
     ["psf", "PSF — Point Spread Function", ["available", "pupil_mm", "wavelength_nm", "defocus_D", "values", "matrix", "pixel_scale", "normalization", "measurement_condition", "source"]]
   ];
+  if (record.opticalEvidence?.mtf?.length) container.append(createElement("p", "disclaimer-box", "不同 optical bench studies 的 model cornea、measurement setup 與 study design 不同；本區保留各來源數值，不進行跨研究 head-to-head、平均、排名或影像轉換。"));
+  for (const [key, label] of [["mtfa", "MTFa"], ["usaf_chart", "USAF chart"]]) {
+    const item = record.opticalEvidence?.[key];
+    if (item?.available === true) {
+      const note = createElement("p", "", `${label}：來源報告 available；本網站未轉錄 numerical data。`);
+      if ((record.sources || []).some(source => source.label === item.source)) note.append(createSourceMarker(item.source, label));
+      container.append(note);
+    }
+  }
   definitions.forEach(([key, title, fields]) => {
     const section = createElement("section", "optical-measurement");
     section.append(createElement("h4", "", title));
@@ -318,6 +327,10 @@ function renderOpticalEvidence(record) {
     const hasNumbers = records.some(item => valueFields[key].some(field => containsOpticalNumber(item?.[field])));
     if (!hasNumbers) {
       section.append(createElement("p", "empty-evidence", "尚無公開數值資料"));
+      records.filter(item => item?.available === true).forEach(item => {
+        section.append(createElement("p", "", "來源報告此資料可用；目前只有 figure / qualitative metadata，沒有可用的逐點數值或 numerical matrix。"));
+        if ((record.sources || []).some(source => source.label === item.source)) section.append(createSourceMarker(item.source, title));
+      });
       container.append(section);
       return;
     }
@@ -327,7 +340,7 @@ function renderOpticalEvidence(record) {
         const heading = createElement("h4", "", `Pupil ${formatValue(item.pupil_mm, "mm")} · ${formatValue(item.focus)} focus`);
         const details = createElement("dl", "source-fields");
         [
-          ["MTF", "mtf_value"], ["Wavelength (nm)", "wavelength_nm"],
+          ["MTF", "mtf_value"], ["Published SD", "mtf_SD"], ["Study model", "study_model"], ["Wavelength (nm)", "wavelength_nm"],
           ["Spatial frequency", "spatial_frequency"], ["Measurement system", "measurement_system"],
           ["Model eye condition", "model_eye_condition"], ["Measurement condition", "measurement_condition"]
         ].forEach(([label, field]) => details.append(createSourceField(label, field, item)));

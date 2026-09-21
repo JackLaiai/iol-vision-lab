@@ -737,6 +737,45 @@
         "notes": "依使用者提供的來源核對結果登錄；本次未重新查核原文。只加入 patient-reported outcomes 與 qualitative contrast sensitivity，不轉錄 visual acuity、defocus points 或圖像估值。"
       },
       "notes": "Spectacle dependence is the reported need for glasses, not calculated independence. Distance dependence percentage was not explicitly supplied and remains null; 0/25 count retained. Satisfaction is not clinical efficacy or website advice."
+    },
+    {
+      "label": "O1",
+      "title": "Optical Bench Evaluation of the Latest Refractive Enhanced Depth of Focus Intraocular Lens",
+      "sourceType": "laboratory optical bench study",
+      "studyDesign": "laboratory optical bench study",
+      "study_model": "ZEN00V",
+      "PMID": "38978835",
+      "DOI": null,
+      "url": null,
+      "sourceIdentifier": "PMID: 38978835",
+      "measurement_conditions": {
+        "wavelength_nm": 546,
+        "measurement_system": null,
+        "apertures_mm": [
+          3.0,
+          4.5
+        ],
+        "cornea_model": "ISO-2",
+        "corneal_spherical_aberration_um": 0.28
+      },
+      "derivedParameters": [
+        "opticalEvidence.mtf",
+        "opticalEvidence.throughFocusMTF"
+      ],
+      "verification": {
+        "status": "verified_primary_or_official_source",
+        "verified_date": "2026-09-21",
+        "verified_against": [
+          "PMID 38978835"
+        ],
+        "notes": "依使用者指定的來源核對結果登錄，本次未重新查閱原文。Optical bench only；不代表臨床視覺或跨研究可直接比較。"
+      },
+      "through_focus_mtf": {
+        "figure_available": true,
+        "numerical_points_available": false,
+        "numerical_values": null,
+        "source": "O1"
+      }
     }
   ],
   "websiteSimulation": {
@@ -745,7 +784,103 @@
     "sourceIds": []
   },
   "disclaimer": "依使用者提供資料轉錄，尚未獨立查核。ZEN00V 僅為研究型號，不代表台灣 catalog 型號。缺少逐點 defocus numerical data，不能將 40 cm UNVA 用作 −2.5 D 離焦點。統計差異不等於臨床優越性或個人術後結果。",
-  "opticalEvidence": null,
+  "opticalEvidence": {
+    "mtf": [
+      {
+        "focus": "distance",
+        "study_model": "ZEN00V",
+        "pupil_mm": 3.0,
+        "wavelength_nm": 546,
+        "spatial_frequency": {
+          "value": 50,
+          "unit": "lp/mm"
+        },
+        "mtf_value": 0.41,
+        "mtf_SD": null,
+        "uncertainty_type": null,
+        "measurement_system": null,
+        "model_eye_condition": "ISO-2; corneal spherical aberration 0.28 µm",
+        "corneal_spherical_aberration_um": 0.28,
+        "measurement_condition": "Optical bench; source-specific setup; no cross-study pooling",
+        "source": "O1"
+      },
+      {
+        "focus": "distance",
+        "study_model": "ZEN00V",
+        "pupil_mm": 3.0,
+        "wavelength_nm": 546,
+        "spatial_frequency": {
+          "value": 100,
+          "unit": "lp/mm"
+        },
+        "mtf_value": 0.193,
+        "mtf_SD": null,
+        "uncertainty_type": null,
+        "measurement_system": null,
+        "model_eye_condition": "ISO-2; corneal spherical aberration 0.28 µm",
+        "corneal_spherical_aberration_um": 0.28,
+        "measurement_condition": "Optical bench; source-specific setup; no cross-study pooling",
+        "source": "O1"
+      },
+      {
+        "focus": "distance",
+        "study_model": "ZEN00V",
+        "pupil_mm": 4.5,
+        "wavelength_nm": 546,
+        "spatial_frequency": {
+          "value": 50,
+          "unit": "lp/mm"
+        },
+        "mtf_value": 0.621,
+        "mtf_SD": null,
+        "uncertainty_type": null,
+        "measurement_system": null,
+        "model_eye_condition": "ISO-2; corneal spherical aberration 0.28 µm",
+        "corneal_spherical_aberration_um": 0.28,
+        "measurement_condition": "Optical bench; source-specific setup; no cross-study pooling",
+        "source": "O1"
+      },
+      {
+        "focus": "distance",
+        "study_model": "ZEN00V",
+        "pupil_mm": 4.5,
+        "wavelength_nm": 546,
+        "spatial_frequency": {
+          "value": 100,
+          "unit": "lp/mm"
+        },
+        "mtf_value": 0.393,
+        "mtf_SD": null,
+        "uncertainty_type": null,
+        "measurement_system": null,
+        "model_eye_condition": "ISO-2; corneal spherical aberration 0.28 µm",
+        "corneal_spherical_aberration_um": 0.28,
+        "measurement_condition": "Optical bench; source-specific setup; no cross-study pooling",
+        "source": "O1"
+      }
+    ],
+    "throughFocusMTF": {
+      "available": true,
+      "figure_available": true,
+      "numerical_points_available": false,
+      "evidence_type": "figure / qualitative metadata only",
+      "points": null,
+      "value": null,
+      "defocus_D": null,
+      "source": "O1"
+    },
+    "psf": {
+      "available": null,
+      "numerical_points_available": null,
+      "matrix": null,
+      "values": null,
+      "pixel_scale": null,
+      "normalization": null,
+      "source": null
+    },
+    "otf": null,
+    "ptf": null
+  },
   "modelRelationship": {
     "product_family": "TECNIS PureSee",
     "catalog_model": null,

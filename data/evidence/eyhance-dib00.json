@@ -1215,6 +1215,42 @@
         "notes": "依使用者提供的來源核對結果登錄；本次未重新查核原文。只加入 patient-reported outcomes 與 qualitative contrast sensitivity，不轉錄 visual acuity、defocus points 或圖像估值。"
       },
       "notes": "Spectacle dependence is the reported need for glasses, not calculated independence. Distance dependence percentage was not explicitly supplied and remains null; 0/25 count retained. Satisfaction is not clinical efficacy or website advice."
+    },
+    {
+      "label": "O1",
+      "title": "Monofocal intraocular lens based on the Bessel principle for improved intermediate vision: a comparative assessment",
+      "sourceType": "laboratory optical bench study",
+      "studyDesign": "laboratory optical bench study",
+      "study_model": "ICB00",
+      "PMID": "42288831",
+      "DOI": null,
+      "url": null,
+      "sourceIdentifier": "PMID: 42288831",
+      "measurement_conditions": {
+        "wavelength_nm": null,
+        "measurement_system": "OptiSpheric IOL PRO2",
+        "apertures_mm": [
+          3.0,
+          4.5
+        ],
+        "cornea_model": null,
+        "corneal_spherical_aberration_um": 0.13
+      },
+      "derivedParameters": [
+        "opticalEvidence.mtf",
+        "opticalEvidence.psf",
+        "opticalEvidence.mtfa",
+        "opticalEvidence.usaf_chart"
+      ],
+      "verification": {
+        "status": "verified_primary_or_official_source",
+        "verified_date": "2026-09-21",
+        "verified_against": [
+          "PMID 42288831"
+        ],
+        "notes": "依使用者指定的來源核對結果登錄，本次未重新查閱原文。Optical bench only；不代表臨床視覺或跨研究可直接比較。"
+      },
+      "note": "4.5 mm MTF numerical values not supplied. PSF / MTFa / USAF chart reported available; no raw numerical PSF matrix supplied. Wavelength and focus of transcribed MTF point not explicitly supplied; remain null."
     }
   ],
   "websiteSimulation": {
@@ -1234,7 +1270,59 @@
       "E1"
     ]
   },
-  "opticalEvidence": null,
+  "opticalEvidence": {
+    "mtf": [
+      {
+        "focus": null,
+        "study_model": "ICB00",
+        "pupil_mm": 3.0,
+        "wavelength_nm": null,
+        "spatial_frequency": {
+          "value": 50,
+          "unit": "lp/mm"
+        },
+        "mtf_value": 0.36,
+        "mtf_SD": 0.01,
+        "uncertainty_type": "SD",
+        "measurement_system": "OptiSpheric IOL PRO2",
+        "model_eye_condition": "Model cornea spherical aberration 0.13 µm",
+        "corneal_spherical_aberration_um": 0.13,
+        "measurement_condition": "Optical bench; source-specific setup; no cross-study pooling",
+        "source": "O1"
+      }
+    ],
+    "throughFocusMTF": {
+      "available": null,
+      "figure_available": null,
+      "numerical_points_available": null,
+      "evidence_type": null,
+      "points": null,
+      "value": null,
+      "defocus_D": null,
+      "source": null
+    },
+    "psf": {
+      "available": true,
+      "numerical_points_available": false,
+      "matrix": null,
+      "values": null,
+      "pixel_scale": null,
+      "normalization": null,
+      "source": "O1"
+    },
+    "otf": null,
+    "ptf": null,
+    "mtfa": {
+      "available": true,
+      "values": null,
+      "source": "O1"
+    },
+    "usaf_chart": {
+      "available": true,
+      "numerical_values": null,
+      "source": "O1"
+    }
+  },
   "in_vivo_optical_quality": [
     {
       "key": "e3_osi",
