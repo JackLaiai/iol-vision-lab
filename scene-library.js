@@ -58,7 +58,11 @@
       card.append(el("h2", scene.title_zh), media(scene));
       const fields = el("dl");
       for (const [name, value] of [["Media", scene.media?.type === "image" ? "Image" : scene.media?.type === "video" ? "Video" : "Image / Video：尚未指定"], ["Lighting", scene.lighting], ["Focus category", scene.focus_category], ["主要觀看目標距離", Number.isFinite(scene.viewing_distance_cm) ? `${scene.viewing_distance_cm} cm` : "未設定固定距離"], ["Simulation status", "not_connected · Optical image simulation 尚未啟用"]]) fields.append(el("dt", name), el("dd", value));
-      card.append(fields, el("p", "此距離僅代表主要觀看目標，不代表畫面中所有物體皆位於相同距離。"), result(scene, product, record)); cards.append(card);
+      card.append(fields, el("p", "此距離僅代表主要觀看目標，不代表畫面中所有物體皆位於相同距離。"), result(scene, product, record)); const detailURL = new URL(window.EvidenceRouting.detail(product), document.baseURI);
+      detailURL.searchParams.set("scene", scene.id);
+      if (scene.distance_scope === "primary_target_only" && Number.isFinite(scene.viewing_distance_cm) && scene.viewing_distance_cm > 0) detailURL.searchParams.set("distance", scene.viewing_distance_cm);
+      const action = el("a", detailURL.searchParams.has("distance") ? "查看此場景的視力證據" : "查看 IOL 證據（未設定主要觀看距離）");
+      action.href = detailURL.href; action.className = "scene-detail-action"; card.append(action); cards.append(card);
     }
   }
   async function init() {

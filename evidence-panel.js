@@ -416,6 +416,17 @@ function renderEvidencePanel(record, product = null) {
   const chartContainer = document.getElementById("defocus-chart");
   const numericalSource = (record.sources || []).find(source => Array.isArray(source.defocus_points) && source.defocus_points.some(p => Number.isFinite(p.defocus_D) && Number.isFinite(p.mean_logMAR)));
   const input = document.getElementById("viewing-distance-cm");
+  const distanceQuery = new URLSearchParams(location.search).get("distance");
+  const initialDistance = distanceQuery !== null && distanceQuery.trim() !== "" ? Number(distanceQuery) : NaN;
+  const validDistance = Number.isFinite(initialDistance) && initialDistance > 0;
+  if (input && validDistance) {
+    input.value = String(initialDistance);
+    input.dispatchEvent(new Event("input"));
+  }
+  if (!input && validDistance) {
+    const unavailable = createElement("p", "", "目前沒有足夠的 published defocus numerical data");
+    chartContainer.before(unavailable);
+  }
   const chart = window.DefocusChart.mount(chartContainer, {
     points: numericalSource?.defocus_points, source: numericalSource,
     measurementConditions: numericalSource ? [numericalSource.measurement, numericalSource.follow_up ?? numericalSource.followUp, numericalSource.lighting_condition, numericalSource.visual_acuity_unit, numericalSource.panoptix_subgroup ?? numericalSource.sampleSize] : [],
@@ -547,3 +558,27 @@ window.EvidencePanel = {
 
 window.addEventListener("hashchange", () => revealEvidenceSource(location.hash));
 initializeEvidencePanel();
+renderSceneContext();
+
+async function renderSceneContext() {
+  const query = new URLSearchParams(location.search);
+  const sceneId = query.get("scene"), rawDistance = query.get("distance");
+  if (!sceneId && rawDistance === null) return;
+  const box = createElement("aside", "disclaimer-box");
+  box.id = "scene-context";
+  document.querySelector(".detail-heading").after(box);
+  if (sceneId) {
+    const back = createElement("a", "", "← 返回 Scene Library");
+    back.href = "scene-library.html"; box.append(back);
+    try {
+      const scenes = await loadEvidenceData("data/scenes.json");
+      const scene = scenes.find(item => item.id === sceneId);
+      box.append(createElement("p", "", scene ? `場景：${scene.title_zh}` : "找不到此場景；未使用 URL 文字作為場景名稱。"));
+      if (scene && rawDistance !== null && Number(rawDistance) !== scene.viewing_distance_cm) box.append(createElement("p", "", "URL 距離與場景預設距離不同；下列為此次帶入的距離。"));
+    } catch { box.append(createElement("p", "", "場景資訊暫時無法載入。")); }
+  }
+  const distance = rawDistance !== null && rawDistance.trim() !== "" ? Number(rawDistance) : NaN;
+  box.append(createElement("p", "", Number.isFinite(distance) && distance > 0 ? `主要觀看目標距離：${distance} cm（初始帶入；目前計算距離以輸入欄位為準）` : rawDistance === null ? "場景未帶入固定主要觀看距離；calculator 保持原預設，並非場景距離。" : "距離參數無效，未套用；calculator 保持原預設。"),
+    createElement("p", "", "此距離僅代表主要觀看目標，不代表畫面中所有物體位於相同距離。"),
+    createElement("p", "", "此數值為依研究離焦視力曲線得到的研究平均結果／內插估計，不代表個人術後視力。"));
+}
