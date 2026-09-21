@@ -12,7 +12,70 @@
     "study_model": "ZEN00V",
     "catalog_model": null,
     "iolType": "EDOF",
-    "toric": false
+    "toric": false,
+    "marketEvidence": [
+      {
+        "key": "taiwan_product_name",
+        "label": "Taiwan product name",
+        "value": "TECNIS PureSee IOL with TECNIS Simplicity Delivery System",
+        "unit": null,
+        "sourceIds": [
+          "TW1"
+        ]
+      },
+      {
+        "key": "taiwan_nhi_special_material_code",
+        "label": "NHI special-material code",
+        "value": "FALSNDENV1JJ",
+        "unit": null,
+        "sourceIds": [
+          "TW1"
+        ]
+      },
+      {
+        "key": "taiwan_nhi_payment_points",
+        "label": "NHI payment points",
+        "value": 2744,
+        "unit": "points",
+        "sourceIds": [
+          "TW1"
+        ]
+      },
+      {
+        "key": "taiwan_nhi_listing",
+        "label": "NHI listing",
+        "value": "Listed as newly added in 2025 NHI material list",
+        "unit": null,
+        "sourceIds": [
+          "TW1"
+        ]
+      },
+      {
+        "key": "tfda_license_number",
+        "label": "Taiwan medical device license",
+        "value": "衛部醫器輸字第036929號",
+        "unit": null,
+        "sourceIds": [
+          "TW2"
+        ]
+      },
+      {
+        "key": "taiwan_models",
+        "label": "Taiwan listed models",
+        "value": [
+          "DEN00V",
+          "ZEN00V"
+        ],
+        "unit": null,
+        "sourceIds": [
+          "TW2"
+        ]
+      }
+    ],
+    "taiwan_models": [
+      "DEN00V",
+      "ZEN00V"
+    ]
   },
   "lastVerifiedDate": null,
   "clinicalRecord": {
@@ -227,6 +290,24 @@
     ],
     "son2026_defocus_qualitative": [
       "P1"
+    ],
+    "taiwan_product_name": [
+      "TW1"
+    ],
+    "taiwan_nhi_special_material_code": [
+      "TW1"
+    ],
+    "taiwan_nhi_payment_points": [
+      "TW1"
+    ],
+    "taiwan_nhi_listing": [
+      "TW1"
+    ],
+    "tfda_license_number": [
+      "TW2"
+    ],
+    "taiwan_models": [
+      "TW2"
     ]
   },
   "sources": [
@@ -271,6 +352,54 @@
           "PMCID PMC13365184"
         ],
         "notes": "依使用者提供的來源核對結果登錄；本次未重新逐筆查核。此狀態僅表示網站資料與來源核對，不代表研究品質或臨床優越性。"
+      }
+    },
+    {
+      "label": "TW1",
+      "title": null,
+      "sourceType": "Taiwan NHI official document",
+      "studyDesign": null,
+      "population": null,
+      "sampleSize": null,
+      "followUp": null,
+      "sourceIdentifier": null,
+      "url": null,
+      "derivedParameters": [
+        "taiwan_product_name",
+        "taiwan_nhi_special_material_code",
+        "taiwan_nhi_payment_points",
+        "taiwan_nhi_listing"
+      ],
+      "verification": {
+        "status": "verified_primary_or_official_source",
+        "verified_date": "2026-09-21",
+        "verified_against": [
+          "Taiwan NHI official material list"
+        ],
+        "notes": "依使用者提供的官方來源核對結果登錄；本次未重新查核原始文件。文件網址與完整標題尚未提供。"
+      }
+    },
+    {
+      "label": "TW2",
+      "title": null,
+      "sourceType": "TFDA-derived public dataset",
+      "studyDesign": null,
+      "population": null,
+      "sampleSize": null,
+      "followUp": null,
+      "sourceIdentifier": null,
+      "url": null,
+      "derivedParameters": [
+        "tfda_license_number",
+        "taiwan_models"
+      ],
+      "verification": {
+        "status": "partially_verified",
+        "verified_date": "2026-09-21",
+        "verified_against": [
+          "TFDA-derived public dataset"
+        ],
+        "notes": "依使用者提供的 TFDA-derived public dataset 登錄；尚未直接向 TFDA 官網核對。資料集名稱與網址未提供。"
       }
     }
   ],

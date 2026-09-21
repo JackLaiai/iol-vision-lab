@@ -29,6 +29,9 @@
   const shared=(record?.sharedStudies||[]).filter(s=>ids.has(s.source)&&records.some(other=>other!==record&&(other?.sharedStudies||[]).some(t=>t.study_id===s.study_id&&t.arm_id!==s.arm_id&&JSON.stringify(t.study)===JSON.stringify(s.study))));
   const market=(record?.product?.marketEvidence||[]).filter(p=>/taiwan|tfda|nhi/i.test(p.key)&&sourceIds(p).length&&has(p.value));
   const catalogKeys=['taiwan_tfda_status','tfda_license_number','taiwan_market_status','nhi_category','nhi_code','taiwan_hospital_availability'].filter(k=>has(product[k]));
+  // Coverage measures structured content, independently of source verification.
+  const marketKeys = new Set(market.map(p=>p.key));
+  const structuredMarket = marketKeys.has('tfda_license_number') && (marketKeys.has('taiwan_nhi_category') || marketKeys.has('taiwan_nhi_special_material_code'));
   return [from(endpoints(/(?:ucva|bcdva|binocular_va|udva|cdva|uiva|unva)$/),"clinicalParameters 視力 endpoint 的 mean/value 有數值，並連到正式來源。"),
    cell(curves.length?A:qualitative.length||ranges.length?P:N,curves.length?curves.map(s=>s.label):[...qualitative.map(s=>s.label),...ranges.flatMap(sourceIds)],curves.length?"source.defocus_points 同時具有 defocus_D 與 mean_logMAR；未使用 40 cm VA 推導。":"沒有逐點數值；若有 figure/range evidence，僅標記 Partial。"),
    cell(qualitative.length||ranges.length?P:N,[...qualitative.map(s=>s.label),...ranges.flatMap(sourceIds)],"僅根據明確 figure-only flag 或 clinical defocus range summary；不從圖取值。"),
@@ -39,7 +42,7 @@
    from(psf,"PSF matrix / numerical values 存在，非僅 pupil 等 metadata。"),
    cell(otf.length&&ptf.length?A:otf.length||ptf.length?P:N,[...otf,...ptf].map(p=>p.source),"分別檢查 OTF complex_values 與 PTF phase_value；只有其中一類數值則為 Partial。"),
    cell(shared.length?A:N,shared.map(s=>s.source),"跨產品相同 study_id、相同 study 內容且不同 arm_id，才算 shared head-to-head。"),
-   cell(market.length||catalogKeys.length?P:N,market.flatMap(sourceIds),market.length||catalogKeys.length?`已有部分市場／法規欄位：${catalogKeys.join(', ')}${market.length?'；另有來源 marketEvidence':''}。不由許可證推斷目前核准／上市狀態。`:"尚無具體台灣法規／市場欄位；僅 market=Taiwan 或 source_status 不算。")];
+   cell(structuredMarket?A:market.length||catalogKeys.length?P:N,market.flatMap(sourceIds),structuredMarket?"有 source-linked 許可證及 NHI 類別／代碼；Available 不代表已完整驗證或目前上市狀態。":market.length||catalogKeys.length?`已有部分市場／法規欄位：${catalogKeys.join(', ')}${market.length?'；另有來源 marketEvidence':''}。不由許可證推斷目前核准／上市狀態。`:"尚無具體台灣法規／市場欄位；僅 market=Taiwan 或 source_status 不算。")];
  }
  function verification(cell,record){
   if(cell.status===N)return null;

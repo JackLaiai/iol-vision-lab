@@ -20,6 +20,69 @@
         "sourceIds": [
           "E1"
         ]
+      },
+      {
+        "key": "taiwan_product_name",
+        "label": "Taiwan product name",
+        "value": "TECNIS Eyhance IOL with TECNIS Simplicity Delivery System",
+        "unit": null,
+        "sourceIds": [
+          "TW1"
+        ]
+      },
+      {
+        "key": "taiwan_model",
+        "label": "Taiwan model",
+        "value": "DIB00",
+        "unit": null,
+        "sourceIds": [
+          "TW1"
+        ]
+      },
+      {
+        "key": "tfda_license_number",
+        "label": "Taiwan medical device license",
+        "value": "衛部醫器輸字第033954號",
+        "unit": null,
+        "sourceIds": [
+          "TW1"
+        ]
+      },
+      {
+        "key": "taiwan_nhi_category",
+        "label": "NHI / self-pay difference category",
+        "value": "特殊人工水晶體，短焦延伸焦距、非球面類別",
+        "unit": null,
+        "sourceIds": [
+          "TW1"
+        ]
+      },
+      {
+        "key": "taiwan_nhi_effective_date",
+        "label": "NHI effective date",
+        "value": "2023-11-01",
+        "unit": null,
+        "sourceIds": [
+          "TW1"
+        ]
+      },
+      {
+        "key": "taiwan_nhi_payment_points",
+        "label": "NHI payment points",
+        "value": 2744,
+        "unit": "points",
+        "sourceIds": [
+          "TW1"
+        ]
+      },
+      {
+        "key": "taiwan_nhi_special_material_code",
+        "label": "DIB00 NHI special-material code",
+        "value": null,
+        "unit": null,
+        "sourceIds": [
+          "TW1"
+        ]
       }
     ]
   },
@@ -599,6 +662,27 @@
     ],
     "son2026_defocus_qualitative": [
       "E4"
+    ],
+    "taiwan_product_name": [
+      "TW1"
+    ],
+    "taiwan_model": [
+      "TW1"
+    ],
+    "tfda_license_number": [
+      "TW1"
+    ],
+    "taiwan_nhi_category": [
+      "TW1"
+    ],
+    "taiwan_nhi_effective_date": [
+      "TW1"
+    ],
+    "taiwan_nhi_payment_points": [
+      "TW1"
+    ],
+    "taiwan_nhi_special_material_code": [
+      "TW1"
     ]
   },
   "sources": [
@@ -766,6 +850,34 @@
           "PMCID PMC13365184"
         ],
         "notes": "依使用者提供的來源核對結果登錄；本次未重新逐筆查核。此狀態僅表示網站資料與來源核對，不代表研究品質或臨床優越性。"
+      }
+    },
+    {
+      "label": "TW1",
+      "title": null,
+      "sourceType": "Taiwan NHI official document",
+      "studyDesign": null,
+      "population": null,
+      "sampleSize": null,
+      "followUp": null,
+      "sourceIdentifier": null,
+      "url": null,
+      "derivedParameters": [
+        "taiwan_product_name",
+        "taiwan_model",
+        "tfda_license_number",
+        "taiwan_nhi_category",
+        "taiwan_nhi_effective_date",
+        "taiwan_nhi_payment_points",
+        "taiwan_nhi_special_material_code"
+      ],
+      "verification": {
+        "status": "verified_primary_or_official_source",
+        "verified_date": "2026-09-21",
+        "verified_against": [
+          "Taiwan NHI official document"
+        ],
+        "notes": "依使用者提供的官方來源核對結果登錄；本次未重新查核原始文件。文件網址與完整標題尚未提供。"
       }
     }
   ],
