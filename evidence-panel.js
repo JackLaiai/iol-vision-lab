@@ -408,6 +408,7 @@ function renderEvidencePanel(record, product = null) {
     field.querySelector("dd").append(markers);
     productFields.append(field);
   });
+  window.PatientSummary.mount(document.getElementById("patient-summary"), product || record.product || {}, record);
   renderSourceTypeBadges(record);
   document.querySelector("#last-verified-date").textContent = formatValue(record.lastVerifiedDate);
   renderClinicalParameters(record);
@@ -471,6 +472,7 @@ function renderCatalogProduct(product) {
     ["Last verified date", "last_verified_date"]
   ].forEach(([label, key]) => fields.append(createSourceField(label, key, product)));
   document.querySelector("#product-details").hidden = false;
+  window.PatientSummary.mount(document.getElementById("patient-summary"), product, null);
 }
 
 function renderEvidenceUnavailable(message) {

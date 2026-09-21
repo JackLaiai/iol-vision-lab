@@ -6,7 +6,7 @@
   <title>IOL detail 範本｜資料來源與證據</title>
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="evidence-panel.css">
-  <link rel="stylesheet" href="defocus-chart.css">
+  <link rel="stylesheet" href="defocus-chart.css"><link rel="stylesheet" href="patient-summary.css">
 </head>
 <body class="iol-detail">
   <header class="nav-shell"><nav class="nav" aria-label="主要導覽">
@@ -25,6 +25,7 @@
       <h2 id="product-details-title">產品基本資料</h2>
       <dl class="source-fields" id="product-fields"></dl>
     </section>
+    <section id="patient-summary" aria-label="快速了解"></section>
     <section class="evidence-panel" id="sources-evidence" aria-labelledby="evidence-title">
       <div class="evidence-summary">
         <span class="kicker" lang="en">Sources &amp; Evidence</span>
@@ -67,7 +68,7 @@
       </details>
     </section>
   </main>
-  <script src="evidence-routing.js" defer></script><script src="defocus-chart.js" defer></script><script src="defocus-calculator.js"></script>
+  <script src="evidence-utils.js" defer></script><script src="patient-summary.js" defer></script><script src="evidence-routing.js" defer></script><script src="defocus-chart.js" defer></script><script src="defocus-calculator.js"></script>
   <script src="evidence-panel.js"></script>
 </body>
 </html>
