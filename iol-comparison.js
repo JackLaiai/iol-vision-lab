@@ -11,25 +11,8 @@
   async function fetchJSON(path) { const r = await fetch(path); if (!r.ok) throw new Error(`HTTP ${r.status}`); return r.json(); }
   function fields(rows) { const dl = el("dl"); for (const [k,v] of rows) { const row = el("div"); row.append(el("dt", k), el("dd", show(v))); dl.append(row); } return dl; }
   function sourceLink(product, id) { const a = el("a", `[${id}]`); a.href = `iol-detail.html?model=${encodeURIComponent(product.model_number)}#source-${encodeURIComponent(id)}`; return a; }
-  function availability(record) {
-    const params = record?.clinicalParameters || [], sources = record?.sources || [], optical = record?.opticalEvidence || {};
-    const endpoint = pattern => params.some(p => pattern.test(p.key) && (numeric(p.value) || numeric(p.value?.mean)));
-    const defocus = sources.some(s => list(s.defocus_points).some(p => numeric(p.defocus_D) && numeric(p.mean_logMAR)));
-    const through = list(optical.throughFocusMTF).some(p => numeric(p.value));
-    const throughFigure = sources.some(s => s.through_focus_mtf?.figure_available === true);
-    return [
-      ["Clinical outcomes", endpoint(/(?:ucva|bcdva|binocular_va|udva|cdva|uiva|unva)$/) ? NUM : NONE],
-      ["Defocus Curve", defocus ? NUM : sources.some(s => s.defocus_curve_available === true) ? `${QUAL} · figure / qualitative structured evidence only` : params.some(p => p.key === "defocus_range" && numeric(p.value?.visualAcuityUpperBound)) ? "Published range summary only; no structured points" : NONE],
-      ["Contrast sensitivity", endpoint(/^contrast_sensitivity/) ? NUM : NONE],
-      ["Spectacle independence", endpoint(/^spectacle_independence/) ? NUM : NONE],
-      ["Dysphotopsia", endpoint(/^(severity_|bothersomeness_)/) ? NUM : NONE],
-      ["In-vivo optical quality", list(record?.in_vivo_optical_quality).some(p => numeric(p.value?.mean)) ? "In-vivo optical quality data available · ocular OQAS, not bench MTF" : NONE],
-      ["Optical bench MTF", list(optical.mtf).some(p => numeric(p.mtf_value)) ? NUM : NONE],
-      ["Through-focus MTF", through ? NUM : throughFigure ? `${QUAL} · figure metadata only; no numerical table` : NONE],
-      ["PSF", numericalArray(optical.psf?.matrix) || numericalArray(optical.psf?.values) ? NUM : NONE],
-      ["OTF", numericalArray(optical.otf?.complex_values) ? NUM : NONE],
-      ["PTF", list(optical.ptf).some(p => numeric(p.phase_value)) ? NUM : NONE]
-    ];
+  function availability(record, product) {
+    return window.EvidenceUtils.classify(product, record, state.records || []).map((cell,i)=>[window.EvidenceUtils.columns[i], cell.status]);
   }
   function distanceResult(product, record) {
     const box = el("div", undefined, "result");
@@ -57,7 +40,7 @@
     node.append(fields([["Manufacturer", product.manufacturer], ["Product name", product.model], ["Model", product.model_number], ["Lens category", product.iol_type], ["Toric / non-toric", product.toric === true ? "Toric" : product.toric === false ? "Non-toric" : null], ["Taiwan market status", product.taiwan_market_status], ["Taiwan availability (source record)", market("taiwan_availability")], ["TFDA status", product.taiwan_tfda_status], ["TFDA license", product.tfda_license_number ?? market("tfda_license_number")], ["NHI code", product.nhi_code ?? market("taiwan_nhi_special_material_code")], ["Evidence availability", loading ? "載入中…" : error ? `資料載入失敗：${error}` : record ? "Structured evidence record available" : NONE]]));
     if (product.model_number || product.product_key) { const a = el("a", "查看完整資料與來源"); a.href = window.EvidenceRouting.detail(product); node.append(a); }
     if (loading || error) return;
-    node.append(el("h3", "Evidence comparison"), fields(availability(record)), el("h3", "Published study results · Viewing distance"), distanceResult(product, record));
+    node.append(el("h3", "Evidence comparison"), fields(availability(record, product)), el("h3", "Published study results · Viewing distance"), distanceResult(product, record));
     if (record?.modelRelationship) {
       node.append(el("h3", "Model relationship"), fields([["Catalog model", record.modelRelationship.catalog_model], ["Study model", record.modelRelationship.study_model], ["Relationship", record.modelRelationship.relationship]]));
       node.append(el("h3", "Adult clinical evidence available · Published study results"));
@@ -102,11 +85,17 @@
   async function init() {
     try {
       [state.products, state.index] = await Promise.all([fetchJSON("data/taiwan-iol-catalog.json"), fetchJSON("data/evidence/index.json")]);
+      state.records = (await Promise.all(state.products.map(async p => {
+        const path = window.EvidenceRouting.path(state.index,p);
+        if (!path) return null;
+        try { const r = await fetchJSON(path); return window.EvidenceRouting.matches(r,p) && !/demo|placeholder/i.test(r.dataStatus || "") ? r : null; } catch { return null; }
+      }))).filter(Boolean);
       if (!state.products.length) throw new Error("Catalog is empty");
       for (const [side, preferred] of [["a", "TFNT00"], ["b", "DIB00"]]) {
         const selectNode = document.getElementById(`iol-${side}`);
         state.products.forEach((p,i) => { const o = el("option", `${p.manufacturer} · ${p.model} · ${p.model_number || EMPTY}`); o.value = String(i); selectNode.append(o); });
-        const i = state.products.findIndex(p => p.model_number === preferred); selectNode.value = String(i < 0 ? 0 : i); selectNode.disabled = false;
+        const requested = new URLSearchParams(location.search).get(side);
+        const i = state.products.findIndex((p, j) => requested ? (p.product_key || p.model_number || `catalog:${j}`) === requested : p.model_number === preferred); selectNode.value = String(i < 0 ? 0 : i); selectNode.disabled = false;
         selectNode.addEventListener("change", () => select(side));
       }
       document.getElementById("distance").addEventListener("input", () => { for (const side of ["a", "b"]) if (state.sides[side]) render(side); });
