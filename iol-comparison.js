@@ -63,6 +63,8 @@
       for (const title of ["Endpoint (logMAR, mean ± SD)", s.arms[left.arm_id].product_family, s.arms[right.arm_id].product_family, "Between-group p-value"]) head.append(el("th", title));
       const thead = el("thead"); thead.append(head); table.append(thead); const tbody = el("tbody");
       for (const o of s.outcomes) { const row = el("tr"); for (const v of [o.endpoint + (o.distance_cm ? ` (${o.distance_cm} cm)` : ""), ...[left,right].map(ref => `${o[ref.arm_id].mean.toFixed(2)} ± ${o[ref.arm_id].SD.toFixed(2)}`), `${o.between_group_p.operator} ${o.between_group_p.value}`]) row.append(el("td", v)); tbody.append(row); }
+      const chart = el("div");
+      if (window.HeadToHeadChart.mount(chart, {left, right})) box.append(chart);
       table.append(tbody); box.append(table, el("p", "UIVA / UNVA: This study reported a statistically significant between-group difference. 統計顯著不等於臨床優越性；未重新計算 effect size，亦不提供排名或推薦。"), el("p", `${s.review_status} · DOI ${s.DOI} · PMID ${s.PMID}`));
     }
   }
