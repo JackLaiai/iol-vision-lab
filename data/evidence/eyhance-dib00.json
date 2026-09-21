@@ -626,7 +626,13 @@
       "derivedParameters": [
         "model_relationship"
       ],
-      "clinical_outcomes": null
+      "clinical_outcomes": null,
+      "verification": {
+        "status": "not_independently_verified",
+        "verified_date": null,
+        "verified_against": [],
+        "notes": "未在本次指定已完成來源核對；維持待核對。"
+      }
     },
     {
       "label": "E2",
@@ -660,7 +666,16 @@
         "monocular_uiva",
         "monocular_unva",
         "defocus_curve"
-      ]
+      ],
+      "verification": {
+        "status": "verified_primary_or_official_source",
+        "verified_date": "2026-09-21",
+        "verified_against": [
+          "PubMed PMID 37069559",
+          "PMC10108453"
+        ],
+        "notes": "依使用者提供的來源核對結果登錄；本次未重新逐筆查核。此狀態僅表示網站資料與來源核對，不代表研究品質或臨床優越性。"
+      }
     },
     {
       "label": "E3",
@@ -700,7 +715,15 @@
         "e3_osi",
         "e3_mtf_cutoff",
         "e3_strehl_ratio"
-      ]
+      ],
+      "verification": {
+        "status": "verified_primary_or_official_source",
+        "verified_date": "2026-09-21",
+        "verified_against": [
+          "PMC8046615"
+        ],
+        "notes": "依使用者提供的來源核對結果登錄；本次未重新逐筆查核。此狀態僅表示網站資料與來源核對，不代表研究品質或臨床優越性。"
+      }
     },
     {
       "label": "E4",
@@ -733,7 +756,17 @@
         "son2026_monocular_uiva",
         "son2026_monocular_unva",
         "son2026_defocus_qualitative"
-      ]
+      ],
+      "verification": {
+        "status": "verified_primary_or_official_source",
+        "verified_date": "2026-09-21",
+        "verified_against": [
+          "Scientific Reports article DOI 10.1038/s41598-026-52866-0",
+          "PMID 42128901",
+          "PMCID PMC13365184"
+        ],
+        "notes": "依使用者提供的來源核對結果登錄；本次未重新逐筆查核。此狀態僅表示網站資料與來源核對，不代表研究品質或臨床優越性。"
+      }
     }
   ],
   "websiteSimulation": {

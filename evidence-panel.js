@@ -251,6 +251,19 @@ function renderSourceCards(record) {
     header.append(title);
     header.append(createElement("p", "", `Source type：${formatValue(source.sourceType)}`));
     card.append(header);
+    const verification = source.verification || {};
+    const labels = { verified_primary_or_official_source: "Source verified", partially_verified: "Partially verified", not_independently_verified: "Verification pending" };
+    const verificationDetails = createElement("details", "source-verification");
+    const summary = createElement("summary");
+    const verificationBadge = createElement("span", "evidence-badge", labels[verification.status] || "Verification pending");
+    verificationBadge.title = "僅代表網站資料是否與原始／正式公開來源核對，不代表研究品質、證據等級或臨床優越性。";
+    summary.append(verificationBadge); verificationDetails.append(summary);
+    verificationDetails.append(createElement("p", "", verificationBadge.title), createElement("p", "", `Verified date：${formatValue(verification.verified_date)}`));
+    const references = createElement("ul");
+    (verification.verified_against || []).forEach(ref => references.append(createElement("li", "", ref)));
+    if (!references.children.length) references.append(createElement("li", "", "尚無核對來源紀錄"));
+    verificationDetails.append(references, createElement("p", "", formatValue(verification.notes)), createElement("p", "", "此為來源層級的核對狀態；record 中原有 extraction／review 註記保留為歷史紀錄。"));
+    card.append(verificationDetails);
 
     const fields = createElement("dl", "source-fields");
     sourceFields.forEach(([label, key]) => fields.append(createSourceField(label, key, source)));

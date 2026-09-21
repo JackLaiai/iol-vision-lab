@@ -24,8 +24,14 @@
       "viewingCondition": null,
       "correctionStatus": null,
       "correctionDetails": null,
-      "followUpDuration": { "value": null, "unit": null },
-      "sampleSize": { "value": null, "unit": null },
+      "followUpDuration": {
+        "value": null,
+        "unit": null
+      },
+      "sampleSize": {
+        "value": null,
+        "unit": null
+      },
       "pupilCondition": {
         "diameterMm": null,
         "dilationStatus": null,
@@ -72,7 +78,10 @@
       "title": null,
       "doi": null,
       "pmid": null,
-      "fdaSource": { "url": null, "documentId": null },
+      "fdaSource": {
+        "url": null,
+        "documentId": null
+      },
       "url": null,
       "locator": null,
       "extractionMethod": null
@@ -85,18 +94,74 @@
     "missingDataNotes": "TODO: populate only from traceable, reviewed sources."
   },
   "clinicalParameters": [
-    { "key": "40_cm_binocular_va", "label": "40 cm 雙眼視力", "value": null, "unit": "logMAR", "sourceIds": ["S1"] },
-    { "key": "defocus_curve", "label": "離焦曲線", "value": null, "unit": null, "sourceIds": ["S1", "S3"] },
-    { "key": "contrast_sensitivity", "label": "對比敏感度", "value": null, "unit": null, "sourceIds": ["S2"] },
-    { "key": "halo", "label": "Halo", "value": null, "unit": null, "sourceIds": ["S2", "S3"] },
-    { "key": "glare", "label": "Glare", "value": null, "unit": null, "sourceIds": [] },
-    { "key": "spectacle_independence", "label": "眼鏡獨立性", "value": null, "unit": null, "sourceIds": [] }
+    {
+      "key": "40_cm_binocular_va",
+      "label": "40 cm 雙眼視力",
+      "value": null,
+      "unit": "logMAR",
+      "sourceIds": [
+        "S1"
+      ]
+    },
+    {
+      "key": "defocus_curve",
+      "label": "離焦曲線",
+      "value": null,
+      "unit": null,
+      "sourceIds": [
+        "S1",
+        "S3"
+      ]
+    },
+    {
+      "key": "contrast_sensitivity",
+      "label": "對比敏感度",
+      "value": null,
+      "unit": null,
+      "sourceIds": [
+        "S2"
+      ]
+    },
+    {
+      "key": "halo",
+      "label": "Halo",
+      "value": null,
+      "unit": null,
+      "sourceIds": [
+        "S2",
+        "S3"
+      ]
+    },
+    {
+      "key": "glare",
+      "label": "Glare",
+      "value": null,
+      "unit": null,
+      "sourceIds": []
+    },
+    {
+      "key": "spectacle_independence",
+      "label": "眼鏡獨立性",
+      "value": null,
+      "unit": null,
+      "sourceIds": []
+    }
   ],
   "parameterSourceMap": {
-    "40_cm_binocular_va": ["S1"],
-    "defocus_curve": ["S1", "S3"],
-    "contrast_sensitivity": ["S2"],
-    "halo": ["S2", "S3"],
+    "40_cm_binocular_va": [
+      "S1"
+    ],
+    "defocus_curve": [
+      "S1",
+      "S3"
+    ],
+    "contrast_sensitivity": [
+      "S2"
+    ],
+    "halo": [
+      "S2",
+      "S3"
+    ],
     "glare": [],
     "spectacle_independence": []
   },
@@ -113,7 +178,16 @@
       "correctedOrUncorrected": null,
       "sourceIdentifier": null,
       "url": null,
-      "derivedParameters": ["40_cm_binocular_va", "defocus_curve"]
+      "derivedParameters": [
+        "40_cm_binocular_va",
+        "defocus_curve"
+      ],
+      "verification": {
+        "status": "not_independently_verified",
+        "verified_date": null,
+        "verified_against": [],
+        "notes": "未在本次指定已完成來源核對；維持待核對。"
+      }
     },
     {
       "label": "S2",
@@ -127,7 +201,16 @@
       "correctedOrUncorrected": null,
       "sourceIdentifier": null,
       "url": null,
-      "derivedParameters": ["contrast_sensitivity", "halo"]
+      "derivedParameters": [
+        "contrast_sensitivity",
+        "halo"
+      ],
+      "verification": {
+        "status": "not_independently_verified",
+        "verified_date": null,
+        "verified_against": [],
+        "notes": "未在本次指定已完成來源核對；維持待核對。"
+      }
     },
     {
       "label": "S3",
@@ -141,7 +224,16 @@
       "correctedOrUncorrected": null,
       "sourceIdentifier": null,
       "url": null,
-      "derivedParameters": ["defocus_curve", "halo"]
+      "derivedParameters": [
+        "defocus_curve",
+        "halo"
+      ],
+      "verification": {
+        "status": "not_independently_verified",
+        "verified_date": null,
+        "verified_against": [],
+        "notes": "未在本次指定已完成來源核對；維持待核對。"
+      }
     }
   ],
   "websiteSimulation": {

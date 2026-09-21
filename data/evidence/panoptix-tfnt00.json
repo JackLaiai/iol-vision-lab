@@ -518,7 +518,13 @@
         "taiwan_nhi_special_material_code",
         "tfda_license_number",
         "taiwan_availability"
-      ]
+      ],
+      "verification": {
+        "status": "not_independently_verified",
+        "verified_date": null,
+        "verified_against": [],
+        "notes": "未在本次指定已完成來源核對；維持待核對。"
+      }
     },
     {
       "label": "S2",
@@ -546,7 +552,13 @@
         "spectacle_independence_near",
         "spectacle_independence_intermediate"
       ],
-      "implantation": "bilateral"
+      "implantation": "bilateral",
+      "verification": {
+        "status": "not_independently_verified",
+        "verified_date": null,
+        "verified_against": [],
+        "notes": "未在本次指定已完成來源核對；維持待核對。"
+      }
     },
     {
       "label": "S3",
@@ -568,7 +580,13 @@
         "bothersomeness_very_much_halo",
         "severity_severe_starburst",
         "bothersomeness_very_much_starburst"
-      ]
+      ],
+      "verification": {
+        "status": "not_independently_verified",
+        "verified_date": null,
+        "verified_against": [],
+        "notes": "未在本次指定已完成來源核對；維持待核對。"
+      }
     },
     {
       "label": "S4",
@@ -663,7 +681,13 @@
       "source_table": "Supplemental Table S1",
       "supplementary_file": "Table S1_4IOLs.pdf",
       "data_extraction_method": "direct table transcription",
-      "PMID": "36233597"
+      "PMID": "36233597",
+      "verification": {
+        "status": "not_independently_verified",
+        "verified_date": null,
+        "verified_against": [],
+        "notes": "未在本次指定已完成來源核對；維持待核對。"
+      }
     },
     {
       "label": "S5",
@@ -687,7 +711,13 @@
       ],
       "measurement": "MTF at 50 lp/mm; sagittal and tangential measurements averaged",
       "data_extraction_method": "User-provided published values",
-      "source_note": "Through-focus response figures have no point-by-point raw numerical data supplied here. No usable numerical PSF matrix from this source. Ray propagation visualization uses a separate 532 nm condition, not the 546 nm MTF measurement."
+      "source_note": "Through-focus response figures have no point-by-point raw numerical data supplied here. No usable numerical PSF matrix from this source. Ray propagation visualization uses a separate 532 nm condition, not the 546 nm MTF measurement.",
+      "verification": {
+        "status": "not_independently_verified",
+        "verified_date": null,
+        "verified_against": [],
+        "notes": "未在本次指定已完成來源核對；維持待核對。"
+      }
     },
     {
       "label": "S6",
@@ -773,6 +803,12 @@
         "numerical_halo_strength": null,
         "note": "Specific qualitative findings were not supplied; no numerical halo strength or simulation parameter is derived.",
         "source": "S6"
+      },
+      "verification": {
+        "status": "not_independently_verified",
+        "verified_date": null,
+        "verified_against": [],
+        "notes": "未在本次指定已完成來源核對；維持待核對。"
       }
     }
   ],
