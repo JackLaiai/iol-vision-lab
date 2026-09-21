@@ -313,6 +313,111 @@
       "sourceIds": [
         "E2"
       ]
+    },
+    {
+      "key": "e3_monocular_udva",
+      "label": "E3 · ICB00 monocular UDVA at 400 cm（3 months; mean ± SD）",
+      "value": {
+        "mean": 0.11,
+        "uncertainty": {
+          "value": 0.1,
+          "type": "SD"
+        }
+      },
+      "unit": "logMAR",
+      "sourceIds": [
+        "E3"
+      ],
+      "measurementContext": {
+        "viewingCondition": "monocular",
+        "correctionStatus": "uncorrected",
+        "testDistanceCm": 400,
+        "followUpDuration": {
+          "value": 3,
+          "unit": "months"
+        }
+      }
+    },
+    {
+      "key": "e3_monocular_cdva",
+      "label": "E3 · ICB00 monocular CDVA at 400 cm（3 months; mean ± SD）",
+      "value": {
+        "mean": 0.04,
+        "uncertainty": {
+          "value": 0.06,
+          "type": "SD"
+        }
+      },
+      "unit": "logMAR",
+      "sourceIds": [
+        "E3"
+      ],
+      "measurementContext": {
+        "viewingCondition": "monocular",
+        "correctionStatus": "corrected",
+        "testDistanceCm": 400,
+        "followUpDuration": {
+          "value": 3,
+          "unit": "months"
+        }
+      }
+    },
+    {
+      "key": "e3_monocular_uiva",
+      "label": "E3 · ICB00 monocular UIVA at 66 cm（3 months; mean ± SD）",
+      "value": {
+        "mean": 0.24,
+        "uncertainty": {
+          "value": 0.1,
+          "type": "SD"
+        }
+      },
+      "unit": "logMAR",
+      "sourceIds": [
+        "E3"
+      ],
+      "measurementContext": {
+        "viewingCondition": "monocular",
+        "correctionStatus": "uncorrected",
+        "testDistanceCm": 66,
+        "followUpDuration": {
+          "value": 3,
+          "unit": "months"
+        }
+      }
+    },
+    {
+      "key": "e3_monocular_unva",
+      "label": "E3 · ICB00 monocular UNVA at 40 cm（3 months; mean ± SD）",
+      "value": {
+        "mean": 0.46,
+        "uncertainty": {
+          "value": 0.14,
+          "type": "SD"
+        }
+      },
+      "unit": "logMAR",
+      "sourceIds": [
+        "E3"
+      ],
+      "measurementContext": {
+        "viewingCondition": "monocular",
+        "correctionStatus": "uncorrected",
+        "testDistanceCm": 40,
+        "followUpDuration": {
+          "value": 3,
+          "unit": "months"
+        }
+      }
+    },
+    {
+      "key": "e3_defocus_qualitative",
+      "label": "E3 · Defocus curve qualitative/range evidence",
+      "value": "Mean VA ≤ 0.22 logMAR from +1.0 D to −1.5 D; figure only, no point-by-point numerical table supplied.",
+      "unit": null,
+      "sourceIds": [
+        "E3"
+      ]
     }
   ],
   "parameterSourceMap": {
@@ -345,6 +450,30 @@
     ],
     "model_relationship": [
       "E1"
+    ],
+    "e3_monocular_udva": [
+      "E3"
+    ],
+    "e3_monocular_cdva": [
+      "E3"
+    ],
+    "e3_monocular_uiva": [
+      "E3"
+    ],
+    "e3_monocular_unva": [
+      "E3"
+    ],
+    "e3_defocus_qualitative": [
+      "E3"
+    ],
+    "e3_osi": [
+      "E3"
+    ],
+    "e3_mtf_cutoff": [
+      "E3"
+    ],
+    "e3_strehl_ratio": [
+      "E3"
     ]
   },
   "sources": [
@@ -407,6 +536,46 @@
         "monocular_unva",
         "defocus_curve"
       ]
+    },
+    {
+      "label": "E3",
+      "title": "Visual Performance and Optical Quality after Implantation of a New Generation Monofocal Intraocular Lens",
+      "sourceType": "adult clinical study",
+      "studyDesign": "single-center, retrospective, comparative",
+      "study_model": "ICB00",
+      "comparator": "ZCB00",
+      "population": null,
+      "sampleSize": "ICB00: 111 eyes / 111 patients",
+      "patients": 111,
+      "eyes": 111,
+      "followUp": "3 months",
+      "monocularOrBinocular": "monocular visual acuity; OQAS viewing condition not provided",
+      "correctedOrUncorrected": "UDVA/UIVA/UNVA uncorrected; CDVA corrected",
+      "measurement_conditions": {
+        "distance_va_m": 4,
+        "intermediate_cm": 66,
+        "near_cm": 40,
+        "postoperative_months": 3
+      },
+      "sourceIdentifier": null,
+      "DOI": null,
+      "PMID": null,
+      "url": null,
+      "defocus_curve_available": true,
+      "numerical_points_available": false,
+      "defocus_points": null,
+      "qualitative_defocus_result": "mean VA ≤ 0.22 logMAR from +1.0 D to −1.5 D",
+      "data_extraction_method": "User-provided transcription; independent source review pending.",
+      "derivedParameters": [
+        "e3_monocular_udva",
+        "e3_monocular_cdva",
+        "e3_monocular_uiva",
+        "e3_monocular_unva",
+        "e3_defocus_qualitative",
+        "e3_osi",
+        "e3_mtf_cutoff",
+        "e3_strehl_ratio"
+      ]
     }
   ],
   "websiteSimulation": {
@@ -426,5 +595,82 @@
       "E1"
     ]
   },
-  "opticalEvidence": null
+  "opticalEvidence": null,
+  "in_vivo_optical_quality": [
+    {
+      "key": "e3_osi",
+      "label": "OSI",
+      "value": {
+        "mean": 1.28,
+        "uncertainty": {
+          "value": 0.41,
+          "type": "SD"
+        }
+      },
+      "unit": null,
+      "sourceIds": [
+        "E3"
+      ],
+      "measurementContext": {
+        "measurement_system": "OQAS",
+        "pupil_mm": 4.0,
+        "followUpDuration": {
+          "value": 3,
+          "unit": "months"
+        },
+        "measurement_scope": "postoperative ocular optical quality; not IOL-only optical bench MTF",
+        "viewingCondition": null
+      }
+    },
+    {
+      "key": "e3_mtf_cutoff",
+      "label": "MTF cutoff",
+      "value": {
+        "mean": 26.53,
+        "uncertainty": {
+          "value": 5.05,
+          "type": "SD"
+        }
+      },
+      "unit": "cycles/degree",
+      "sourceIds": [
+        "E3"
+      ],
+      "measurementContext": {
+        "measurement_system": "OQAS",
+        "pupil_mm": 4.0,
+        "followUpDuration": {
+          "value": 3,
+          "unit": "months"
+        },
+        "measurement_scope": "postoperative ocular optical quality; not IOL-only optical bench MTF",
+        "viewingCondition": null
+      }
+    },
+    {
+      "key": "e3_strehl_ratio",
+      "label": "Strehl ratio",
+      "value": {
+        "mean": 0.17,
+        "uncertainty": {
+          "value": 0.03,
+          "type": "SD"
+        }
+      },
+      "unit": null,
+      "sourceIds": [
+        "E3"
+      ],
+      "measurementContext": {
+        "measurement_system": "OQAS",
+        "pupil_mm": 4.0,
+        "followUpDuration": {
+          "value": 3,
+          "unit": "months"
+        },
+        "measurement_scope": "postoperative ocular optical quality; not IOL-only optical bench MTF",
+        "viewingCondition": null
+      }
+    }
+  ]
 }

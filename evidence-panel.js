@@ -46,7 +46,7 @@ function parameterLabelsByKey(record) {
 }
 
 function evidenceParameters(record) {
-  return [...(record.clinicalParameters || []), ...(record.product?.marketEvidence || [])];
+  return [...(record.clinicalParameters || []), ...(record.product?.marketEvidence || []), ...(record.in_vivo_optical_quality || [])];
 }
 
 function parameterKeysForSource(record, sourceLabel) {
@@ -122,7 +122,20 @@ function renderClinicalParameters(record) {
     return;
   }
 
-  parameters.forEach(parameter => {
+  // Group only records that explicitly provide the separate in-vivo category.
+  const grouped = Array.isArray(record.in_vivo_optical_quality);
+  const targets = {};
+  if (grouped) {
+    for (const [key, title] of [["va", "Clinical visual acuity"], ["vivo", "In-vivo optical quality"], ["defocus", "Defocus curve qualitative evidence"]]) {
+      const group = createElement("div", "clinical-group");
+      const heading = createElement("dt", "", title);
+      const body = createElement("dd");
+      const list = createElement("dl");
+      if (key === "vivo") body.append(createElement("p", "", "Postoperative ocular optical-quality measurements；不是 IOL-only optical bench MTF，不可與 bench 50 lp/mm MTF 直接比較。"));
+      body.append(list); group.append(heading, body); container.append(group); targets[key] = list;
+    }
+  }
+  [...parameters, ...(record.in_vivo_optical_quality || [])].forEach(parameter => {
     const row = createElement("div", "evidence-metric");
     row.dataset.parameter = parameter.key;
     const label = parameter.label || parameter.key;
@@ -141,7 +154,11 @@ function renderClinicalParameters(record) {
     sourceIdsForParameter(record, parameter).forEach(sourceId => markers.append(createSourceMarker(sourceId, label)));
     value.append(markers);
     row.append(value);
-    container.append(row);
+    if (grouped) {
+      const vivo = record.in_vivo_optical_quality.includes(parameter);
+      if (vivo) value.append(createElement("p", "", `Measurement conditions: ${parameter.measurementContext.measurement_system}; pupil ${parameter.measurementContext.pupil_mm} mm; postoperative ${parameter.measurementContext.followUpDuration.value} ${parameter.measurementContext.followUpDuration.unit}.`));
+      targets[vivo ? "vivo" : parameter.key.includes("defocus") ? "defocus" : "va"].append(row);
+    } else container.append(row);
   });
 }
 

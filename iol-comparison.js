@@ -23,6 +23,7 @@
       ["Contrast sensitivity", endpoint(/^contrast_sensitivity/) ? NUM : NONE],
       ["Spectacle independence", endpoint(/^spectacle_independence/) ? NUM : NONE],
       ["Dysphotopsia", endpoint(/^(severity_|bothersomeness_)/) ? NUM : NONE],
+      ["In-vivo optical quality", list(record?.in_vivo_optical_quality).some(p => numeric(p.value?.mean)) ? "In-vivo optical quality data available · ocular OQAS, not bench MTF" : NONE],
       ["Optical bench MTF", list(optical.mtf).some(p => numeric(p.mtf_value)) ? NUM : NONE],
       ["Through-focus MTF", through ? NUM : throughFigure ? `${QUAL} · figure metadata only; no numerical table` : NONE],
       ["PSF", numericalArray(optical.psf?.matrix) || numericalArray(optical.psf?.values) ? NUM : NONE],
