@@ -1,0 +1,12 @@
+# Reproducible PSF research outputs remain local.
+/research/psf-validation/generated/
+
+# Also exclude outputs if an older command writes to a legacy location.
+/research/psf-validation/outputs/
+/research/psf-validation/fidelity/
+/research/psf-validation/orientation/
+/research/psf-validation/**/*.png
+/research/psf-validation/**/*.csv
+/research/psf-validation/ESF_*.json
+/research/psf-validation/**/__pycache__/
+/research/psf-validation/**/*.pyc
