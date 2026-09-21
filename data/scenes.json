@@ -1,0 +1,67 @@
+[
+  {
+    "id": "day-street",
+    "title_zh": "白天街景",
+    "title_en": "Daytime street",
+    "description_zh": null,
+    "media_type": null,
+    "file": null,
+    "viewing_distance_cm": null,
+    "focus_category": "distance",
+    "lighting": "photopic",
+    "simulation_status": "not_connected",
+    "source_type": "admin_curated"
+  },
+  {
+    "id": "night-driving",
+    "title_zh": "夜間開車",
+    "title_en": "Night driving",
+    "description_zh": null,
+    "media_type": null,
+    "file": null,
+    "viewing_distance_cm": null,
+    "focus_category": "distance",
+    "lighting": "mesopic",
+    "simulation_status": "not_connected",
+    "source_type": "admin_curated"
+  },
+  {
+    "id": "computer-70cm",
+    "title_zh": "電腦工作",
+    "title_en": "Computer work",
+    "description_zh": null,
+    "media_type": null,
+    "file": null,
+    "viewing_distance_cm": 70,
+    "focus_category": "intermediate",
+    "lighting": "photopic",
+    "simulation_status": "not_connected",
+    "source_type": "admin_curated"
+  },
+  {
+    "id": "phone-40cm",
+    "title_zh": "手機閱讀",
+    "title_en": "Phone reading",
+    "description_zh": null,
+    "media_type": null,
+    "file": null,
+    "viewing_distance_cm": 40,
+    "focus_category": "near",
+    "lighting": "photopic",
+    "simulation_status": "not_connected",
+    "source_type": "admin_curated"
+  },
+  {
+    "id": "restaurant",
+    "title_zh": "室內餐廳",
+    "title_en": "Indoor restaurant",
+    "description_zh": null,
+    "media_type": null,
+    "file": null,
+    "viewing_distance_cm": null,
+    "focus_category": "mixed",
+    "lighting": "mesopic",
+    "simulation_status": "not_connected",
+    "source_type": "admin_curated"
+  }
+]

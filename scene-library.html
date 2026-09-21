@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Scene Library｜IOL Vision Lab</title>
+<link rel="stylesheet" href="styles.css"><link rel="stylesheet" href="scene-library.css">
+<script src="defocus-calculator.js" defer></script><script src="scene-library.js" defer></script>
+</head>
+<body class="scene-library">
+<header class="nav-shell"><nav class="nav" aria-label="主要導覽"><a href="index.html" class="brand">IOL Vision Lab</a><a href="index.html">返回首頁</a></nav></header>
+<main class="section">
+<span class="kicker">ADMIN-CURATED SCENE LIBRARY</span><h1>場景素材庫</h1>
+<p>場景素材由網站管理者預先提供。Optical image simulation 尚未啟用。</p>
+<label for="scene-iol">選擇 IOL</label> <select id="scene-iol" disabled><option>載入中…</option></select>
+<p id="library-status" role="status">正在讀取場景與產品資料。</p>
+<p class="scene-disclaimer">此數值為依研究離焦視力曲線得到的研究平均結果／內插估計，不代表個人術後視力。</p>
+<p>Defocus Curve（離焦視力曲線）；logMAR = logarithm of the Minimum Angle of Resolution；Linear Interpolation（線性內插）。</p>
+<div id="scene-cards" class="scene-grid"></div>
+<noscript>請啟用 JavaScript 以讀取場景資料。</noscript>
+</main></body></html>
