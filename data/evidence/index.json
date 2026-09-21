@@ -2,6 +2,7 @@
   "TFNT00": "data/evidence/panoptix-tfnt00.json",
   "DIB00": "data/evidence/eyhance-dib00.json",
   "products": {
-    "tecnis-puresee": "data/evidence/puresee.json"
+    "tecnis-puresee": "data/evidence/puresee.json",
+    "hoya-vivinex-gemetric-plus-toric": "data/evidence/gemetric-plus-toric.json"
   }
 }

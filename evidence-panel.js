@@ -417,6 +417,8 @@ function renderEvidencePanel(record, product = null) {
   if (errors.length) throw new Error(errors.join(" "));
   if (product) renderCatalogProduct(product);
   else renderProduct(record);
+  document.getElementById("family-evidence-scope")?.remove();
+  if (record.evidence_scope === "product family") { const scope = createElement("p", "disclaimer-box", record.scope_note_zh || record.scope_note); scope.id = "family-evidence-scope"; document.querySelector("#product-fields").after(scope); }
   // Taiwan market claims stay with product data, outside clinical observations.
   const productFields = document.querySelector("#product-fields");
   productFields.querySelectorAll("[data-market-evidence]").forEach(field => field.remove());
@@ -448,6 +450,7 @@ function renderEvidencePanel(record, product = null) {
     const unavailable = createElement("p", "", "目前沒有足夠的 published defocus numerical data");
     chartContainer.before(unavailable);
   }
+  if (!numericalSource && record.evidence_scope === "product family") chartContainer.before(createElement("p", "", "目前只有定性／圖表型離焦證據，尚無可直接使用的逐點 published numerical data。"));
   const chart = window.DefocusChart.mount(chartContainer, {
     points: numericalSource?.defocus_points, source: numericalSource,
     measurementConditions: numericalSource ? [numericalSource.measurement, numericalSource.follow_up ?? numericalSource.followUp, numericalSource.lighting_condition, numericalSource.visual_acuity_unit, numericalSource.panoptix_subgroup ?? numericalSource.sampleSize] : [],
@@ -543,7 +546,7 @@ async function initializeEvidencePanel() {
       renderEvidenceUnavailable("找不到此產品");
       return;
     }
-    if (matches.length !== 1) throw new Error("產品型號重複，暫時無法顯示。");
+    if (matches.length !== 1 && !(productKey && matches.every(p => p.product_key === productKey))) throw new Error("產品型號重複，暫時無法顯示。");
     product = matches[0];
     renderCatalogProduct(product);
   } catch (error) {

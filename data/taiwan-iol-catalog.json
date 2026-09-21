@@ -388,7 +388,9 @@
     "manufacturer_source": null,
     "clinical_sources": null,
     "market": "Taiwan",
-    "source_status": "official Taiwan source verified"
+    "source_status": "official Taiwan source verified",
+    "product_key": "hoya-vivinex-gemetric-plus-toric",
+    "product_family": "Vivinex Gemetric Plus Toric"
   },
   {
     "manufacturer": "HOYA",
@@ -427,7 +429,9 @@
     "manufacturer_source": null,
     "clinical_sources": null,
     "market": "Taiwan",
-    "source_status": "official Taiwan source verified"
+    "source_status": "official Taiwan source verified",
+    "product_key": "hoya-vivinex-gemetric-plus-toric",
+    "product_family": "Vivinex Gemetric Plus Toric"
   },
   {
     "manufacturer": "HOYA",
@@ -466,7 +470,9 @@
     "manufacturer_source": null,
     "clinical_sources": null,
     "market": "Taiwan",
-    "source_status": "official Taiwan source verified"
+    "source_status": "official Taiwan source verified",
+    "product_key": "hoya-vivinex-gemetric-plus-toric",
+    "product_family": "Vivinex Gemetric Plus Toric"
   },
   {
     "manufacturer": "HOYA",
@@ -505,7 +511,9 @@
     "manufacturer_source": null,
     "clinical_sources": null,
     "market": "Taiwan",
-    "source_status": "official Taiwan source verified"
+    "source_status": "official Taiwan source verified",
+    "product_key": "hoya-vivinex-gemetric-plus-toric",
+    "product_family": "Vivinex Gemetric Plus Toric"
   },
   {
     "manufacturer": "HOYA",
@@ -544,6 +552,8 @@
     "manufacturer_source": null,
     "clinical_sources": null,
     "market": "Taiwan",
-    "source_status": "official Taiwan source verified"
+    "source_status": "official Taiwan source verified",
+    "product_key": "hoya-vivinex-gemetric-plus-toric",
+    "product_family": "Vivinex Gemetric Plus Toric"
   }
 ]

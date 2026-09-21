@@ -17,7 +17,7 @@
   function distanceResult(product, record) {
     const box = el("div", undefined, "result");
     const hasPoints = record?.sources?.some(s => list(s.defocus_points).some(p => numeric(p.defocus_D) && numeric(p.mean_logMAR)));
-    if (!hasPoints) { box.append(el("p", "目前沒有足夠的 published defocus numerical data")); return box; }
+    if (!hasPoints) { if (record?.evidence_scope === "product family") box.append(el("p", record.scope_note_zh), el("p", "目前只有定性／圖表型離焦證據，尚無可直接使用的逐點 published numerical data。")); box.append(el("p", "目前沒有足夠的 published defocus numerical data")); return box; }
     const result = window.DefocusCalculator.calculate(document.getElementById("distance").valueAsNumber, record);
     if (result.error) { box.append(el("p", result.error)); return box; }
     const direct = result.method === "direct published point";

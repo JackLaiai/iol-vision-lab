@@ -1,0 +1,387 @@
+{
+  "schemaVersion": "1.0.0",
+  "recordId": "hoya-vivinex-gemetric-plus-toric",
+  "dataStatus": "USER_PROVIDED_EVIDENCE",
+  "evidence_scope": "product family",
+  "scope_note": "Clinical study included Gemetric Plus toric and non-toric variants; outcomes were not reported separately for each XY1-GPT cylinder model.",
+  "scope_note_zh": "此處臨床證據適用於 Gemetric Plus product family；研究未依 XY1-GPT2～GPT6 個別散光型號分開報告臨床結果。",
+  "product": {
+    "name": "HOYA Vivinex Gemetric Plus Toric",
+    "manufacturer": "HOYA",
+    "model": "Vivinex Gemetric Plus Toric",
+    "model_number": null,
+    "product_key": "hoya-vivinex-gemetric-plus-toric",
+    "product_family": "Vivinex Gemetric Plus Toric",
+    "catalog_models": [
+      "XY1-GPT2",
+      "XY1-GPT3",
+      "XY1-GPT4",
+      "XY1-GPT5",
+      "XY1-GPT6"
+    ],
+    "study_model": null,
+    "iolType": "trifocal",
+    "toric": true,
+    "marketEvidence": [
+      {
+        "key": "taiwan_product_name",
+        "label": "Taiwan product name",
+        "value": "HOYA Vivinex Gemetric Plus Toric Preloaded Intraocular Lens",
+        "unit": null,
+        "sourceIds": [
+          "TW1"
+        ]
+      },
+      {
+        "key": "taiwan_models",
+        "label": "Taiwan models",
+        "value": [
+          "XY1-GPT2",
+          "XY1-GPT3",
+          "XY1-GPT4",
+          "XY1-GPT5",
+          "XY1-GPT6"
+        ],
+        "unit": null,
+        "sourceIds": [
+          "TW1"
+        ]
+      },
+      {
+        "key": "taiwan_nhi_special_material_code",
+        "label": "NHI special-material code",
+        "value": "FALSNXYGPTHY",
+        "unit": null,
+        "sourceIds": [
+          "TW1"
+        ]
+      },
+      {
+        "key": "tfda_license_number",
+        "label": "Taiwan license",
+        "value": "衛部醫器輸字第035990號",
+        "unit": null,
+        "sourceIds": [
+          "TW1"
+        ]
+      },
+      {
+        "key": "taiwan_nhi_payment_points",
+        "label": "NHI payment points",
+        "value": 2744,
+        "unit": null,
+        "sourceIds": [
+          "TW1"
+        ]
+      },
+      {
+        "key": "taiwan_nhi_effective_date",
+        "label": "Effective date",
+        "value": "2023-11-01",
+        "unit": null,
+        "sourceIds": [
+          "TW1"
+        ]
+      }
+    ]
+  },
+  "lastVerifiedDate": "2026-09-21",
+  "clinicalRecord": {
+    "schemaVersion": "1.0.0",
+    "recordId": "hoya-vivinex-gemetric-plus-toric",
+    "dataStatus": "USER_PROVIDED_EVIDENCE",
+    "manufacturer": "HOYA",
+    "model": null,
+    "iolType": "trifocal",
+    "study": {
+      "design": "prospective, randomized, multicenter, open-label",
+      "arm": null,
+      "population": "11 sites in Spain / Germany",
+      "groups": [
+        {
+          "group": "bilateral Gemetric",
+          "subjects": 36
+        },
+        {
+          "group": "contralateral Gemetric / Gemetric Plus",
+          "subjects": 36
+        },
+        {
+          "group": "bilateral Gemetric Plus",
+          "subjects": 52
+        }
+      ],
+      "total_subjects": 124,
+      "total_eyes": 248
+    },
+    "measurementContext": {
+      "viewingCondition": null,
+      "correctionStatus": null,
+      "correctionDetails": null,
+      "followUpDuration": {
+        "value": 6,
+        "unit": "months",
+        "approximate": true
+      },
+      "sampleSize": {
+        "value": null,
+        "unit": null
+      },
+      "pupilCondition": {
+        "diameterMm": null,
+        "dilationStatus": null,
+        "illumination": null,
+        "measurementMethod": null
+      }
+    },
+    "defocusCurve": {
+      "visualAcuityUnit": "logMAR",
+      "defocusUnit": "D",
+      "testDistanceM": null,
+      "chart": null,
+      "points": null
+    },
+    "contrastSensitivity": {
+      "test": "Optec 6500 Functional Acuity Contrast Test",
+      "unit": null,
+      "spatialFrequencyUnit": null,
+      "illumination": null,
+      "glareCondition": null,
+      "points": null
+    },
+    "halo": {
+      "instrument": null,
+      "endpoint": null,
+      "scale": null,
+      "value": null,
+      "unit": null,
+      "numerator": null,
+      "denominator": null,
+      "uncertainty": null
+    },
+    "glare": {
+      "instrument": null,
+      "endpoint": null,
+      "scale": null,
+      "value": null,
+      "unit": null,
+      "numerator": null,
+      "denominator": null,
+      "uncertainty": null
+    },
+    "source": {
+      "title": "Customizing Clinical Outcomes with Implantation of Two Diffractive Trifocal IOLs of Identical Design but Differing Light Distributions to the Far, Intermediate and Near Foci",
+      "doi": "10.2147/OPTH.S456007",
+      "pmid": "38584723",
+      "fdaSource": {
+        "url": null,
+        "documentId": null
+      },
+      "url": null,
+      "locator": null,
+      "extractionMethod": null
+    },
+    "review": {
+      "status": "TODO",
+      "reviewer": null,
+      "reviewedAt": null
+    },
+    "missingDataNotes": "TODO: populate only from traceable, reviewed sources."
+  },
+  "clinicalParameters": [
+    {
+      "key": "defocus_curve",
+      "label": "All three study groups · binocular distance-corrected range summary",
+      "value": {
+        "fromDiopters": 0.0,
+        "throughDiopters": -3.5,
+        "visualAcuityUpperBound": 0.15,
+        "comparison": "<"
+      },
+      "unit": "logMAR",
+      "sourceIds": [
+        "C1"
+      ]
+    },
+    {
+      "key": "defocus_group_threshold",
+      "label": "Bilateral Gemetric Plus · VA better than 0.3 logMAR across 0 to −3.50 D",
+      "value": {
+        "count": 45,
+        "denominator": 52,
+        "percentage": 87
+      },
+      "unit": null,
+      "sourceIds": [
+        "C1"
+      ],
+      "study_group": "bilateral Gemetric Plus"
+    },
+    {
+      "key": "contrast_sensitivity_qualitative",
+      "label": "Contrast sensitivity · qualitative evidence",
+      "value": "Photopic with glare; mesopic without glare; mesopic with glare. Optec 6500 Functional Acuity Contrast Test. No numerical points transcribed.",
+      "unit": null,
+      "sourceIds": [
+        "C1"
+      ],
+      "evidenceCategory": "contrast_sensitivity"
+    },
+    {
+      "key": "visual_disturbances_qualitative",
+      "label": "Visual disturbances · questionnaire",
+      "value": "Halo / starburst / glare assessed; no numerical results transcribed.",
+      "unit": null,
+      "sourceIds": [
+        "C1"
+      ],
+      "evidenceCategory": "dysphotopsia"
+    },
+    {
+      "key": "spectacle_independence_qualitative",
+      "label": "Spectacle independence · all study groups",
+      "value": "Study reports >90% far/intermediate spectacle independence across groups; no exact Gemetric Plus-only percentages transcribed.",
+      "unit": null,
+      "sourceIds": [
+        "C1"
+      ],
+      "evidenceCategory": "spectacle_independence"
+    }
+  ],
+  "parameterSourceMap": {
+    "defocus_curve": [
+      "C1"
+    ],
+    "defocus_group_threshold": [
+      "C1"
+    ],
+    "contrast_sensitivity_qualitative": [
+      "C1"
+    ],
+    "visual_disturbances_qualitative": [
+      "C1"
+    ],
+    "spectacle_independence_qualitative": [
+      "C1"
+    ],
+    "taiwan_product_name": [
+      "TW1"
+    ],
+    "taiwan_models": [
+      "TW1"
+    ],
+    "taiwan_nhi_special_material_code": [
+      "TW1"
+    ],
+    "tfda_license_number": [
+      "TW1"
+    ],
+    "taiwan_nhi_payment_points": [
+      "TW1"
+    ],
+    "taiwan_nhi_effective_date": [
+      "TW1"
+    ]
+  },
+  "sources": [
+    {
+      "label": "TW1",
+      "title": "Taiwan NHI official material list",
+      "sourceType": "NHI",
+      "sourceIdentifier": "FALSNXYGPTHY; 衛部醫器輸字第035990號",
+      "url": null,
+      "verification": {
+        "status": "verified_primary_or_official_source",
+        "verified_date": "2026-09-21",
+        "verified_against": [
+          "Taiwan NHI official material list"
+        ],
+        "notes": "Verification metadata supplied by site curator; not a study quality rating."
+      }
+    },
+    {
+      "label": "C1",
+      "title": "Customizing Clinical Outcomes with Implantation of Two Diffractive Trifocal IOLs of Identical Design but Differing Light Distributions to the Far, Intermediate and Near Foci",
+      "sourceType": "clinical study",
+      "journal": "Clinical Ophthalmology",
+      "year": 2024,
+      "studyDesign": "prospective, randomized, multicenter, open-label",
+      "population": "11 sites in Spain / Germany; toric and non-toric versions included",
+      "sampleSize": "Total: 124 subjects / 248 eyes; bilateral Gemetric: 36 subjects; contralateral Gemetric / Gemetric Plus: 36 subjects; bilateral Gemetric Plus: 52 subjects",
+      "study_groups": [
+        {
+          "group": "bilateral Gemetric",
+          "subjects": 36
+        },
+        {
+          "group": "contralateral Gemetric / Gemetric Plus",
+          "subjects": 36
+        },
+        {
+          "group": "bilateral Gemetric Plus",
+          "subjects": 52
+        }
+      ],
+      "followUp": "approximately 6 months",
+      "monocularOrBinocular": "binocular (defocus)",
+      "correctedOrUncorrected": "distance corrected (defocus)",
+      "sourceIdentifier": "PMID 38584723; PMCID PMC10999202; DOI 10.2147/OPTH.S456007",
+      "url": null,
+      "measurement_distances": {
+        "distance_m": 4,
+        "intermediate_cm": 66,
+        "near_cm": 40
+      },
+      "defocus_curve_available": true,
+      "numerical_points_available": false,
+      "defocus_points": null,
+      "contrast_sensitivity": {
+        "contrast_sensitivity_available": true,
+        "numerical_points_available": false,
+        "photopic_with_glare": true,
+        "mesopic_without_glare": true,
+        "mesopic_with_glare": true,
+        "instrument": "Optec 6500 Functional Acuity Contrast Test",
+        "points": null
+      },
+      "visual_disturbances": {
+        "questionnaire_available": true,
+        "numerical_points_available": false,
+        "assessed": [
+          "halo",
+          "starburst",
+          "glare"
+        ]
+      },
+      "spectacle_independence": {
+        "available": true,
+        "numerical_points_available": false,
+        "statement": "Study reports >90% far/intermediate spectacle independence across groups."
+      },
+      "funding": "Study sponsored by HOYA Surgical Optics",
+      "industry_relationship": {
+        "author_employed_by_manufacturer": true,
+        "manufacturer": "HOYA Surgical Optics",
+        "disclosures": "Disclosed consultant / honoraria relationships"
+      },
+      "verification": {
+        "status": "verified_primary_or_official_source",
+        "verified_date": "2026-09-21",
+        "verified_against": [
+          "PMID 38584723",
+          "PMCID PMC10999202",
+          "DOI 10.2147/OPTH.S456007"
+        ],
+        "notes": "Verification metadata supplied by site curator; not a study quality rating."
+      }
+    }
+  ],
+  "defocus_points": null,
+  "opticalEvidence": null,
+  "sharedStudies": [],
+  "websiteSimulation": {
+    "status": "not_connected",
+    "description": "尚未啟用 optical image simulation。"
+  },
+  "disclaimer": "研究平均結果不代表個人術後視覺。此處臨床證據適用於 Gemetric Plus product family；研究未依 XY1-GPT2～GPT6 個別散光型號分開報告臨床結果。"
+}
