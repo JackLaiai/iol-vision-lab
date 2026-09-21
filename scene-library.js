@@ -20,10 +20,10 @@
   }
   function media(scene) {
     const empty = () => el("p", "場景素材尚未加入", "scene-media-empty");
-    const url = localFile(scene.file, "assets/scenes/");
-    if (!url || !["image", "video"].includes(scene.media_type)) return empty();
-    const node = el(scene.media_type === "image" ? "img" : "video");
-    if (scene.media_type === "image") { node.alt = scene.title_zh; node.loading = "lazy"; }
+    const url = localFile(scene.media?.file, "assets/scenes/");
+    if (!url || !["image", "video"].includes(scene.media?.type)) return empty();
+    const node = el(scene.media?.type === "image" ? "img" : "video");
+    if (scene.media?.type === "image") { node.alt = scene.title_zh; node.loading = "lazy"; }
     else { node.controls = true; node.preload = "metadata"; node.setAttribute("aria-label", scene.title_zh); }
     node.addEventListener("error", () => node.replaceWith(el("p", "場景素材無法載入", "scene-media-empty")), { once: true });
     node.src = url;
@@ -31,8 +31,8 @@
   }
   function result(scene, product, record) {
     const box = el("div", undefined, "scene-result");
-    if (!Number.isFinite(scene.viewing_distance_cm) || scene.viewing_distance_cm <= 0) {
-      box.append(el("p", "未設定固定觀看距離；不計算 defocus。")); return box;
+    if (scene.distance_scope !== "primary_target_only" || !Number.isFinite(scene.viewing_distance_cm) || scene.viewing_distance_cm <= 0) {
+      box.append(el("p", "未設定明確的主要觀看目標距離；不計算 defocus。")); return box;
     }
     if (!record) { box.append(el("p", "此 IOL 尚無可用研究離焦曲線，無法估算。")); return box; }
     const value = window.DefocusCalculator.calculate(scene.viewing_distance_cm, record);
@@ -57,8 +57,8 @@
       const card = el("article", undefined, "scene-card"); card.dataset.scene = scene.id;
       card.append(el("h2", scene.title_zh), media(scene));
       const fields = el("dl");
-      for (const [name, value] of [["Media", scene.media_type === "image" ? "Image" : scene.media_type === "video" ? "Video" : "Image / Video：尚未指定"], ["Lighting", scene.lighting], ["Focus category", scene.focus_category], ["觀看距離", Number.isFinite(scene.viewing_distance_cm) ? `${scene.viewing_distance_cm} cm` : "未設定固定距離"], ["Simulation status", "not_connected · Optical image simulation 尚未啟用"]]) fields.append(el("dt", name), el("dd", value));
-      card.append(fields, result(scene, product, record)); cards.append(card);
+      for (const [name, value] of [["Media", scene.media?.type === "image" ? "Image" : scene.media?.type === "video" ? "Video" : "Image / Video：尚未指定"], ["Lighting", scene.lighting], ["Focus category", scene.focus_category], ["主要觀看目標距離", Number.isFinite(scene.viewing_distance_cm) ? `${scene.viewing_distance_cm} cm` : "未設定固定距離"], ["Simulation status", "not_connected · Optical image simulation 尚未啟用"]]) fields.append(el("dt", name), el("dd", value));
+      card.append(fields, el("p", "此距離僅代表主要觀看目標，不代表畫面中所有物體皆位於相同距離。"), result(scene, product, record)); cards.append(card);
     }
   }
   async function init() {

@@ -10,7 +10,15 @@
     "focus_category": "distance",
     "lighting": "photopic",
     "simulation_status": "not_connected",
-    "source_type": "admin_curated"
+    "source_type": "admin_curated",
+    "distance_scope": "primary_target_only",
+    "media": {
+      "file": null,
+      "type": null,
+      "source": null,
+      "copyright_status": null,
+      "capture_notes": null
+    }
   },
   {
     "id": "night-driving",
@@ -23,7 +31,15 @@
     "focus_category": "distance",
     "lighting": "mesopic",
     "simulation_status": "not_connected",
-    "source_type": "admin_curated"
+    "source_type": "admin_curated",
+    "distance_scope": "primary_target_only",
+    "media": {
+      "file": null,
+      "type": null,
+      "source": null,
+      "copyright_status": null,
+      "capture_notes": null
+    }
   },
   {
     "id": "computer-70cm",
@@ -36,7 +52,15 @@
     "focus_category": "intermediate",
     "lighting": "photopic",
     "simulation_status": "not_connected",
-    "source_type": "admin_curated"
+    "source_type": "admin_curated",
+    "distance_scope": "primary_target_only",
+    "media": {
+      "file": null,
+      "type": null,
+      "source": null,
+      "copyright_status": null,
+      "capture_notes": null
+    }
   },
   {
     "id": "phone-40cm",
@@ -49,7 +73,15 @@
     "focus_category": "near",
     "lighting": "photopic",
     "simulation_status": "not_connected",
-    "source_type": "admin_curated"
+    "source_type": "admin_curated",
+    "distance_scope": "primary_target_only",
+    "media": {
+      "file": null,
+      "type": null,
+      "source": null,
+      "copyright_status": null,
+      "capture_notes": null
+    }
   },
   {
     "id": "restaurant",
@@ -62,6 +94,14 @@
     "focus_category": "mixed",
     "lighting": "mesopic",
     "simulation_status": "not_connected",
-    "source_type": "admin_curated"
+    "source_type": "admin_curated",
+    "distance_scope": "primary_target_only",
+    "media": {
+      "file": null,
+      "type": null,
+      "source": null,
+      "copyright_status": null,
+      "capture_notes": null
+    }
   }
 ]
