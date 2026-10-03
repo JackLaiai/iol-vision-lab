@@ -1,79 +1,50 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>IOL Vision Lab｜人工水晶體視覺模擬器</title>
-  <meta name="description" content="人工水晶體、白內障、IOL、EDOF、三焦點視覺模擬。比較不同人工水晶體類型在遠距離、中距離、近距離與夜間情境下的可能視覺差異。" />
-  <meta name="keywords" content="人工水晶體, 白內障, IOL, EDOF, 三焦點, 單焦點, 視覺模擬, 白內障手術" />
-  <link rel="stylesheet" href="styles.css" />
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>IOL Vision Lab｜人工水晶體公開證據 · Public beta</title>
+<meta name="description" content="整理台灣人工水晶體產品、公開臨床研究與生活距離資訊，幫助你更容易理解不同 IOL 的證據。">
+<link rel="stylesheet" href="styles.css"><link rel="stylesheet" href="homepage.css">
 </head>
-<body>
-  <header class="nav-shell">
-    <nav class="nav">
-      <a href="#top" class="brand">
-        <span class="brand-mark">◉</span>
-        <span><b>IOL Vision Lab</b><small>人工水晶體視覺模擬器</small></span>
-      </a>
-      <div class="nav-links">
-        <a href="#simulator">模擬器</a>
-        <a href="#types">鏡片類型</a>
-        <a href="#lifestyle">生活需求</a>
-        <a href="#about">關於</a>
-        <a href="scene-library.html">Scene Library</a>
-        <a href="iol-comparison.html">Comparison</a>
-        <a href="evidence-coverage.html">Evidence Coverage</a>
-        <a href="iol-catalog.html">Explore Lenses</a>
-        <a href="methodology.html">資料怎麼來的？</a>
-      </div>
-      <a class="nav-cta" href="#simulator">開始模擬</a>
-    </nav>
-  </header>
-
-  <main id="top">
-    <section class="hero section">
-      <div class="hero-copy">
-        <div class="eyebrow"><span>教育模擬</span><span>非個人化醫療建議</span></div>
-        <h1>先看見，<br/>再理解人工水晶體的<span>視覺取捨</span></h1>
-        <p>
-          用日常場景比較 Monofocal、Enhanced Monofocal、EDOF 與 Trifocal
-          在遠距離、中距離、近距離與夜間視覺的可能差異。
-        </p>
-        <div class="hero-actions">
-          <a class="button primary" href="#simulator">開始視覺模擬</a>
-          <a class="button ghost" href="#types">先了解鏡片差異</a>
-        </div>
-        <div class="hero-meta">
-          <span>✓ 台灣繁體中文</span>
-          <span>✓ 不做品牌排名</span>
-          <span>✓ 可逐步擴充真實 IOL 資料</span>
-        </div>
-      </div>
-      <div class="hero-visual">
-        <div class="orbital-ring ring-1"></div>
-        <div class="orbital-ring ring-2"></div>
-        <div class="lens-demo">
-          <div class="lens-disc">
-            <div class="lens-core"></div>
-          </div>
-          <div class="focus-line"></div>
-          <div class="focus-point p1"></div>
-          <div class="focus-point p2"></div>
-          <div class="focus-point p3"></div>
-          <div class="hero-label l1">Distance</div>
-          <div class="hero-label l2">Intermediate</div>
-          <div class="hero-label l3">Near</div>
-        </div>
-      </div>
-    </section>
-
+<body class="beta-home">
+<a class="skip-link" href="#main-content">跳至主要內容</a>
+<header class="nav-shell"><nav class="nav" aria-label="主要導覽">
+<a href="index.html" class="brand"><span class="brand-mark" aria-hidden="true">◉</span><span><b>IOL Vision Lab</b><small>人工水晶體公開證據</small></span></a>
+<div class="nav-links"><a href="iol-catalog.html">Explore IOLs</a><a href="iol-comparison.html">Compare</a><a href="scene-library.html">Scene Library</a><a href="evidence-coverage.html">Evidence Coverage</a><a href="methodology.html">Methodology</a></div>
+</nav></header>
+<main id="main-content" tabindex="-1">
+<section class="onboarding-hero section" aria-labelledby="home-title">
+<div class="eyebrow"><span>Public beta</span><span>醫療教育 · 公開證據</span></div>
+<h1 id="home-title">人工水晶體，<br><span>不只看規格</span></h1>
+<p class="hero-intro">整理台灣人工水晶體產品、公開臨床研究與生活距離資訊，幫助你更容易理解不同 IOL 的證據。</p>
+<div class="hero-actions"><a class="button primary" href="iol-catalog.html">探索人工水晶體</a><a class="button ghost" href="iol-comparison.html">比較兩顆 IOL</a></div>
+<a class="text-link" href="scene-library.html">從生活情境開始 →</a>
+<p class="home-note">理解資料，不做產品排名或個人化推薦。</p>
+</section>
+<section class="section home-section" aria-labelledby="can-do"><span class="kicker">EXPLORE THE EVIDENCE</span><h2 id="can-do">你可以在這裡做什麼</h2>
+<div class="onboarding-cards">
+<article><h3>探索台灣 IOL</h3><p>依品牌、類型與是否具散光矯正功能瀏覽目前資料庫產品。</p><a href="iol-catalog.html">瀏覽產品 →</a></article>
+<article><h3>看懂研究結果</h3><p>查看遠、中、近距離視力、離焦曲線、視覺現象與光學研究。</p><a href="evidence-coverage.html">查看資料覆蓋與產品證據 →</a></article>
+<article><h3>直接比較</h3><p>將兩顆人工水晶體的公開資料並排查看；若研究本身直接比較兩顆產品，網站會另外標示。</p><a href="iol-comparison.html">並排查看證據 →</a></article>
+<article><h3>從生活距離理解</h3><p>以手機閱讀、電腦工作等觀看距離連結研究中的離焦資料。</p><a href="scene-library.html">探索生活情境 →</a></article>
+</div></section>
+<section class="section home-section" aria-labelledby="steps-title"><h2 id="steps-title">從這三步開始</h2>
+<ol class="home-steps"><li>選一顆 IOL</li><li>查看公開研究</li><li>依需求比較距離、證據與不同產品</li></ol>
+</section>
+<section class="section home-section" aria-labelledby="layers-title"><div class="home-transparency"><h2 id="layers-title">我們不把所有資料混在一起</h2>
+<dl class="home-layers"><div><dt>Published clinical evidence</dt><dd>研究對受試者的臨床量測與問卷結果。</dd></div><div><dt>Optical bench evidence</dt><dd>實驗室光學量測，不等同於個人的術後視覺。</dd></div><div><dt>Website-derived calculation</dt><dd>依既有資料計算的距離換算與內插，與原始研究結果分開標示。</dd></div></dl>
+<a class="text-link" href="methodology.html">了解資料怎麼來的 →</a></div></section>
+<section class="section home-section home-scope" aria-labelledby="scope-title"><h2 id="scope-title">Public beta</h2><p>目前網站持續整理台灣人工水晶體與公開研究。資料尚未完整涵蓋所有產品與所有研究。</p><p>尚未整理不代表該產品沒有相關研究或效果。</p>
+<p>Evidence-based 視覺模擬仍在研究與驗證中，目前網站不以任意模糊效果假裝術後視覺。</p><a class="text-link" href="methodology.html">閱讀模擬的限制與方法 →</a></section>
+<div class="section home-section"><details class="experimental-demo"><summary><strong>Experimental visual demo</strong><span>Heuristic demo — not evidence-based optical simulation</span><span>舊版互動示意 · 展開查看</span></summary>
+<p class="demo-notice">這是保留供概念示範的舊版功能，並非正式 evidence-based 視覺模擬。人工設定數值不代表任何特定產品的臨床效果。</p>
     <section id="simulator" class="section simulator-section">
       <div class="section-head">
         <div>
-          <span class="kicker">VISION SIMULATOR</span>
-          <h2>左右並排，比較可能的視覺差異</h2>
+          <span class="kicker">EXPERIMENTAL VISUAL DEMO</span>
+          <h2>人工設定的視覺效果示意</h2>
         </div>
-        <p>模擬畫面用於理解「相對差異」，不代表任何個人的實際術後視覺。</p>
+        <p>Heuristic demo — not evidence-based optical simulation。下方類型數值與畫面為示意設定，不是產品研究結果，也不能預測個人術後視覺。</p>
       </div>
 
       <div class="scene-tabs" id="sceneTabs"></div>
@@ -135,7 +106,7 @@
       <div class="controls-card">
         <div class="controls-head">
           <div>
-            <span class="kicker">PERSONALIZATION PREVIEW</span>
+            <span class="kicker">HEURISTIC CONTROLS</span>
             <h3>調整視覺參數</h3>
           </div>
           <p>這些控制項用來示範影響視覺品質的概念，不是臨床計算器。</p>
@@ -190,73 +161,9 @@
       </div>
     </section>
 
-    <section class="section factors-section">
-      <div class="section-head">
-        <div>
-          <span class="kicker">BEYOND THE LENS</span>
-          <h2>術前，還有這些因素會改變視覺結果</h2>
-        </div>
-        <p>同一顆 IOL，不同眼睛仍可能有不同的主觀視覺品質。</p>
-      </div>
-      <div class="factor-grid">
-        <article><span>01</span><h3>Corneal astigmatism</h3><p>殘餘散光可能降低遠中近的清晰度與影像銳利度。</p></article>
-        <article><span>02</span><h3>Ocular surface</h3><p>乾眼與淚膜不穩定可能讓術後視覺產生波動。</p></article>
-        <article><span>03</span><h3>Macula & optic nerve</h3><p>黃斑部或視神經狀態會影響可達到的視覺品質。</p></article>
-        <article><span>04</span><h3>Pupil size</h3><p>瞳孔大小尤其可能改變夜間光學表現與眩光感受。</p></article>
-        <article><span>05</span><h3>Residual refraction</h3><p>術後殘餘近視、遠視或散光都可能改變實際使用感。</p></article>
-        <article><span>06</span><h3>Neuroadaptation</h3><p>大腦對 multifocal optical image 的適應程度因人而異。</p></article>
-      </div>
-    </section>
 
-    <section class="section evidence-section">
-      <div class="evidence-panel">
-        <div>
-          <span class="kicker">EVIDENCE LAYER</span>
-          <h2>未來可把模擬建立在真正的公開研究資料上</h2>
-          <p>下一版可將 defocus curve、contrast sensitivity、halo/glare patient-reported outcomes 與公開 optical bench data 結構化，形成可追溯的模擬參數。</p>
-        </div>
-        <div class="citation-stack">
-          <div class="citation"><span>01</span><div><b>Defocus curve</b><small>預留：真實臨床文獻連結</small></div></div>
-          <div class="citation"><span>02</span><div><b>Contrast sensitivity</b><small>預留：不同照度與 glare 條件</small></div></div>
-          <div class="citation"><span>03</span><div><b>Dysphotopsia</b><small>預留：patient-reported outcome</small></div></div>
-        </div>
-      </div>
-    </section>
-
-    <section id="about" class="section about-section">
-      <div class="about-card">
-        <div class="about-copy">
-          <span class="kicker">INDEPENDENT EDUCATIONAL PROJECT</span>
-          <h2>讓病人在術前，更容易理解不同人工水晶體的視覺取捨</h2>
-          <p>這是一個可逐步擴充的醫療教育專案。未來可加入真實 IOL 型號、文獻資料庫、個人生活需求問卷、雙眼策略模擬與醫師端衛教模式。</p>
-        </div>
-        <div class="founder-card">
-          <div class="avatar">YL</div>
-          <div>
-            <small>FOUNDER / EDITABLE PROFILE</small>
-            <h3>Yen-Chun Lai, MD</h3>
-            <p>PGY Physician · Ophthalmology · Clinical Research · Medical Technology</p>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <div class="footer-grid">
-      <div class="brand footer-brand"><span class="brand-mark">◉</span><span><b>IOL Vision Lab</b><small>人工水晶體視覺模擬器</small></span></div>
-      <p>本工具僅供衛教與視覺化示意，不可取代眼科醫師之完整檢查、診斷與共同決策。</p>
-      <div class="footer-links"><a href="#about">關於</a>
-        <a href="scene-library.html">Scene Library</a>
-        <a href="iol-comparison.html">Comparison</a>
-        <a href="evidence-coverage.html">Evidence Coverage</a>
-        <a href="iol-catalog.html">Explore Lenses</a>
-        <a href="methodology.html">資料怎麼來的？</a><a href="#">參考資料</a><a href="#">隱私權</a><a href="#">聯絡</a></div>
-    </div>
-    <div class="copyright">© 2026 IOL Vision Lab. Educational prototype.</div>
-  </footer>
-
-  <script src="data/demo-lenses.js"></script>
-  <script src="app.js"></script>
-</body>
-</html>
+</details></div>
+</main>
+<footer><div class="footer-grid"><div class="brand footer-brand"><span><b>IOL Vision Lab</b><small>Public beta</small></span></div><p>醫療教育與公開證據整理工具，不提供個別醫療建議。</p><div class="footer-links"><a href="methodology.html">Methodology</a><a href="evidence-coverage.html">Evidence Coverage</a></div></div></footer>
+<script src="data/demo-lenses.js"></script><script src="app.js"></script>
+</body></html>
