@@ -10,7 +10,7 @@
   const show = value => value === null || value === undefined || value === "" ? EMPTY : String(value);
   async function fetchJSON(path) { const r = await fetch(path); if (!r.ok) throw new Error(`HTTP ${r.status}`); return r.json(); }
   function fields(rows) { const dl = el("dl"); for (const [k,v] of rows) { const row = el("div"); row.append(el("dt", k), el("dd", show(v))); dl.append(row); } return dl; }
-  function sourceLink(product, id) { const a = el("a", `[${id}]`); a.href = `iol-detail.html?model=${encodeURIComponent(product.model_number)}#source-${encodeURIComponent(id)}`; return a; }
+  function sourceLink(product, id) { const a = el("a", `[${id}]`); a.href = `${window.EvidenceRouting.detail(product)}#source-${encodeURIComponent(id)}`; return a; }
   function availability(record, product) {
     return window.EvidenceUtils.classify(product, record, state.records || []).map((cell,i)=>[window.EvidenceUtils.columns[i], cell.status]);
   }
@@ -55,7 +55,7 @@
     if (!a?.record || !b?.record || a.loading || b.loading) return;
     for (const left of a.record.sharedStudies || []) {
       const right = (b.record.sharedStudies || []).find(s => s.study_id === left.study_id && s.arm_id !== left.arm_id);
-      if (!right || JSON.stringify(left.study) !== JSON.stringify(right.study)) continue;
+      if (!right || !left.study || left.study.study_id !== left.study_id || !left.study.measurement_conditions || !left.study.arms?.[left.arm_id] || !left.study.arms?.[right.arm_id] || JSON.stringify(left.study) !== JSON.stringify(right.study)) continue;
       const s = left.study; box.hidden = false;
       box.append(el("h2", "Direct head-to-head evidence"), el("p", "Direct head-to-head study · " + s.study_id), el("h3", s.title), fields([["Study design", s.design], ["Total sample", `${s.total_sample.patients} patients / ${s.total_sample.eyes} eyes`], ["Follow-up", s.follow_up], ["Refractive target", s.refractive_target ? `Approximately ${s.refractive_target.from_D} to ${s.refractive_target.to_D} D` : null], ["Measurement conditions", s.measurement_conditions]]));
       for (const ref of [left, right]) { const arm = s.arms[ref.arm_id]; box.append(el("p", `${arm.product_family}: ${arm.patients} patients / ${arm.eyes ?? "尚無資料"} eyes; study model: ${arm.study_model || "尚無資料（此研究未提供）"}`)); }
