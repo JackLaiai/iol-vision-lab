@@ -241,7 +241,7 @@ function renderSourceCards(record) {
       studyDesign: source.studyDesign ?? source.study_design,
       sampleSize: source.sampleSize ?? source.panoptix_subgroup,
       followUp: source.followUp ?? source.follow_up,
-      sourceIdentifier: source.sourceIdentifier ?? [source.DOI && `DOI: ${source.DOI}`, source.PMID && `PMID: ${source.PMID}`].filter(Boolean).join("; ")
+      sourceIdentifier: window.EvidenceUtils.sourceIdentifier(source)
     };
     const card = createElement("article", "source-card");
     card.id = `source-${source.label}`;
@@ -393,7 +393,7 @@ function renderDisclaimer(record) {
   const container = document.querySelector("#evidence-disclaimer");
   container.replaceChildren();
   container.append(createElement("strong", "", "教育用途聲明"));
-  container.append(createElement("p", "", hasValue(record.disclaimer) ? record.disclaimer : EMPTY_VALUE));
+  container.append(createElement("p", "", record.sources ? window.EvidenceUtils.disclosure(record) : (record.disclaimer || EMPTY_VALUE)));
 }
 
 function revealEvidenceSource(hash) {

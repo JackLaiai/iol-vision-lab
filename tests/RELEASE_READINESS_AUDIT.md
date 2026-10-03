@@ -4,7 +4,7 @@ Repository: Documents/GitHub/iol-vision-lab; branch: v2-evidence-based.
 
 ## Decision
 
-Core evidence browsing is suitable for a limited, explicitly educational preview. **Do not call this an unconditional public-beta release pass yet.** Resolve the disclosure conflict and mobile/accessibility findings below before broad public launch. No clinical or optical values, evidence JSON, calculator, simulator, or research results were changed in this audit. Verification flags were checked structurally, not independently reverified against publications.
+**Blocking: none identified by the scoped automated checks after cleanup. Suitable for a first educational public beta**, with citation-completeness and broader accessibility/device testing tracked as non-blocking follow-up. This is not medical validation or a claim of image-simulation readiness. No clinical/optical values or verification conclusions changed; every data JSON file is byte-identical to the pre-cleanup snapshot.
 
 ## Passed
 
@@ -17,13 +17,19 @@ Core evidence browsing is suitable for a limited, explicitly educational preview
 - 27 page/query cases return HTTP 200, including all catalog records, unknown model, product-key route, comparison preselection and phone scene context. Local non-fragment navigation checks pass; no JS errors or broken images detected. Scene files remain absent by design, so actual video playback cannot yet be validated.
 - Tab reaches a focusable control; statuses have text labels, not only color. Evidence pages have no whole-document horizontal overflow at 390px in these checks.
 
-## Findings requiring attention
+## Cleanup results
 
-1. **Disclosure consistency:** Eyhance's existing disclaimer still says the transcription has not been independently checked, cites only E2 as clinical evidence, and literally displays `null`. Later sources have verified flags and additional studies. This is stored medical/provenance wording, so it was not rewritten. Curator should reconcile its historical/current scope before public launch.
-2. **Source completeness:** several formal sources retain null titles or lack structured identifiers/URLs. A verified badge alone does not provide a complete citation. See exact warnings below; do not fabricate missing metadata.
-3. **Mobile home:** horizontal overflow at 390px. Left unchanged because the home/demo simulator was excluded from this round. Evidence pages did not exhibit this page-level overflow.
-4. **Focus visibility:** existing `.vision-card select` has `outline:none`; visible keyboard-focus treatment needs improvement. Basic Tab access is not a WCAG audit.
-5. **Chart readability:** charts retain text labels and numerical tables, but no screen-reader audit or device-level text-legibility certification was performed. External source link availability was not crawled. Fragment links and exhaustive invalid-query combinations are not covered by the local URL status sweep.
+- Detail/comparison now derive current per-source status from verification.status. The legacy record disclaimer remains preserved in JSON but is no longer presented as the current verification conclusion. No Eyhance-specific UI condition was added. Educational limitations and the distinction from study quality remain visible.
+- Renderer includes existing identifier fields and identifiers already recorded in verified_against (notably Eyhance E2/E3 and PanOptix S6). Missing identification displays「來源識別資訊尚未完整整理」. No guessed URLs or identifiers were added.
+- Home overflow fixed at 320, 375, 390 and 430px: the fixed 390px lens decoration imposed Grid min-content width; selector/header sizing and footer unwrapped content also overflowed at 320px. Minmax(0,1fr), bounded decorative dimensions and wrapping solve the layout without overflow-x:hidden. Simulator JS/effects unchanged.
+- Global :focus-visible covers links, buttons, forms, native disclosure summaries and focusable elements, including the existing select outline:none override. Mobile navigation remains accessible.
+- Keyboard-only Home → Catalog → Product detail → Comparison passes. Native details/summary expands/collapses with Enter and maintains browser-managed expanded semantics; no stale manual aria-expanded state. Visible form inputs have accessible labels; evidence states use text.
+
+## Non-blocking follow-up
+
+- See SOURCE_METADATA_GAPS.md for source-by-source title, identifier, journal/year and official URL gaps. These do not invalidate evidence, and verification remains independent of citation completeness.
+- Full screen-reader, contrast, touch-device chart-legibility and external publication-link audits remain outside this basic check. No real scene media is present, so video playback is not yet exercised.
+- Historical provenance text remains in JSON. Current user-facing verification comes from source status; curators may later reconcile historical notes without changing this sprint's data.
 
 ## Pure code changes
 
@@ -54,7 +60,7 @@ A = Available; P = Partial / qualitative only; N = Not structured yet. A numeric
 | Head-to-head | N | A | A | N |
 | Taiwan evidence | A | A | A | A |
 
-## Metadata warnings
+## Metadata warnings (stored fields; renderer now exposes identifiers from verification references)
 
 - panoptix-tfnt00/S1: missing source title
 - panoptix-tfnt00/S3: missing source title
@@ -70,4 +76,4 @@ A = Available; P = Partial / qualitative only; N = Not structured yet. A numeric
 - tecnis-puresee/TW2: missing source title
 - tecnis-puresee/TW2: no structured identifier (may be an official document)
 
-No commit or push performed.
+All existing automated checks plus beta-cleanup.cjs were rerun. Coverage snapshot unchanged. No commit or push performed.

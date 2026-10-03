@@ -71,3 +71,32 @@ footer{border-top:1px solid var(--line);padding:40px 24px 22px}.footer-grid{max-
   .section{padding:72px 18px}.nav{padding:0 16px}.nav-cta{display:none}.hero{padding-top:55px}.hero h1{font-size:47px}.hero-actions{flex-direction:column;align-items:stretch}.hero-meta{display:grid;gap:7px}.hero-visual{height:300px}.lens-demo{transform:scale(.78)}
   .comparison-grid,.type-grid,.factor-grid,.evidence-panel,.about-card{grid-template-columns:1fr}.controls-grid{grid-template-columns:1fr}.controls-head{flex-direction:column;align-items:start}.scene-frame{height:310px}.vision-profile{grid-template-columns:1fr 1fr}.section-head h2{font-size:32px}.lifestyle-card,.evidence-panel,.about-card{padding:26px}.sim-toolbar{align-items:start;flex-direction:column}.footer-links{justify-content:flex-start}
 }
+
+/* Public beta: visible focus without changing simulation rendering. */
+:is(a,button,input,select,textarea,summary,[tabindex]):focus-visible {
+ outline: 3px solid #0c7194 !important;
+ outline-offset: 4px;
+}
+@media(max-width:640px){
+ /* Grid automatic min-content width inherited the 390px decorative lens. */
+ .hero {grid-template-columns:minmax(0,1fr)}
+ .hero-copy,.hero-visual {min-width:0}
+ .lens-demo {width:min(390px,100%)}
+ .ring-1 {width:min(390px,100%);height:auto;aspect-ratio:1}
+ .ring-2 {width:min(260px,100%);height:auto;aspect-ratio:1}
+ .nav {height:auto;min-height:74px;flex-wrap:wrap;gap:12px;padding-block:12px}
+ .nav-links {display:flex;flex-wrap:wrap;gap:12px;margin-left:0}
+}
+@media(max-width:640px){
+ .comparison-grid{grid-template-columns:minmax(0,1fr)}
+ .vision-card,.vision-card-head>div{min-width:0}
+ .vision-card-head{flex-wrap:wrap;gap:8px}
+ .vision-card select{max-width:100%;width:100%}
+ .scene-tabs{flex-wrap:wrap;overflow:visible}
+}
+@media(max-width:640px){
+ .footer-grid{grid-template-columns:minmax(0,1fr)}
+ .footer-grid>div{min-width:0}
+ .footer-links{flex-wrap:wrap}
+ .footer-brand{min-width:0;flex-wrap:wrap}
+}

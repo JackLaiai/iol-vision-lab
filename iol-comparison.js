@@ -47,7 +47,7 @@
       const rows = (record.clinicalParameters || []).filter(p => numeric(p.value?.mean)).map(p => [p.label, `${p.value.mean.toFixed(2)} ± ${p.value.uncertainty.value.toFixed(2)} ${p.unit} [${p.sourceIds.join(", ")}]`]);
       node.append(fields(rows), el("p", "Measurement conditions：各列保留單眼／雙眼、矯正條件、距離與追蹤時間，請查看完整來源。"));
     }
-    if (record?.disclaimer) node.append(el("p", record.disclaimer));
+    if (record) node.append(el("p", window.EvidenceUtils.disclosure(record)));
   }
   function renderShared() {
     const box = document.getElementById("shared-study"); box.replaceChildren(); box.hidden = true;

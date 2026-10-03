@@ -58,5 +58,14 @@
   return 'Verification pending';
  }
 
-window.EvidenceUtils={classify,verification,columns};
+const verificationLabel=s=>({verified_primary_or_official_source:'Source verified',partially_verified:'Partially verified',not_independently_verified:'Verification pending'}[s?.verification?.status]||'Verification pending');
+function sourceIdentifier(source){
+ const ids=[source.sourceIdentifier,source.DOI||source.doi,source.PMID&&`PMID ${source.PMID}`,source.pmid&&`PMID ${source.pmid}`,source.PMCID&&`PMCID ${source.PMCID}`,
+ ...(source.verification?.verified_against||[]).filter(s=>/PMID|PMC\d|DOI|PMA/.test(s))].filter(x=>typeof x==='string'&&x.trim());
+ return [...new Set(ids)].join('; ')||'來源識別資訊尚未完整整理';
+}
+function disclosure(record){return '研究平均結果不代表個人術後視覺；不同研究不得視為直接比較。' +
+ (record.sources?.length ? ' 來源核對狀態：'+record.sources.map(s=>`${s.label} — ${verificationLabel(s)}`).join('；') : ' 尚無來源核對紀錄。')+
+ ' Verification status 只表示網站資料是否完成來源核對，不代表研究品質高低。';}
+window.EvidenceUtils={classify,verification,columns,verificationLabel,sourceIdentifier,disclosure};
 })();

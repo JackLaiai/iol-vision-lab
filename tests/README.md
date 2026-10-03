@@ -14,6 +14,9 @@ For browser checks, install Playwright outside the repository or supply it throu
 python3 -m http.server 8000
 node tests/release-browser.cjs
 node tests/coverage-dom.cjs
+node tests/beta-cleanup.cjs
 ```
 
 Optional CHROME_PATH selects an existing browser; AUDIT_OUTPUT writes browser diagnostics to a caller-selected location outside the repository. The browser script returns nonzero for HTTP/resource/JavaScript failures and reports text/accessibility/overflow findings for manual review. Coverage DOM check compares all 14 rows to the reusable classifier and checks Tab focus. These basic checks are not WCAG certification, medical-source re-verification, or clinical validation. Links are local-site checks, not external publication availability.
+
+Beta cleanup check covers 320/375/390/430px home layout, keyboard-only Home → Catalog → Detail → Comparison, visible focus, labeled forms, dynamic source status, and native details expansion. Native summary/details exposes expanded state through the browser accessibility tree; no redundant aria-expanded attribute is added.
